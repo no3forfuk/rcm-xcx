@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "rank-header": "/components/rankHeader/rankheader",
+        "tab-bar": "/components/tabBar/tabBar",
+        "tab": "/components/tab/tab",
+        "pop-up": "/components/popup/popup"
+    }
+}

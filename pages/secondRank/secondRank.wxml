@@ -1,0 +1,5 @@
+<!--pages/secondRank/secondRank.wxml-->
+<rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore"></rank-header>
+<tab header-data="{{tabHeaderData}}"></tab>
+<pop-up wx:if="{{activePopup}}"></pop-up>
+<tab-bar></tab-bar>

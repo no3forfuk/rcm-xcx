@@ -1,0 +1,18 @@
+<!--components/indexRankCard/indexRankCard.wxml-->
+<view class="index-rank-card">
+    <view class="index-rank-card-left">
+        <span>{{rating[0]}}</span>
+        <span class="rating-sup">{{rating[1]}}</span>
+    </view>
+    <view class="index-rank-card-right">
+        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}">#{{rankData.ranking_name}}</view>
+        <view class="index-rank-card-right-element-list">
+            <scroll-view class="rank-card-element-ul" scroll-x="true">
+                <view class="rank-card-element-item" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{!item.img}}">
+                    <text class="rank-card-element-item-text">{{item.element_name}}</text>
+                </view>
+                <image class="rank-card-element-img" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{item.img}}" src="{{item.img}}"></image>
+            </scroll-view>
+        </view>
+    </view>
+</view>

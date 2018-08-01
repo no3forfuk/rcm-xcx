@@ -1,0 +1,10 @@
+<!--components/userInfoCard/userInfCard.wxml-->
+<view class="user-info-card">
+    <view class="edit-info">
+        <image src="{{userInfo.avatarUrl}}" class="user-photo"></image>
+        <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit"></icon-font>
+    </view>
+    <view class="user-name">
+        <text class="user-name-text">{{userInfo.nickName}}</text>
+    </view>
+</view>

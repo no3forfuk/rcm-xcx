@@ -1,0 +1,80 @@
+/* components/indexRankCard/indexRankCard.wxss */
+
+.index-rank-card {
+    padding-left: 14.48rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-bottom: 21.72rpx;
+}
+
+.index-rank-card-left {
+    flex: 0 0 32.58rpx;
+    height: 32.58rpx;
+    width: 32.58rpx;
+    background-color: #ffcece;
+    font-size: 12px;
+    color: #ff2c09;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+}
+
+.rating-sup {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 8px;
+}
+
+.index-rank-card-right {
+    padding-left: 16.29rpx;
+}
+
+.index-rank-card-right-title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+.index-rank-card-right-element-list {
+    padding-top: 16.29rpx;
+    padding-bottom: 23.53rpx;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.rank-card-element-ul {
+    white-space: nowrap;
+}
+
+.rank-card-element-item {
+    width: 128.51rpx;
+    height: 128.51rpx;
+    display: inline-block;
+    border-radius: 8px;
+    margin-right: 19.91rpx;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.rank-card-element-item-text {
+    color: #000;
+    width: 128.51rpx;
+    text-align: center;
+    font-size: 10px;
+    line-height: 12px;
+    white-space: normal;
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.rank-card-element-img {
+    width: 128.51rpx;
+    height: 128.51rpx;
+    display: inline-block;
+    border-radius: 8px;
+    margin-right: 19.91rpx;
+}

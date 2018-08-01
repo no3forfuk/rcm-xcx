@@ -1,0 +1,5 @@
+<!--components/popup/popup.wxml-->
+<view class="popup-components">
+    <text>components/popup/popup.wxml</text>
+    
+</view>

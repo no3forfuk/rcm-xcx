@@ -1,0 +1,24 @@
+<!--components/rankHeader/rankheader.wxml-->
+<view class="rank-header">
+    <view class="rank-header-left">
+        <view class="rank-header-title">
+            <text>{{headerInfo.flag+headerInfo.title}}</text>
+        </view>
+        <view class="rank-header-desc">
+            <text class="rank-header-desc-text">{{headerInfo.desc}}</text>
+        </view>
+        <view class="rank-header-options">
+            <view></view>
+            <view class="rank-header-options-right">
+                <icon-font icon-value="iconfont icon-like text-size-14" text-class="text-size-8" text-value="收藏" style="margin-left:10px;" bindtapicon="collect"></icon-font>
+                <icon-font icon-value="iconfont icon-gengduo text-size-14" text-class="text-size-8" text-value="更多" style="margin-left:10px;" bindtapicon="more"></icon-font>
+            </view>
+        </view>
+    </view>
+    <view class="rank-header-right">
+        <view class="rcm-text">RCM评级</view>
+        <view class="rcm-rating">{{headerInfo.rating}}</view>
+        <view class="rcm-vote">{{headerInfo.vote}}(票)</view>
+        <view class="rcm-son">{{headerInfo.childrenNum}}(排名)</view>
+    </view>
+</view>

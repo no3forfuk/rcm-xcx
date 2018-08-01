@@ -1,0 +1,8 @@
+<!--components/tab/tab.wxml-->
+<view class="tab-components">
+    <view class="tab-header {{flexType}}">
+        <text wx:for="{{headerData}}" wx:key="{{index}}" id="header-item-{{index}}" class="tab-header-text {{selectedIndex == index? 'selected' : 'unselected'}}" bindtap="onchange" data-index="{{index}}">{{item.label}}</text>
+        <span class="position-mask" style="{{maskPosition}}"></span>
+    </view>
+    <view class="tab-body"></view>
+</view>

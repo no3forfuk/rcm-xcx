@@ -1,0 +1,28 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/secondRank/secondRank",
+        "pages/userCenter/userCenter"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "RCM",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "borderStyle": "white",
+        "backgroundColor": "#abcdef",
+        "selectedColor": "#FF2C09",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/userCenter/userCenter",
+                "text": "个人中心"
+            }
+        ]
+    }
+}

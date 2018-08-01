@@ -1,0 +1,72 @@
+/* components/rankHeader/rankheader.wxss */
+
+.rank-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 36.2rpx;
+}
+
+.rank-header-left {
+    flex: 0 0 1;
+}
+
+.rank-header-title {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.rank-header-desc {
+    width: 470rpx;
+    font-size: 13px;
+    color: #939398;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rank-header-desc-text {
+    width: 470rpx;
+}
+
+.rank-header-options {
+    width: 470rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.rank-header-options-right{
+    display: flex;
+    flex-direction: row;
+}
+.rank-header-right {
+    flex: 0 0 162.9rpx;
+    height: 162.9rpx;
+    border-radius: 2px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    padding: 24rpx 32.58rpx 16.29rpx;
+}
+
+.rcm-text {
+    color: #939398;
+    font-size: 13px;
+    line-height: 13px;
+    white-space: nowrap;
+}
+
+.rcm-rating {
+    color: #ff2c09;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.rcm-vote, .rcm-son {
+    color: #939398;
+    font-size: 10px;
+}

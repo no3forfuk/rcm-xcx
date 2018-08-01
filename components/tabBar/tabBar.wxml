@@ -1,0 +1,4 @@
+<!--components/tabBar/tabBar.wxml-->
+<view class="tab-bar">
+    <view wx:for="{{tabBarList}}" class="tab-bar-item" wx:key="{{index}}">{{item.label}}</view>
+</view>

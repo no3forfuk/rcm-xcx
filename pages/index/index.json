@@ -1,0 +1,11 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "page-header": "/components/pageHeader/pageHeader",
+        "rank-card": "/components/indexRankCard/indexRankCard",
+        "pop-up": "/components/popup/popup"
+    }
+}

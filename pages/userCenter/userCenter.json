@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "个人中心",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "userinfo-card": "/components/userInfoCard/userInfoCard"
+  }
+}

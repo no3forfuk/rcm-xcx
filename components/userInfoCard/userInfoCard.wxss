@@ -1,0 +1,31 @@
+/* components/userInfoCard/userInfCard.wxss */
+
+.user-info-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0rpx 38.01rpx;
+    padding-top: 38.01rpx;
+    padding-bottom: 12.67rpx;
+    align-items: center;
+}
+
+.edit-info .user-photo {
+    width: 181rpx;
+    height: 181rpx;
+    border-radius: 50%;
+}
+
+.user-name {
+    padding: 14.48rpx 38.01rpx;
+}
+.user-name-text {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    padding-bottom: 6px;
+}

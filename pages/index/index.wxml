@@ -1,0 +1,7 @@
+<view class="index-page">
+    <page-header></page-header>
+    <scroll-view scroll-y class="index-scroll-view" style="{{scrollHeight}}">
+        <rank-card wx:for="{{rankData}}" wx:key="{{index}}" rank-data="{{item}}"></rank-card>
+    </scroll-view>
+    <!-- <pop-up></pop-up> -->
+</view>

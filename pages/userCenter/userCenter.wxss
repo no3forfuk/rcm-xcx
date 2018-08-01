@@ -1,0 +1,9 @@
+/* pages/userCenter.wxss */
+.user-center{
+  
+}
+.user-avatar{
+  width: 181rpx;
+  height: 181rpx;
+  border-radius: 50%;
+}
