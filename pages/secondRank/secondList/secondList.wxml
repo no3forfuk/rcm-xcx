@@ -1,0 +1,24 @@
+<!--pages/secondRank/secondList/secondList.wxml-->
+<view class="second-list-components">
+    <view class="second-list-header">
+        <view class="second-list-header-left">
+            <icon-font icon-value="iconfont icon-jia" class="list-header-left-icon" icon-color="#FF2C09"></icon-font>
+            <text class="list-header-left-text">添加新的排名</text>
+        </view>
+        <view class="second-list-header-right">
+            <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
+        </view>
+    </view>
+    <view class="second-list-body">
+        <view class="second-list-item" wx:for="{{subElement.data}}" wx:key="{{index}}">
+            <text class="second-list-item-left">{{index + 1}}</text>
+            <view class="second-list-item-right">
+                <view class="second-list-item-content" bindtap="linkToElement" data-id="{{item.id}}">
+                    <text class="second-list-item-right-text">@{{item.element_name}}</text>
+                    <text class="second-list-item-right-desc">{{item.element_desc}}</text>
+                </view>
+                <image class="second-list-item-img" src="{{item.img}}" wx:if="{{item.img}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

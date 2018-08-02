@@ -1,1 +1,5 @@
-{}
+{
+    "usingComponents": {
+        "element-header": "/components/rankHeader/rankheader"
+    }
+}

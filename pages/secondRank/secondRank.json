@@ -3,6 +3,9 @@
         "rank-header": "/components/rankHeader/rankheader",
         "tab-bar": "/components/tabBar/tabBar",
         "tab": "/components/tab/tab",
-        "pop-up": "/components/popup/popup"
+        "pop-up": "/components/popup/popup",
+        "second-list": "./secondList/secondList",
+        "second-discuss": "./secondDiscuss/secondDiscuss",
+        "second-activity": "./secondActivity/secondActivity"
     }
 }

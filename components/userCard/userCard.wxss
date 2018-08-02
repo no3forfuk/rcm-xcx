@@ -1,0 +1,41 @@
+/* components/userCard/userCard.wxss */
+
+.user-card-small {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.user-card-small-img {
+    width: 60.34rpx;
+    height: 60.34rpx;
+    border-radius: 50%;
+}
+
+.user-card-small-info {
+    height: 60.34rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 5px;
+}
+
+.user-card-small-name {
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.user-card-small-sign {
+    color: #8b8b8b;
+    font-size: 10px;
+}
+.user-card-small-component{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.time-component {
+    margin-right: 14.33rpx;
+}

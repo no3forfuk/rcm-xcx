@@ -94,6 +94,42 @@ const api = {
                 fail(err)
             }
         })
-    }
+    },
+    //元素收藏/取消收藏
+    collectElement(params, success, fail) {
+        ajax_post({
+            uri: '/element/elementCollect',
+            params: params,
+            s_cb(res) {
+                success(res)
+            },
+            f_cb(err) {
+                fail(err)
+            }
+        })
+    },
+    //获取元素详情 
+    getElementDetails(params, success) {
+        ajax_get({
+            uri: '/element/getElementDetails',
+            params: params,
+            s_cb(res) {
+                success(res)
+            }
+        })
+    },
+    //获取榜单评论
+    getSecondDiscuss(secondId, success) {
+        ajax_get({
+            uri: '/ranking/getComment',
+            params: {
+                level: 2,
+                id: secondId
+            },
+            s_cb(res) {
+                success(res)
+            }
+        })
+    },
 }
 module.exports = api

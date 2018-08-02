@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "time-ago": "/components/timeAgo/timeAgo"
+    }
+}

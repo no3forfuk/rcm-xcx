@@ -4,5 +4,7 @@
         <text wx:for="{{headerData}}" wx:key="{{index}}" id="header-item-{{index}}" class="tab-header-text {{selectedIndex == index? 'selected' : 'unselected'}}" bindtap="onchange" data-index="{{index}}">{{item.label}}</text>
         <span class="position-mask" style="{{maskPosition}}"></span>
     </view>
-    <view class="tab-body"></view>
+    <view class="tab-body">
+        <slot></slot>
+    </view>
 </view>

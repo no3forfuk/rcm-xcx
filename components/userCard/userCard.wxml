@@ -1,0 +1,14 @@
+<!--components/userCard/userCard.wxml-->
+<view class="user-card-small-component">
+    <view class="user-card-small">
+        <image class="user-card-small-img" src="{{userInfo.avatar}}"></image>
+        <view class="user-card-small-info">
+            <text class="user-card-small-name">{{userInfo.name}}</text>
+            <view class="user-card-small-sign">
+                <text>#{{userInfo.ranking_name}}</text> |
+                <text>{{userInfo.signature}}</text>
+            </view>
+        </view>
+    </view>
+    <time-ago class="time-component" time="{{createdTime}}"></time-ago>
+</view>

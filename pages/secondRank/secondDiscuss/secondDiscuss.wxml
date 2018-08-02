@@ -1,0 +1,15 @@
+<!--pages/secondRank/secondDiscuss/secondDiscuss.wxml-->
+<view class="second-discuss-component">
+    <view class="second-discuss-header">
+        <view class="second-discuss-header-left">
+            <icon-font icon-value="iconfont icon-jia" class="discuss-header-left-icon" icon-color="#FF2C09"></icon-font>
+            <text class="discuss-header-left-text">说点什么，参与讨论</text>
+        </view>
+        <view class="second-discuss-header-right">
+            <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
+        </view>
+    </view>
+    <view class="second-discuss-body">
+        <discuss-card wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></discuss-card>
+    </view>
+</view>

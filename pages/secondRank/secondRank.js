@@ -6,9 +6,16 @@ Page({
     /** 
      * 自定义事件
      */
+    //点击更多
     ontapmore(options) {
         this.setData({
             activePopup: true
+        })
+    },
+    //切换tab页签
+    tabchange(options) {
+        this.setData({
+            subType: options.detail.index
         })
     },
     /**
@@ -28,13 +35,25 @@ Page({
                 label: '活动'
             }
         ],
-        activePopup: false
+        activePopup: false,
+        subType: 0,
+        subElement: {},
+        lastElement: {},
+        secondId: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.setData({
+            //榜单id
+            secondId: options.secondId,
+            //收藏榜单所需参数
+            collectParams: {
+                ranking_id: options.secondId,
+            }
+        })
         api.getSecondRankDetails({
             level: 2,
             id: options.secondId,
@@ -42,6 +61,7 @@ Page({
             solt_name: 'created_at'
         }, res => {
             this.setData({
+                //榜单基本信息
                 headerData: {
                     flag: '#',
                     title: res.data.ranking_name,
@@ -50,9 +70,10 @@ Page({
                     vote: res.data.vote,
                     childrenNum: res.data.data.total
                 },
-                collectParams: {
-                    ranking_id: options.secondId,
-                }
+                //榜单子元素集合
+                subElement: res.data.data,
+                //最后一条元素
+                lastElement: res.data.last
             })
         })
     },

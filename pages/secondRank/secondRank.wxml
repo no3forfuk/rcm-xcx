@@ -1,5 +1,12 @@
 <!--pages/secondRank/secondRank.wxml-->
-<rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore"></rank-header>
-<tab header-data="{{tabHeaderData}}"></tab>
-<pop-up wx:if="{{activePopup}}"></pop-up>
-<tab-bar></tab-bar>
+<scroll-view scroll-y class="second-page">
+    <rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second"></rank-header>
+    <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
+        <second-list wx:if="{{subType === 0}}" sub-element="{{subElement}}" last-element="{{lastElement}}"></second-list>
+        <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}"></second-discuss>
+        <second-activity wx:if="{{subType === 2}}"></second-activity>
+    </tab>
+    <view class="second-page-footer"></view>
+    <pop-up wx:if="{{activePopup}}"></pop-up>
+    <tab-bar></tab-bar>
+</scroll-view>

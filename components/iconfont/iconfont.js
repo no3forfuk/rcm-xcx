@@ -16,9 +16,23 @@ Component({
 
             }
         },
-        textValue:{
+        textValue: {
             type: String,
             value: '',
+            observer(n, o, c) {
+
+            }
+        },
+        iconColor: {
+            type: String,
+            value: '#000',
+            observer(n, o, c) {
+
+            }
+        },
+        textColor: {
+            type: String,
+            value: '#000',
             observer(n, o, c) {
 
             }

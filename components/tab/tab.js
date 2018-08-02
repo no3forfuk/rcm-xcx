@@ -54,6 +54,7 @@ Component({
                     selectedIndex: e.currentTarget.dataset.index
                 })
             })
+            this.triggerEvent('change', e.currentTarget.dataset)
         }
     }
 })

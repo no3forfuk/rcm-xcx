@@ -1,0 +1,7 @@
+/* components/timeAgo/timeAgo.wxss */
+
+.time-ago-component {
+    font-size: 8px;
+    color: #8b8b8b;
+    max-width: 50px;
+}

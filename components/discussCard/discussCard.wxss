@@ -1,0 +1,20 @@
+/* components/discussCard/discussCard.wxss */
+
+.discuss-card-component {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 21.12rpx 0;
+}
+.discuss-card-right{
+    border-bottom: 1px solid #C8C7CD;
+    padding-bottom: 10px;
+}
+.discuss-card-like {
+    width: 96.54rpx;
+}
+
+.discuss-card-content {
+    font-size: 14px;
+    color: #272727;
+}

@@ -1,0 +1,11 @@
+<!--components/discussCard/discussCard.wxml-->
+
+<view class="discuss-card-component">
+    <view class="discuss-card-like">
+        <icon-font icon-value="iconfont icon-zan text-size-20" text-color="#8B8B8B" text-value="{{discussData.like}}" text-class="text-size-12"></icon-font>
+    </view>
+    <view class="discuss-card-right">
+        <user-card user-info="{{discussData.user}}" created-time="{{discussData.created_at}}"></user-card>
+        <text class="discuss-card-content">{{discussData.content}}</text>
+    </view>
+</view>

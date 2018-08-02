@@ -7,7 +7,15 @@ Component({
     properties: {
         headerInfo: {
             type: Object,
-            value: {},
+            value: {
+                flag: '',
+                title: '',
+                desc: '',
+                rating: '',
+                vote: '',
+                img: '',
+                childrenNum: 0
+            },
             observer(n, o, c) {
 
             }
@@ -17,6 +25,12 @@ Component({
             value: 0,
             observer(n, o, c) {
 
+            }
+        },
+        headerType: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
             }
         }
     },
@@ -33,11 +47,20 @@ Component({
      */
     methods: {
         collect() {
-            api.collectRankLv2(this.data.collectParams, res => {
+            if (this.data.headerType == 'second') {
+                api.collectRankLv2(this.data.collectParams, res => {
 
-            }, err => {
+                }, err => {
 
-            })
+                })
+            } else if (this.data.headerType == 'element') {
+                api.collectElement(this.data.collectParams, res => {
+
+                }, err => {
+
+                })
+            }
+
         },
         more() {
             var myEventDetail = {} // detail对象，提供给事件监听函数

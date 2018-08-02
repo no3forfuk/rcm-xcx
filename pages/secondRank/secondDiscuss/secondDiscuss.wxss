@@ -1,0 +1,33 @@
+/* pages/secondRank/secondDiscuss/secondDiscuss.wxss */
+
+.second-discuss-component {
+}
+
+.second-discuss-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12.07rpx 39.22rpx;
+    align-items: center;
+}
+
+.second-discuss-header-left {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 1px solid #c8c7cd;
+    border-radius: 4px;
+    padding: 13.2rpx;
+}
+
+.discuss-header-left-icon {
+    color: #ff2c09;
+    font-size: 16px;
+}
+
+.discuss-header-left-text {
+    color: #939398;
+    font-size: 16px;
+    margin-left: 13.2rpx;
+}
