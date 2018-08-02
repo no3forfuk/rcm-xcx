@@ -2,7 +2,8 @@
     "pages": [
         "pages/index/index",
         "pages/secondRank/secondRank",
-        "pages/userCenter/userCenter"
+        "pages/userCenter/userCenter",
+        "pages/element/element"
     ],
     "window": {
         "backgroundTextStyle": "light",
