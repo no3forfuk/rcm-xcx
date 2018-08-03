@@ -1,10 +1,10 @@
 <!--components/rankHeader/rankheader.wxml-->
 <view class="rank-header">
-    <view class="rank-header-left auto-width">
-        <view class="rank-header-title auto-width">
+    <view class="rank-header-left {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}">
+        <view class="rank-header-title {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}">
             <text>{{headerInfo.flag+headerInfo.title}}</text>
         </view>
-        <view class="rank-header-desc {{auto-width}}">
+        <view class="rank-header-desc {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}">
             <text class="rank-header-desc-text">{{headerInfo.desc}}</text>
         </view>
         <view class="rank-header-options">
