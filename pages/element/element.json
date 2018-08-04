@@ -1,5 +1,7 @@
 {
     "usingComponents": {
-        "element-header": "/components/rankHeader/rankheader"
+        "element-header": "/components/rankHeader/rankheader",
+        "post-list": "./subPostList/subPostList",
+        "icon-font": "/components/iconfont/iconfont"
     }
 }

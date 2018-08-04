@@ -1,0 +1,8 @@
+<!--pages/element/subPostList/subPostList.wxml-->
+
+<view class="post-list-components" wx:for="{{subPost}}" wx:key="{{index}}">
+    <icon-font icon-value="iconfont icon-xiaoxi text-size-20" text-class="text-size-8" text-value="123" text-color="#605F5F"></icon-font>
+    <view>
+        <text>{{item.post_content}}</text>
+    </view>
+</view>

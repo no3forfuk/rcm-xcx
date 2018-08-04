@@ -1,0 +1,9 @@
+/* pages/element/subPostList/subPostList.wxss */
+
+.post-list-components {
+    padding-left: 14.48rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-bottom: 21.72rpx;
+}

@@ -6,14 +6,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        headerData: {}
+        headerData: {},
+        postList: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(options)
         api.getElementDetails({
             id: options.elementId,
             page: 1,
@@ -30,7 +30,8 @@ Page({
                 },
                 collectParams: {
                     element_id: options.elementId
-                }
+                },
+                postList: res.data.data
             })
         })
     },

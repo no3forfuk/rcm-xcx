@@ -1,4 +1,17 @@
 <!--pages/element/element.wxml-->
 <scroll-view scroll-y class="element-page-component">
     <element-header header-info="{{headerData}}" header-type="element" collect-params="{{collectParams}}"></element-header>
+    <view class="element-page-neck">
+
+    </view>
+    <view class="element-page-shoulder">
+        <view class="element-page-shoulder-left">
+            <icon-font icon-value="iconfont icon-jia" class="shoulder-left-icon" icon-color="#FF2C09"></icon-font>
+            <text class="shoulder-left-text">添加新的排名</text>
+        </view>
+        <view class="element-page-shoulder-right">
+            <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
+        </view>
+    </view>
+    <post-list post-list="{{postList}}"></post-list>
 </scroll-view>
