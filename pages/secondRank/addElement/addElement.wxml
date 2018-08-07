@@ -1,0 +1,5 @@
+<!--pages/secondRank/addElement/addElement.wxml-->
+<scroll-view scroll-y class="add-element-component">
+  <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
+
+</scroll-view>

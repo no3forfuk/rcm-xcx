@@ -2,13 +2,13 @@
 <scroll-view scroll-y="{{canScroll}}" class="second-page">
     <rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second"></rank-header>
     <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
-        <second-list wx:if="{{subType === 0}}" sub-element="{{subElement}}" last-element="{{lastElement}}"></second-list>
+        <second-list wx:if="{{subType === 0}}" sub-element="{{subElement}}" last-element="{{lastElement}}" bindaddelement="addelement"></second-list>
         <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}"></second-discuss>
         <second-activity wx:if="{{subType === 2}}"></second-activity>
     </tab>
     <view class="second-page-footer"></view>
-    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-type="large">
-        <view slot="large"></view>
+    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}">
+        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" class="add-element" wx:if="{{popupType == 'addElement'}}"></add-element>
     </pop-up>
     <tab-bar></tab-bar>
 </scroll-view>

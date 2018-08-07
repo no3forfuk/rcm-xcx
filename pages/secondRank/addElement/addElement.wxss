@@ -1,0 +1,4 @@
+/* pages/secondRank/addElement/addElement.wxss */
+.add-element-component{
+  width: 100%;
+}

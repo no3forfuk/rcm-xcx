@@ -33,6 +33,9 @@ Component({
             wx.navigateTo({
                 url: '/pages/element/element?elementId=' + e.currentTarget.dataset.id,
             })
+        },
+        addelement(e){
+          this.triggerEvent('addelement')
         }
     }
 })

@@ -6,6 +6,7 @@
         "pop-up": "/components/popup/popup",
         "second-list": "./secondList/secondList",
         "second-discuss": "./secondDiscuss/secondDiscuss",
-        "second-activity": "./secondActivity/secondActivity"
+        "second-activity": "./secondActivity/secondActivity",
+        "add-element":"./addElement/addElement"
     }
 }

@@ -8,21 +8,22 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        popupType: {
+        popupSize: {
             type: String,
             value: '',
-            obverser(n, o, c) {
+            observer(n, o, c) {
 
             }
         }
     },
     ready() {
-        console.log(this)
-        this.getPopupHeight()
-        this.slideUp()
+      this.slideUp()
+    },
+    moved(){
+      this.slideDown()
     },
     detached() {
-        console.log('a')
+      
     },
     /**
      * 组件的初始数据
@@ -40,25 +41,25 @@ Component({
                 this.triggerEvent('close')
             }.bind(this), 500)
         },
-        getPopupHeight() {
-            let className = '.' + this.data.popupType + '-popup'
-            let query = wx.createSelectorQuery().in(this);
-            query.select(className).boundingClientRect(res => {
-                this.setData({
-                    popupHeight: res.height
-                })
-            }).exec()
-        },
         slideUp() {
             const animation = wx.createAnimation({
                 duration: 500,
                 timingFunction: 'ease'
             })
-            console.log(-this.data.popupHeight)
-            animation.translateY(-this.data.popupHeight).step()
+            animation.translateY(0).step()
             this.setData({
                 animationData: animation.export()
             })
+        },
+        slideDown() {
+          const animation = wx.createAnimation({
+            duration: 500,
+            timingFunction: 'ease'
+          })
+          animation.translateY('100%').step()
+          this.setData({
+            animationData: animation.export()
+          })
         }
     }
 })

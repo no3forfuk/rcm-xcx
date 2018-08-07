@@ -21,8 +21,21 @@ Page({
     closePopup() {
         this.setData({
             canScroll: true,
-            activePopup: false
+            activePopup: false,
+            popupSize: '',
+            popupType:''
         })
+    },
+    addelement(){
+      this.setData({
+        popupType:'addElement',
+        popupSize:'large',
+        canScroll: false,
+        activePopup: true
+      })
+    },
+    submitadd(){
+      console.log('提交')
     },
     /**
      * 页面的初始数据
@@ -46,7 +59,9 @@ Page({
         subElement: {},
         lastElement: {},
         secondId: '',
-        largePopupAnimation: {}
+        largePopupAnimation: {},
+        popupType:'',
+        popupSize:''
     },
 
     /**
