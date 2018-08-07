@@ -14,6 +14,33 @@ Page({
             url: '/pages/secondRank/secondRank'
         })
     },
+    changeNav(e) {
+        this.setData({
+            crtIndex: e.currentTarget.dataset.index
+        })
+        let id = e.currentTarget.dataset.item.id
+        if (id == '-1') {
+
+        } else if (id == '-2') {
+            api.getIndexRanking('2018-07-31', res => {
+                this.setData({
+                    rankData: res.data
+                })
+            })
+        } else {
+            let params = {
+                level: 1,
+                id: id,
+                page: 1
+            }
+            api.getFirstDetails(params, res => {
+                this.setData({
+                    rankData: res.data.data.data
+                })
+            })
+        }
+
+    },
     /**
      * 页面的初始数据
      */
@@ -25,7 +52,9 @@ Page({
                 label: '个人中心'
             }
         ],
-        rankData: []
+        rankData: [],
+        firstRank: [],
+        crtIndex: 0
     },
 
     /**
@@ -35,6 +64,20 @@ Page({
         api.getIndexRanking('2018-07-31', res => {
             this.setData({
                 rankData: res.data
+            })
+        })
+        //获取一级榜单列表
+        api.getFirstRanking(res => {
+            let firstRankArr = [{
+                ranking_name: '热榜',
+                id: -2
+            }, {
+                ranking_name: '热贴',
+                id: -1
+            }]
+            firstRankArr = firstRankArr.concat(res.data.data)
+            this.setData({
+                firstRank: firstRankArr
             })
         })
     },

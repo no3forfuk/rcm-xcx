@@ -1,8 +1,8 @@
 <!--components/indexRankCard/indexRankCard.wxml-->
 <view class="index-rank-card">
     <view class="index-rank-card-left">
-        <span>{{rating[0]}}</span>
-        <span class="rating-sup">{{rating[1]}}</span>
+        <!-- <span>{{rating[0]}}</span>
+        <span class="rating-sup">{{rating[1]}}</span> -->
     </view>
     <view class="index-rank-card-right">
         <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}">#{{rankData.ranking_name}}</view>

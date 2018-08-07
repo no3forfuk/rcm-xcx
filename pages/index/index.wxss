@@ -6,5 +6,59 @@
 
 .index-scroll-view {
     height: 100%;
-    overflow: hidden;
+    margin-top: 10px;
+}
+
+.index-page-header {
+    padding: 0 25.94rpx;
+}
+
+.index-page-header-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15rpx 0;
+    padding-left: 12.67rpx;
+}
+
+.index-page-header-logo {
+    width: 95.33rpx;
+    height: 37.41rpx;
+}
+
+.index-page-header-search {
+    width: 559.31rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background-color: #ebebeb;
+    border-radius: 40rpx;
+    margin-left: 30.17rpx;
+    padding-left: 15px;
+    color: #999899;
+    font-size: 25.34rpx;
+}
+
+.index-page-header-nav {
+    padding: 0 12.67rpx;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.index-page-header-nav-text {
+    font-size: 28.96rpx;
+    color: #999899;
+    line-height: 42.23rpx;
+    margin-right: 92.92rpx;
+    transition: all 0.5s;
+}
+
+.index-page-header-nav-text:nth-last-child(1) {
+    margin-right: 0rpx;
+}
+
+.active-nav {
+    color: #ff2c09;
+    font-weight: bold;
+    font-size: 36.2rpx;
+    background: linear-gradient(to top, #ffcece 0%, #ffcece, 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 100%);
 }

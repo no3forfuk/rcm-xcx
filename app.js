@@ -25,11 +25,8 @@ App({
                 }
             }
         })
-        //获取一级榜单列表
-        api.getFirstRanking()
     },
-    data_g: {
-        userInfo: null
+    globalData: {
+        scrollY: true
     }
-
 })

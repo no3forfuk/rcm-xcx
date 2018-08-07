@@ -7,10 +7,10 @@ Component({
         rankData: {
             type: Object,
             value: {},
-            observer(o, n, c) {
-                this.setData({
-                    rating: o.rating.split('')
-                })
+            observer(n, o, c) {
+                if(n){
+                    
+                }
             }
         }
     },
@@ -19,7 +19,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        rating: []
+        
     },
 
     /**

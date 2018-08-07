@@ -1,5 +1,8 @@
 <!--components/popup/popup.wxml-->
 <view class="popup-components">
-    <text>components/popup/popup.wxml</text>
-    
+    <view class="popup-mask" bindtap="cancle"></view>
+    <!-- <view class="popup-bottom" animation="{{animationData}}"></view> -->
+    <view class="large-popup" animation="{{animationData}}">
+        <slot name="large"></slot>
+    </view>
 </view>

@@ -1,5 +1,15 @@
 <view class="index-page">
-    <page-header></page-header>
+    <view class="index-page-header">
+        <!-- search -->
+        <view class="index-page-header-top">
+            <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
+            <input type="text" confirm-type="search" class="index-page-header-search"></input>
+        </view>
+        <!-- nav -->
+        <scroll-view class="index-page-header-nav" scroll-x>
+            <text wx:for="{{firstRank}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == crtIndex? 'active-nav':''}}" bindtap="changeNav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
+        </scroll-view>
+    </view>
     <scroll-view scroll-y class="index-scroll-view" style="{{scrollHeight}}">
         <rank-card wx:for="{{rankData}}" wx:key="{{index}}" rank-data="{{item}}"></rank-card>
     </scroll-view>

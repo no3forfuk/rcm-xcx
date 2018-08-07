@@ -1,14 +1,14 @@
 // pages/secondRank/secondRank.js
 const api = require('../../api/api.js')
+const app = getApp()
 Page({
-
-
     /** 
      * 自定义事件
      */
     //点击更多
     ontapmore(options) {
         this.setData({
+            canScroll: false,
             activePopup: true
         })
     },
@@ -16,6 +16,12 @@ Page({
     tabchange(options) {
         this.setData({
             subType: options.detail.index
+        })
+    },
+    closePopup() {
+        this.setData({
+            canScroll: true,
+            activePopup: false
         })
     },
     /**
@@ -39,7 +45,8 @@ Page({
         subType: 0,
         subElement: {},
         lastElement: {},
-        secondId: ''
+        secondId: '',
+        largePopupAnimation: {}
     },
 
     /**
@@ -52,7 +59,9 @@ Page({
             //收藏榜单所需参数
             collectParams: {
                 ranking_id: options.secondId,
-            }
+            },
+            //是否可以滚动
+            canScroll: true
         })
         api.getSecondRankDetails({
             level: 2,

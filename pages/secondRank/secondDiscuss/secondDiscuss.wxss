@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.second-discuss-body {
+    padding-left: 39.22rpx;
+}
+
 .second-discuss-header-left {
     display: flex;
     flex-direction: row;

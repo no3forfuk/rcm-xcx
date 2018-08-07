@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "user-card": "/components/userCard/userCard",
+        "post-discuss": "/components/discussCard/discussCard"
+    }
+}

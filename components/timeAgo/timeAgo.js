@@ -30,6 +30,7 @@ Component({
      */
     methods: {
         getTimeAgo(param) {
+            // if (res.system)
             var ms = new Date(param)
             var time = new Date();
             var gap = Math.abs(time - ms);

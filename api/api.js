@@ -51,12 +51,12 @@ function ajax_post(data) {
 }
 const api = {
     //获取一级榜单列表
-    getFirstRanking() {
+    getFirstRanking(success) {
         ajax_get({
             uri: '/index/firstList',
             params: null,
             s_cb(res) {
-                wx.setStorageSync('firstRank', res.data.data)
+                success(res)
             }
         })
     },
@@ -131,5 +131,40 @@ const api = {
             }
         })
     },
+    //获取POST详情
+    getPostDetails(postId, success) {
+        ajax_get({
+            uri: '/post/getPostDetails',
+            params: {
+                id: postId
+            },
+            s_cb(res) {
+                success(res)
+            }
+        })
+    },
+    //获取POST评论
+    getPostDiscuss(postId, success) {
+        ajax_get({
+            uri: '/ranking/getComment',
+            params: {
+                level: 3,
+                id: postId
+            },
+            s_cb(res) {
+                success(res)
+            }
+        })
+    },
+    //获取一级榜单详情
+    getFirstDetails(params, success) {
+        ajax_get({
+            uri: '/ranking/getRanking',
+            params: params,
+            s_cb(res) {
+                success(res)
+            }
+        })
+    }
 }
 module.exports = api

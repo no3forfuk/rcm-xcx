@@ -17,6 +17,13 @@ Component({
             observer(n, o, c) {
 
             }
+        },
+        cardType: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
+
+            }
         }
     },
 

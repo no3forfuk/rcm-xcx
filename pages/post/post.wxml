@@ -1,0 +1,13 @@
+<!--pages/post/post.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<scroll-view class="post-page-components" scroll-y>
+    <user-card card-type="small" user-info="{{createUser}}"></user-card>
+    <view class="post-content">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+    <view class="post-discuss">
+        <text class="post-discuss-title">评论({{postInfo.comment_num}}）</text>
+        <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></post-discuss>
+    </view>
+</scroll-view>
