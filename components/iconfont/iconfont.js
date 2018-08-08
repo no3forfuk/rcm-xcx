@@ -36,6 +36,13 @@ Component({
             observer(n, o, c) {
 
             }
+        },
+        iconStyle: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
+
+            }
         }
     },
     attached() {

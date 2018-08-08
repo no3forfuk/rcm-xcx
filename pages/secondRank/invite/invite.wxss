@@ -1,0 +1,64 @@
+/* pages/secondRank/invite/invite.wxss */
+
+.invite-component {
+}
+
+.invite-input-box {
+    padding: 18.1rpx 36.2rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.invite-input-icon {
+    position: absolute;
+    top: calc(18.1rpx + 1px);
+    left: calc(36.2rpx + 1px);
+    width: 53.7rpx;
+    height: 53.7rpx;
+    line-height: 53.7rpx;
+}
+
+.invite-input {
+    height: 53.7rpx;
+    border: 1px solid #c8c7cd;
+    border-radius: 3px;
+    padding-left: 53.7rpx;
+    font-size: 28.96rpx;
+    color: #363636;
+}
+
+.placeholder-class {
+    font-size: 28.96rpx;
+    color: #929298;
+}
+
+.invite-tab {
+    padding-top: 10px;
+}
+
+.invite-tab-body {
+    padding: 36.2rpx;
+}
+
+.invite-tab-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invite-btn {
+    width: 127.31rpx;
+    height: 43.44rpx;
+    font-size: 28.96rpx;
+    color: #ff2c09;
+    background-color: #d5d5d5;
+    border-radius: 4px;
+    line-height: 43.44rpx;
+    text-align: center;
+}
+
+.invite-btn::after {
+    border: 0;
+}

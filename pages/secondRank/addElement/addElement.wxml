@@ -1,5 +1,15 @@
 <!--pages/secondRank/addElement/addElement.wxml-->
 <scroll-view scroll-y class="add-element-component">
-  <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
-
+    <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
+    <view class="add-element-body">
+        <view class="add-element-name">
+            <input type="text" placeholder-class="placeholder-class" placeholder="为这个榜单添加新的成员" class="add-element-name-input" adjust-position="false" confirm-type="next" bindconfirm="clickNext" confirm-hold="true"></input>
+        </view>
+        <textarea placeholder="{{textareaPlaceholder}}" class="add-element-desc" placeholder-class="placeholder-class" focus="{{inputDesc}}">
+        </textarea>
+        <view class="add-element-img">
+            <image class="view-img" wx:if="{{hasImg}}" src="{{imgSrc}}" bindtap="previewImage"></image>
+            <icon-font icon-value="iconfont icon-tianjia1" icon-style="font-size:80rpx;color:#dedede;" bindtapicon="selectImg"></icon-font>
+        </view>
+    </view>
 </scroll-view>

@@ -1,19 +1,23 @@
 /* components/tabBar/tabBar.wxss */
 
-.tab-bar {
-    position: fixed;
-    width: 100%;
+.tab-bar-component {
+    position: absolute;
     bottom: 0;
     left: 0;
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     height: 46px;
-    background-color: #abcdef;
+    background-color: #40aabb;
     line-height: 46px;
 }
 
 .tab-bar-item {
-    flex: 0 0 50%;
     text-align: center;
+    background-color: #40aabb;
+}
+
+.tab-bar-item::after {
+    border: 0;
 }

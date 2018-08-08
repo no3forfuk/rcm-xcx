@@ -9,7 +9,9 @@ Page({
     ontapmore(options) {
         this.setData({
             canScroll: false,
-            activePopup: true
+            activePopup: true,
+            popupSize: 'small',
+            popupType: 'more'
         })
     },
     //切换tab页签
@@ -18,24 +20,66 @@ Page({
             subType: options.detail.index
         })
     },
+    //关闭popup
     closePopup() {
+        const $popup = this.selectComponent('#popup')
+        $popup.cancle()
+        setTimeout(function() {
+            this.setData({
+                canScroll: true,
+                popupSize: '',
+                popupType: '',
+                activePopup: false
+            })
+        }.bind(this), 220)
+
+    },
+    //添加元素--打开popup
+    addelement() {
         this.setData({
-            canScroll: true,
-            activePopup: false,
-            popupSize: '',
-            popupType:''
+            popupType: 'addElement',
+            popupSize: 'large',
+            canScroll: false,
+            activePopup: true
         })
     },
-    addelement(){
-      this.setData({
-        popupType:'addElement',
-        popupSize:'large',
-        canScroll: false,
-        activePopup: true
-      })
+    //添加评论
+    addDiscuss() {
+        this.setData({
+            popupType: 'addDiscuss',
+            popupSize: 'large',
+            canScroll: false,
+            activePopup: true
+        })
     },
-    submitadd(){
-      console.log('提交')
+    submitadd() {
+        console.log('添加元素')
+    },
+    submitDiscuss() {
+        console.log('评论')
+    },
+    submitInvite() {
+        console.log('邀请')
+    },
+    tapMoreItem(e) {
+        let result = e.detail.result
+        this[result]()
+    },
+    invite() {
+        this.setData({
+            canScroll: true,
+            popupSize: '',
+            popupType: '',
+            activePopup: false
+        })
+        setTimeout(function() {
+            this.setData({
+                popupType: 'invite',
+                popupSize: 'large',
+                canScroll: false,
+                activePopup: true
+            })
+        }.bind(this), 300)
     },
     /**
      * 页面的初始数据
@@ -60,8 +104,17 @@ Page({
         lastElement: {},
         secondId: '',
         largePopupAnimation: {},
-        popupType:'',
-        popupSize:''
+        popupType: '',
+        popupSize: '',
+        moreItems: [{
+                label: '邀请添加排名',
+                result: 'invite'
+            },
+            {
+                label: '举报',
+                result: 'report'
+            }
+        ]
     },
 
     /**

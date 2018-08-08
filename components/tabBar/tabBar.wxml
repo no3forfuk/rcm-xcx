@@ -1,4 +1,4 @@
 <!--components/tabBar/tabBar.wxml-->
-<view class="tab-bar">
-    <view wx:for="{{tabBarList}}" class="tab-bar-item" wx:key="{{index}}">{{item.label}}</view>
+<view class="tab-bar-component">
+    <button wx:for="{{tabBarList}}" class="tab-bar-item" wx:key="{{index}}" style="{{itemFlex}}" bindtap="tapItem" data-item="{{item}}" open-type="{{item.openType}}" bindgetuserinfo="tapItem">{{item.label}}</button>
 </view>

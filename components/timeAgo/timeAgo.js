@@ -8,7 +8,7 @@ Component({
             type: String,
             value: '',
             observer(n, o, c) {
-
+                
             }
         }
     },
@@ -19,10 +19,10 @@ Component({
     data: {
         timeAgo: ''
     },
-    attached() {
-        let timeAgo = this.getTimeAgo(this.data.time)
+    ready() {
+        let time = this.getTimeAgo(this.properties.time)
         this.setData({
-            timeAgo: timeAgo
+            timeAgo: time
         })
     },
     /**
@@ -30,8 +30,8 @@ Component({
      */
     methods: {
         getTimeAgo(param) {
-            // if (res.system)
-            var ms = new Date(param)
+            let params = param.replace(/\-/g, '/')
+            var ms = new Date(params)
             var time = new Date();
             var gap = Math.abs(time - ms);
             var second = parseInt(gap / 1000);
@@ -47,7 +47,7 @@ Component({
                 return hour + '小时前';
             }
             var day = parseInt(gap / 1000 / 60 / 60 / 24);
-            if (day > 1) {
+            if (day >= 1) {
                 return day + '天前';
             }
         }

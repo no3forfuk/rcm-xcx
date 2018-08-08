@@ -1,9 +1,9 @@
 <!--pages/secondRank/secondList/secondList.wxml-->
 <view class="second-list-components">
     <view class="second-list-header">
-        <view class="second-list-header-left">
+        <view class="second-list-header-left" bindtap="addelement">
             <icon-font icon-value="iconfont icon-jia" class="list-header-left-icon" icon-color="#FF2C09"></icon-font>
-            <text class="list-header-left-text" bindtap="addelement">添加新的排名</text>
+            <text class="list-header-left-text">添加新的排名</text>
         </view>
         <view class="second-list-header-right">
             <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>

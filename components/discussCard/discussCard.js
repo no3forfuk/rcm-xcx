@@ -8,7 +8,7 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
-                
+
             }
         }
     },

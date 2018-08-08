@@ -3,7 +3,12 @@
         <!-- search -->
         <view class="index-page-header-top">
             <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
-            <input type="text" confirm-type="search" class="index-page-header-search"></input>
+            <view class="index-page-header-search-box">
+                <view class="index-page-header-search-inner">
+                    <icon-font icon-value="iconfont icon-search"></icon-font>
+                    <text>#租房记#</text>
+                </view>
+            </view>
         </view>
         <!-- nav -->
         <scroll-view class="index-page-header-nav" scroll-x>
@@ -13,5 +18,6 @@
     <scroll-view scroll-y class="index-scroll-view" style="{{scrollHeight}}">
         <rank-card wx:for="{{rankData}}" wx:key="{{index}}" rank-data="{{item}}"></rank-card>
     </scroll-view>
-    <!-- <pop-up></pop-up> -->
+    <tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
 </view>
+<search-page wx:if="{{activeSearch}}" catchtouchmove="ture"></search-page>

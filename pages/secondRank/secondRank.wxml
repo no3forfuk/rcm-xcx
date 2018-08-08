@@ -3,12 +3,14 @@
     <rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second"></rank-header>
     <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
         <second-list wx:if="{{subType === 0}}" sub-element="{{subElement}}" last-element="{{lastElement}}" bindaddelement="addelement"></second-list>
-        <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}"></second-discuss>
+        <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}" bindaddDiscuss="addDiscuss"></second-discuss>
         <second-activity wx:if="{{subType === 2}}"></second-activity>
     </tab>
     <view class="second-page-footer"></view>
-    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}">
-        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" class="add-element" wx:if="{{popupType == 'addElement'}}"></add-element>
+    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" popup-show="{{showPopup}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
+        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}"></add-element>
+        <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" wx:if="{{popupType == 'addDiscuss'}}"></add-discuss>
+        <invite slot="large" bindcancel="closePopup" bindconfirm="submitInvite" wx:if="{{popupType == 'invite'}}"></invite>
     </pop-up>
-    <tab-bar></tab-bar>
 </scroll-view>
+<tab-bar></tab-bar>

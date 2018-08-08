@@ -6,14 +6,12 @@ Page({
     /**
      * 自定义事件
      */
-    getUserInfo(e) {
-        app.data_g.userInfo = e.detail.userInfo
-    },
     link2SecondRank() {
         wx.navigateTo({
             url: '/pages/secondRank/secondRank'
         })
     },
+    //nav改变
     changeNav(e) {
         this.setData({
             crtIndex: e.currentTarget.dataset.index
@@ -39,22 +37,27 @@ Page({
                 })
             })
         }
-
+    },
+    tabItemClick(e) {
+        if (e.detail.userInfo) {
+            app.globalData.userInfo = e.detail.userInfo
+            wx.navigateTo({
+                url: '/pages/userCenter/userCenter',
+            })
+        }
     },
     /**
      * 页面的初始数据
      */
     data: {
         tabBarList: [{
-                label: '首页'
-            },
-            {
-                label: '个人中心'
-            }
-        ],
+            label: '个人中心',
+            openType: 'getUserInfo'
+        }],
         rankData: [],
         firstRank: [],
-        crtIndex: 0
+        crtIndex: 0,
+        activeSearch: false
     },
 
     /**

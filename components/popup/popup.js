@@ -14,16 +14,23 @@ Component({
             observer(n, o, c) {
 
             }
+        },
+        smallData: {
+            type: Array,
+            value: [],
+            observer(n, o, c) {
+
+            }
         }
     },
     ready() {
-      this.slideUp()
+        this.slideUp()
     },
-    moved(){
-      this.slideDown()
+    moved() {
+
     },
     detached() {
-      
+
     },
     /**
      * 组件的初始数据
@@ -37,13 +44,14 @@ Component({
      */
     methods: {
         cancle() {
+            this.slideDown()
             setTimeout(function() {
                 this.triggerEvent('close')
-            }.bind(this), 500)
+            }.bind(this), 300)
         },
         slideUp() {
             const animation = wx.createAnimation({
-                duration: 500,
+                duration: 300,
                 timingFunction: 'ease'
             })
             animation.translateY(0).step()
@@ -52,14 +60,22 @@ Component({
             })
         },
         slideDown() {
-          const animation = wx.createAnimation({
-            duration: 500,
-            timingFunction: 'ease'
-          })
-          animation.translateY('100%').step()
-          this.setData({
-            animationData: animation.export()
-          })
+            const animation = wx.createAnimation({
+                duration: 280,
+                timingFunction: 'ease-in'
+            })
+            animation.translateY('100%').step()
+            this.setData({
+                animationData: animation.export()
+            })
+        },
+        tapSmallItem(e) {
+            this.slideDown()
+            let target = e.currentTarget.dataset.item
+            setTimeout(function() {
+                this.triggerEvent('close')
+                this.triggerEvent('tapSmallItem', target)
+            }.bind(this), 300)
         }
     }
 })

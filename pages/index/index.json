@@ -5,6 +5,9 @@
     "navigationBarTextStyle": "black",
     "usingComponents": {
         "rank-card": "/components/indexRankCard/indexRankCard",
-        "pop-up": "/components/popup/popup"
+        "pop-up": "/components/popup/popup",
+        "tab-bar": "/components/tabBar/tabBar",
+        "icon-font": "/components/iconfont/iconfont",
+        "search-page": "/components/searchPage/searchPage"
     }
 }

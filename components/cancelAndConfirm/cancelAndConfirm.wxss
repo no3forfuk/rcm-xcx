@@ -1,11 +1,12 @@
 /* components/cancelAndConfirm/cancelAndConfirm.wxss */
-.cancel-confirm-component{
-  /* width: 100%; */
-  padding: 18.1rpx 36.2rpx;
-  color: #FF2C09;
-  font-size: 28.96rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+
+.cancel-confirm-component {
+    /* width: 100%; */
+    padding: 18.1rpx 36.2rpx;
+    color: #ff2c09;
+    font-size: 28.96rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

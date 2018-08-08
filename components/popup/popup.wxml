@@ -1,11 +1,10 @@
 <!--components/popup/popup.wxml-->
 <view class="popup-components">
-    <view class="popup-mask" bindtap="cancle"></view>
-    <!-- <view class="popup-bottom" animation="{{animationData}}"></view> -->
+    <view class="popup-mask" bindtouchstart="cancle"></view>
     <view class="large-popup" animation="{{animationData}}" wx:if="{{popupSize=='large'}}">
         <slot name="large"></slot>
     </view>
     <view class="small-popup" animation="{{animationData}}" wx:if="{{popupSize=='small'}}">
-        <slot name="small"></slot>
+        <view wx:for="{{smallData}}" wx:key="{{index}}" bindtap="tapSmallItem" data-item="{{item}}" class="small-popup-item">{{item.label}}</view>
     </view>
 </view>
