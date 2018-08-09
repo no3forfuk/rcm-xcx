@@ -1,5 +1,5 @@
 // components/userInfoCard/userInfCard.js
-const api = require('../../api/api.js')
+
 const app = getApp()
 Component({
     /**
@@ -39,7 +39,7 @@ Component({
      */
     methods: {
         ontapedit(e) {
-            api.getFirstRanking({id:1,level:1,page:1})
+            app._ajax().getFirstRanking({id:1,level:1,page:1})
         }
     }
 })

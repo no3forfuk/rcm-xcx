@@ -24,14 +24,15 @@ Component({
      * 组件的初始数据
      */
     data: {
-        maskPosition: {}
+        maskPosition: {},
+        selectedIndex: 0
     },
     ready() {
         const query = wx.createSelectorQuery().in(this);
         query.select('#header-item-0').boundingClientRect()
         query.exec(res => {
             let liWidth = res[0].width;
-            let offsetX = 19
+            let offsetX = 16
             let position = (liWidth - 12) / 2 + offsetX
             this.setData({
                 maskPosition: 'transform: translateX(' + position + 'px)'

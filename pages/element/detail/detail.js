@@ -1,10 +1,14 @@
-// components/searchPage/searchPage.js
+// pages/element/detail/detail.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+      elementInfo: {
+          type: Object,
+          value: {},
+          observer(n, o, c) { }
+      }
   },
 
   /**

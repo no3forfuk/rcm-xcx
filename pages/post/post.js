@@ -1,6 +1,6 @@
 // pages/post/post.js
-const api = require('../../api/api.js')
 const WxParse = require('../../wxParse/wxParse.js');
+const app = getApp()
 Page({
 
     /**
@@ -16,16 +16,29 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        api.getPostDetails(options.postId, res => {
+        app._ajax().getPostDetails(options.postId, res => {
             let that = this;
-            WxParse.wxParse('content', 'html', res.data.post_content, that)
-            this.setData({
-                createUser: res.data.user,
-                postContent: res.data.post_content,
-                postInfo: res.data
-            })
+            if (res.data.type == 5) {
+                this.setData({
+                    postInfo: res.data
+                })
+                console.log(res.data)
+                wx.request({
+                    url: 'http://www.962.net/wz/169885.html',
+                    success: res => {
+                        console.log(res)
+                    }
+                })
+            } else {
+                WxParse.wxParse('content', 'html', res.data.post_content, that)
+                this.setData({
+                    createUser: res.data.user,
+                    postContent: res.data.post_content,
+                    postInfo: res.data
+                })
+            }
         })
-        api.getPostDiscuss(options.postId, res => {
+        app._ajax().getPostDiscuss(options.postId, res => {
             let discussArr = res.data.data
             if (discussArr.length > 0) {
                 for (let i = 0; i < discussArr.length; i++) {

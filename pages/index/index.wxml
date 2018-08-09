@@ -3,7 +3,7 @@
         <!-- search -->
         <view class="index-page-header-top">
             <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
-            <view class="index-page-header-search-box">
+            <view class="index-page-header-search-box" bindtap="goSearch">
                 <view class="index-page-header-search-inner">
                     <icon-font icon-value="iconfont icon-search"></icon-font>
                     <text>#租房记#</text>
@@ -15,8 +15,8 @@
             <text wx:for="{{firstRank}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == crtIndex? 'active-nav':''}}" bindtap="changeNav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
         </scroll-view>
     </view>
-    <scroll-view scroll-y class="index-scroll-view" style="{{scrollHeight}}">
-        <rank-card wx:for="{{rankData}}" wx:key="{{index}}" rank-data="{{item}}"></rank-card>
+    <scroll-view scroll-y class="index-scroll-view" style="{{scrollHeight}}" enable-back-to-top="true" bindscroll="indexScroll">
+        <rank-card wx:for="{{rankData}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{crtFirstRank}}"></rank-card>
     </scroll-view>
     <tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
 </view>

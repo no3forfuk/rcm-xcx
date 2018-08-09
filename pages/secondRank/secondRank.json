@@ -9,6 +9,8 @@
         "second-activity": "./secondActivity/secondActivity",
         "add-element": "./addElement/addElement",
         "add-discuss": "./addDiscuss/addDiscuss",
-        "invite": "./invite/invite"
+        "invite": "./invite/invite",
+        "active-header": "./activeHeader/activeHeader",
+        "second-detail": "./detail/detail"
     }
 }

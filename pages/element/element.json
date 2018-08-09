@@ -2,6 +2,9 @@
     "usingComponents": {
         "element-header": "/components/rankHeader/rankheader",
         "post-list": "./subPostList/subPostList",
-        "icon-font": "/components/iconfont/iconfont"
+        "icon-font": "/components/iconfont/iconfont",
+        "pop-up": "/components/popup/popup",
+        "element-detail": "./detail/detail",
+        "add-post": "./addPost/addPost"
     }
 }

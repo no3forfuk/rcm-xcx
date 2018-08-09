@@ -1,0 +1,5 @@
+<!--pages/secondRank/detail/detail.wxml-->
+<view class="second-detail-component">
+    <view class="second-detail-title">#{{secondInfo.title}}</view>
+    <view class="second-detail-desc">{{secondInfo.desc}}</view>
+</view>

@@ -8,8 +8,17 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
-                if(n){
-                    
+                if (n) {
+
+                }
+            }
+        },
+        firstData: {
+            type: Object,
+            value: {},
+            observer(n, o, c) {
+                if (n) {
+
                 }
             }
         }
@@ -19,7 +28,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        
+
     },
 
     /**
@@ -27,8 +36,9 @@ Component({
      */
     methods: {
         linkToSecondRank(e) {
+            let firstRank = JSON.stringify(e.currentTarget.dataset.firstrank)
             wx.navigateTo({
-                url: '/pages/secondRank/secondRank?secondId=' + e.currentTarget.dataset.id,
+                url: '/pages/secondRank/secondRank?secondId=' + e.currentTarget.dataset.id + '&first=' + firstRank,
             })
         },
         linkToELement(e) {

@@ -1,5 +1,4 @@
 // pages/secondRank/secondRank.js
-const api = require('../../api/api.js')
 const app = getApp()
 Page({
     /** 
@@ -81,10 +80,30 @@ Page({
             })
         }.bind(this), 300)
     },
+    report() {
+
+    },
+    tabItemClick() {
+        wx.redirectTo({
+            url: '/pages/index/index',
+        })
+    },
+    opendetail() {
+        this.setData({
+            popupType: 'detail',
+            popupSize: 'large',
+            canScroll: false,
+            activePopup: true
+        })
+    },
     /**
      * 页面的初始数据
      */
     data: {
+        tabBarList: [{
+            label: '首页',
+            iconValue: 'icon-zhuye'
+        }],
         secondRankData: {},
         headerData: {},
         collectParams: {},
@@ -114,7 +133,8 @@ Page({
                 label: '举报',
                 result: 'report'
             }
-        ]
+        ],
+        activeHeaderInfo: {}
     },
 
     /**
@@ -131,13 +151,20 @@ Page({
             //是否可以滚动
             canScroll: true
         })
-        api.getSecondRankDetails({
+        app._ajax().getSecondRankDetails({
             level: 2,
             id: options.secondId,
             page: 1,
             solt_name: 'created_at'
         }, res => {
+            let firstRank = JSON.parse(options.first)
             this.setData({
+                //详情页数据
+                detailInfo: {
+                    title: res.data.ranking_name,
+                    desc: res.data.ranking_desc,
+                    img: res.data.img
+                },
                 //榜单基本信息
                 headerData: {
                     flag: '#',
@@ -147,10 +174,16 @@ Page({
                     vote: res.data.vote,
                     childrenNum: res.data.data.total
                 },
-                //榜单子元素集合
+                //榜单子元素集合--对象
                 subElement: res.data.data,
                 //最后一条元素
-                lastElement: res.data.last
+                lastElement: res.data.last,
+                activeHeaderInfo: {
+                    parent: firstRank,
+                    son: {
+                        num: res.data.data.total
+                    }
+                }
             })
         })
     },

@@ -1,0 +1,4 @@
+<!--pages/secondRank/activeHeader/activeHeader.wxml-->
+<view class="second-active-header">
+    <text></text>
+</view>

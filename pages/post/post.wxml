@@ -1,7 +1,7 @@
 <!--pages/post/post.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
 
-<scroll-view class="post-page-components" scroll-y>
+<scroll-view class="post-page-components" scroll-y wx:if="{{postInfo.type != 5}}">
     <user-card card-type="small" user-info="{{createUser}}"></user-card>
     <view class="post-content">
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
@@ -11,3 +11,4 @@
         <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></post-discuss>
     </view>
 </scroll-view>
+<web-view src="{{postInfo.out_link}}" wx:if="{{postInfo.type == 5}}"></web-view>

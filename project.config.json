@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.2.2",
 	"appid": "wx0686e49b8ad8cbf2",
 	"projectname": "rcm-xcx",
 	"isGameTourist": false,

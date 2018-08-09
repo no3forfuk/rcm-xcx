@@ -14,10 +14,25 @@
 }
 
 .tab-bar-item {
-    text-align: center;
     background-color: #40aabb;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .tab-bar-item::after {
     border: 0;
+}
+
+.tab-bar-item-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab-bar-item-text {
+    font-size: 29.56rpx;
+    line-height: 40rpx;
+    margin-left: 3px;
 }

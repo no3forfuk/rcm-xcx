@@ -1,0 +1,16 @@
+<!--pages/element/addPost/addPost.wxml-->
+<view>
+    <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
+    <view class="post-edit-area">
+        <rich-text nodes="{{nodes}}"></rich-text>
+    </view>
+    <view class="tool-bar">
+        <icon-font icon-value="iconfont icon-wenben" bindtap="insertText" icon-style="font-size:48rpx;margin-left:15px;"></icon-font>
+        <icon-font icon-value="iconfont icon-ai-img" bindtap="insertImg" icon-style="font-size:48rpx;margin-left:15px;"></icon-font>
+        <icon-font icon-value="iconfont icon-shipin" bindtap="insertVideo" icon-style="font-size:48rpx;margin-left:15px;"></icon-font>
+        <icon-font icon-value="iconfont icon-lianjie" bindtap="insertLink" icon-style="font-size:48rpx;margin-left:15px;"></icon-font>
+    </view>
+</view>
+<view class="input-text" wx:if="{{insertType == 'text'}}">
+    <textarea type="text" class="input-text-textarea" bindconfirm="insertTextConfirm"></textarea>
+</view>

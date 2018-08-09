@@ -24,14 +24,16 @@
 .rank-header-desc {
     font-size: 13px;
     color: #939398;
-    white-space: nowrap;
     overflow: hidden;
+    -webkit-box-orient: vertical;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
 }
 
-.rank-header-desc-text {
+/* .rank-header-desc-text {
     width: 470rpx;
-}
+} */
 
 .rank-header-options {
     display: flex;

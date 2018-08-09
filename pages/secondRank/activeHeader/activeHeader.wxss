@@ -1,0 +1,11 @@
+/* pages/secondRank/activeHeader/activeHeader.wxss */
+
+.second-active-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    position: absolute;
+    top: 0;
+    padding: 18.1rpx 36.2rpx;
+    left: 0;
+}

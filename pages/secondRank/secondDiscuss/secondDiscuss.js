@@ -1,5 +1,5 @@
 // pages/secondRank/secondDiscuss/secondDiscuss.js
-const api = require('../../../api/api.js')
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -31,7 +31,7 @@ Component({
      * 组件实例进入页面节点树时执行
      */
     attached() {
-        api.getSecondDiscuss(this.data.secondId, res => {
+        app._ajax().getSecondDiscuss(this.data.secondId, res => {
             this.setData({
                 discussData: res.data,
                 discussList: res.data.data

@@ -5,7 +5,7 @@
         <span class="rating-sup">{{rating[1]}}</span> -->
     </view>
     <view class="index-rank-card-right">
-        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}">#{{rankData.ranking_name}}</view>
+        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">#{{rankData.ranking_name}}</view>
         <view class="index-rank-card-right-element-list">
             <scroll-view class="rank-card-element-ul" scroll-x="true">
                 <view class="rank-card-element-item" bindtap="linkToELement" data-id="{{item.id}}" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{!item.img}}">

@@ -1,6 +1,7 @@
 <!--pages/secondRank/secondRank.wxml-->
+<active-header info="{{activeHeaderInfo}}"></active-header>
 <scroll-view scroll-y="{{canScroll}}" class="second-page">
-    <rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second"></rank-header>
+    <rank-header header-info="{{headerData}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second" bindtapdetail="opendetail"></rank-header>
     <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
         <second-list wx:if="{{subType === 0}}" sub-element="{{subElement}}" last-element="{{lastElement}}" bindaddelement="addelement"></second-list>
         <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}" bindaddDiscuss="addDiscuss"></second-discuss>
@@ -11,6 +12,8 @@
         <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}"></add-element>
         <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" wx:if="{{popupType == 'addDiscuss'}}"></add-discuss>
         <invite slot="large" bindcancel="closePopup" bindconfirm="submitInvite" wx:if="{{popupType == 'invite'}}"></invite>
+        <second-detail slot="large" bindcancel="closePopup" wx:if="{{popupType == 'detail'}}" second-info="{{detailInfo}}">
+        </second-detail>
     </pop-up>
 </scroll-view>
-<tab-bar></tab-bar>
+<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>

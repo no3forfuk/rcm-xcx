@@ -1,0 +1,17 @@
+/* pages/secondRank/detail/detail.wxss */
+
+.second-detail-component {
+    padding: 36.2rpx;
+}
+
+.second-detail-title {
+    font-size: 38.61rpx;
+    line-height: 43.44rpx;
+    font-weight: bold;
+}
+
+.second-detail-desc {
+    color: #6a6a6a;
+    font-size: 28.96rpx;
+    padding-top: 36.2rpx;
+}

@@ -32,6 +32,11 @@
     line-height: 18px;
     padding-right: 8px;
     color: #222;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
 }
 
 .post-list-content-img {
@@ -42,4 +47,25 @@
 
 .post-list-user-card {
     margin-top: 5px;
+}
+
+.post-list-out-link {
+    padding: 0 18.1rpx;
+}
+
+.post-list-out-link-content {
+    background-color: #e5e5e5;
+    border-radius: 4px;
+    padding: 18.1rpx;
+}
+
+.post-list-out-link-flag {
+    color: #8b8b8b;
+    font-size: 19.69rpx;
+}
+
+.post-list-out-link-title {
+    color: #272727;
+    font-weight: bold;
+    font-size: 30.17rpx;
 }

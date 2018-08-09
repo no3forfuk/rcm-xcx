@@ -19,26 +19,51 @@ Component({
                         n.data[i].user = userInfoObj;
                         if (n.data[i].type == 1) {
                             let html = n.data[i].post_content;
-                            let htmlArr = html.split(/<\/[a-z]*>|<[a-z]*>|&[a-z]*;|[\r\n]/)
+                            let reg = /<[^>]+>|&[a-z]*;/g;
+                            let htmlArr = html.split(reg)
                             n.data[i].post_content = htmlArr.join('')
                         } else if (n.data[i].type == 3) {
                             let html = n.data[i].post_content;
-                            let htmlArr = html.split(/<\/[a-z]*>|<[a-z]*>|&[a-z]*;|<[A-Za-z]*[\s]([A-Za-z]|[0-9]|[=]|["]|[:]|[\/]|[.]|[_]|[-]|[%]|[;]|[\s]|[""])*>/);
+                            let reg = /<[^>]+>|&[a-z]*;/g
+                            let htmlArr = html.split(reg);
                             if (n.data[i].img) {
 
                             } else {
-                                let imgReg = /(([A-Za-z]*)\:\/\/(([A-Za-z0-9]*)\.)*com(\/[A-Za-z]*|[0-9]*|[_]*|[-]*|[\.]*|[\u4e00-\u9fa5])*\.([A-Za-z])*)|(([A-Za-z]*)\:\/\/(([A-Za-z0-9]*)\.)*com\/([A-Za-z]*|[0-9]*|[_]*|[-]*|[\.]*|[\u4e00-\u9fa5])*)/
-                                if (imgReg.exec(imgReg.exec(html))) {
-                                    n.data[i].img = imgReg.exec(html)[0]
+                                let imgReg = /<img.*?(?:>|\/>)/g
+                                let imgArr = html.match(imgReg)
+                                if (imgReg.test(html)) {
+                                    let img = html.match(imgReg)[0]
+                                    let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+                                    if (srcReg.test(img)) {
+                                        let srcArr = img.match(srcReg)[0].split('"')
+                                        //临时处理
+                                        let d_reg = /&[a-z]*;/g
+                                        srcArr[1] = srcArr[1].replace(d_reg, '&')
+                                        n.data[i].img = srcArr[1]
+                                    }
                                 }
                             }
                             n.data[i].post_content = htmlArr.join('')
                         } else if (n.data[i].type == 2) {
-                            let html = n.data[i].post_content;
-                            let imgReg = /(([A-Za-z]*)\:\/\/(([A-Za-z0-9]*)\.)*com(\/[A-Za-z]*|[0-9]*|[_]*|[-]*|[\.]*|[\u4e00-\u9fa5])*\.([A-Za-z])*)|(([A-Za-z]*)\:\/\/(([A-Za-z0-9]*)\.)*com\/([A-Za-z]*|[0-9]*|[_]*|[-]*|[\.]*|[\u4e00-\u9fa5])*)/
-                            if (imgReg.exec(imgReg.exec(html))) {
-                                n.data[i].img = imgReg.exec(html)[0]
+                            if (n.data[i].img) {
+
+                            } else {
+                                let imgReg = /<img.*?(?:>|\/>)/g
+                                let imgArr = html.match(imgReg)
+                                if (imgReg.test(html)) {
+                                    let img = html.match(imgReg)[0]
+                                    let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+                                    if (srcReg.test(img)) {
+                                        let srcArr = img.match(srcReg)[0].split('"')
+                                        //临时处理
+                                        let d_reg = /&[a-z]*;/g
+                                        srcArr[1] = srcArr[1].replace(d_reg, '&')
+                                        n.data[i].img = srcArr[1]
+                                    }
+                                }
                             }
+                        } else if (n.data[i].type == 5) {
+
                         }
                     }
                     this.setData({

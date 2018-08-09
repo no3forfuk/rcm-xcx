@@ -1,25 +1,78 @@
 // pages/element/element.js
-const api = require('../../api/api.js')
+const app = getApp()
 Page({
+    opendetail() {
+        this.setData({
+            activePopup: true,
+            popupType: 'detail',
+            popupSize: 'large'
+        })
+    },
+    addpost() {
+        this.setData({
+            activePopup: true,
+            popupType: 'addPost',
+            popupSize: 'large'
+        })
+    },
+    submitadd() {
 
+    },
+    closePopup() {
+        const $popup = this.selectComponent('#popup')
+        $popup.cancle()
+        setTimeout(function() {
+            this.setData({
+                popupSize: '',
+                popupType: '',
+                activePopup: false
+            })
+        }.bind(this), 220)
+    },
+    tapMoreItem(e) {
+        let result = e.detail.result
+        this[result]()
+    },
+    ontapmore() {
+        this.setData({
+            activePopup: true,
+            popupSize: 'small',
+            popupType: 'more'
+        })
+    },
+    report() {
+
+    },
     /**
      * 页面的初始数据
      */
     data: {
         headerData: {},
-        postList: {}
+        postList: {},
+        activePopup: false,
+        popupType: '',
+        popupSize: '',
+        moreItems: [{
+            label: '举报',
+            result: 'report'
+        }]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        api.getElementDetails({
+        app._ajax().getElementDetails({
             id: options.elementId,
             page: 1,
             solt_name: 'exponent'
         }, res => {
             this.setData({
+                detailInfo: {
+                    title: res.data.element_name,
+                    desc: res.data.element_desc,
+                    img: res.data.img
+                },
                 headerData: {
                     flag: '@',
                     title: res.data.element_name,

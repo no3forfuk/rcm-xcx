@@ -1,4 +1,5 @@
 // components/tabBar/tabBar.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -38,6 +39,7 @@ Component({
         tapItem(e) {
             let target = e.currentTarget.dataset.item
             if (target.openType == 'getUserInfo') {
+                app.authorize = e.detail
                 this.triggerEvent('tapItem', {
                     target,
                     userInfo: e.detail.userInfo

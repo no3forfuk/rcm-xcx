@@ -3,9 +3,15 @@
 <view class="post-list-components" wx:for="{{subPost}}" wx:key="{{index}}">
     <icon-font icon-value="iconfont icon-xiaoxi text-size-20" text-class="text-size-8" text-value="{{item.comment_num}}" text-color="#605F5F" class="post-list-icon"></icon-font>
     <view class="post-list-content">
-        <view class="post-list-content-top">
-            <text class="post-list-content-text" wx:if="{{item.type != 2}}" bindtap="linkToPost" data-id="{{item.id}}">{{item.post_content}}</text>
+        <view class="post-list-content-top" bindtap="linkToPost" data-id="{{item.id}}">
+            <text class="post-list-content-text" wx:if="{{item.type == 1 || item.type == 3}}">{{item.post_content}}</text>
             <image src="{{item.img}}" class="post-list-content-img" wx:if="{{item.img}}"></image>
+            <view class="post-list-out-link" wx:if="{{item.type == 5}}">
+                <view class="post-list-out-link-content">
+                    <view class="post-list-out-link-title">{{item.link_title}}</view>
+                    <text class="post-list-out-link-flag">-外站</text>
+                </view>
+            </view>
             <user-card user-info="{{item.user}}" created-time="{{item.created_at}}" card-type="tiny" class="post-list-user-card"></user-card>
         </view>
     </view>

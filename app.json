@@ -4,7 +4,8 @@
         "pages/secondRank/secondRank",
         "pages/userCenter/userCenter",
         "pages/element/element",
-        "pages/post/post"
+        "pages/post/post",
+        "pages/search/search"
     ],
     "window": {
         "backgroundTextStyle": "light",

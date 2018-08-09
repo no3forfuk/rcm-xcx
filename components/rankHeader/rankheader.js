@@ -1,5 +1,5 @@
 // components/rankHeader/rankheader.js
-const api = require('../../api/api.js')
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -30,8 +30,7 @@ Component({
         headerType: {
             type: String,
             value: '',
-            observer(n, o, c) {
-            }
+            observer(n, o, c) {}
         }
     },
 
@@ -48,13 +47,13 @@ Component({
     methods: {
         collect() {
             if (this.data.headerType == 'second') {
-                api.collectRankLv2(this.data.collectParams, res => {
+                app._ajax().collectRankLv2(this.data.collectParams, res => {
 
                 }, err => {
 
                 })
             } else if (this.data.headerType == 'element') {
-                api.collectElement(this.data.collectParams, res => {
+                app._ajax().collectElement(this.data.collectParams, res => {
 
                 }, err => {
 
@@ -66,6 +65,9 @@ Component({
             var myEventDetail = {} // detail对象，提供给事件监听函数
             var myEventOption = {} // 触发事件的选项
             this.triggerEvent('tapmore', myEventDetail, myEventOption)
+        },
+        openDetails() {
+            this.triggerEvent('tapdetail')
         }
     }
 })

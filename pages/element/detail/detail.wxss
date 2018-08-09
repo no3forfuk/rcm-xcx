@@ -1,0 +1,22 @@
+/* pages/element/detail/detail.wxss */
+
+.element-detail-component {
+    padding: 36.2rpx;
+}
+
+.element-detail-title {
+    font-size: 38.61rpx;
+    line-height: 43.44rpx;
+    font-weight: bold;
+}
+
+.element-detail-desc {
+    color: #6a6a6a;
+    font-size: 28.96rpx;
+    padding-top: 36.2rpx;
+}
+
+.element-detail-img {
+    border-radius: 4px;
+    max-width: 100%;
+}
