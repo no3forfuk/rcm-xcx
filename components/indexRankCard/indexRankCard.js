@@ -21,6 +21,24 @@ Component({
 
                 }
             }
+        },
+        freeStyle: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
+                if (n) {
+
+                }
+            }
+        },
+        nameType: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
+                if (n) {
+
+                }
+            }
         }
     },
 

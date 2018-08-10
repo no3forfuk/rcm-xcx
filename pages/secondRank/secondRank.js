@@ -84,7 +84,7 @@ Page({
 
     },
     tabItemClick() {
-        wx.redirectTo({
+        wx.reLaunch({
             url: '/pages/index/index',
         })
     },

@@ -128,7 +128,7 @@ Page({
                         ranking_name: '热榜',
                         id: -2
                     }, {
-                        ranking_name: '热贴',
+                        ranking_name: '热帖',
                         id: -1
                     }]
                     firstRankArr = firstRankArr.concat(res.data.data)

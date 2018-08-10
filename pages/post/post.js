@@ -30,10 +30,12 @@ Page({
                     }
                 })
             } else {
-                WxParse.wxParse('content', 'html', res.data.post_content, that)
+                let content = res.data.post_content
+                content = content.replace("http://", "https://")
+                WxParse.wxParse('content', 'html', content, that)
                 this.setData({
                     createUser: res.data.user,
-                    postContent: res.data.post_content,
+                    postContent: content,
                     postInfo: res.data
                 })
             }

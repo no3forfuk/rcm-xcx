@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     justify-content: left;
-    padding-bottom: 21.72rpx;
+    padding-top: 21.72rpx;
 }
 
 .index-rank-card-left {
@@ -40,7 +40,7 @@
 .index-rank-card-right-element-list {
     padding-top: 16.29rpx;
     padding-bottom: 23.53rpx;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .rank-card-element-ul {

@@ -1,1 +1,79 @@
 /* pages/search/search.wxss */
+
+.search-page-component {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-header {
+    width: 100%;
+    height: 42.23rpx;
+    border-radius: 42.23rpx;
+    background-color: #ebebeb;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+.search-page-header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 38.61rpx;
+}
+
+.placeholder-class {
+    font-size: 25.34rpx;
+    color: #999899;
+}
+
+.search-value-input {
+    font-size: 25.34rpx;
+    color: #767676;
+    padding-left: 5px;
+    line-height: 25.34rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-title {
+    font-size: 36.2rpx;
+    font-weight: bold;
+    padding: 21.72rpx 38.61rpx;
+}
+
+.search-title-text {
+    background: linear-gradient(to top, #ffcece 0%, #ffcece, 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+}
+
+.search-hot-key-ul {
+    padding: 0 38.61rpx;
+}
+
+.search-hot-key-li {
+    font-size: 28.96rpx;
+    color: #000;
+    background: linear-gradient(to top, #ebebeb 0%, #ebebeb, 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+    margin-right: 27.15rpx;
+}
+
+.search-before-banner {
+    padding: 32.6rpx 0;
+}
+
+.search-before-banner-img {
+    width: 100%;
+    height: 80px;
+    background-color: #ccc;
+}
+
+.search-result-rank {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 4.83rpx solid #ebebeb;
+}
+
+.search-result-element {
+    
+}

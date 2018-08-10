@@ -1,2 +1,36 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="search-page-component">
+    <view class="search-page-header">
+        <view class="search-header">
+            <icon-font icon-value="iconfont icon-search" icon-style="font-size:12px; margin-left:10px;"></icon-font>
+            <input placeholder="#租房季" placeholder-class="placeholder-class" class="search-value-input"></input>
+        </view>
+    </view>
+    <view class="search-before-page" wx:if="{{haveResult}}">
+        <view class="search-title">
+            <text class="search-title-text">热词</text>
+        </view>
+        <view class="search-hot-key-ul">
+            <text class="search-hot-key-li" wx:for="{{hotKey}}" wx:key="{{index}}">{{item.search_key}}</text>
+        </view>
+        <view class="search-before-banner">
+            <image class="search-before-banner-img"></image>
+        </view>
+    </view>
+    <view class="search-result-page" wx:if="{{!haveResult}}">
+        <view class="search-result-rank">
+            <view class="search-title">
+                <text class="search-title-text">榜单</text>
+            </view>
+            <rank-card rank-data="{{item}}" wx:for="{{resultRank}}" wx:key="{{index}}" free-style="{{index+1 == resultRank.length?'border-bottom:0 none;':''}}"></rank-card>
+        </view>
+        <view class="search-result-rank">
+            <view class="search-title">
+                <text class="search-title-text">排名</text>
+            </view>
+            <view class="search-result-element">
+            
+            </view>
+        </view>
+    </view>
+</view>

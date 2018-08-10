@@ -5,8 +5,11 @@
         <span class="rating-sup">{{rating[1]}}</span> -->
     </view>
     <view class="index-rank-card-right">
-        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">#{{rankData.ranking_name}}</view>
-        <view class="index-rank-card-right-element-list">
+        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">
+            <text wx:if="{{nameType != 'search'}}">#{{rankData.ranking_name}}</text>
+            <rich-text wx:if="{{nameType == 'search'}}"></rich-text>
+        </view>
+        <view class="index-rank-card-right-element-list" style="{{freeStyle}}">
             <scroll-view class="rank-card-element-ul" scroll-x="true">
                 <view class="rank-card-element-item" bindtap="linkToELement" data-id="{{item.id}}" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{!item.img}}">
                     <text class="rank-card-element-item-text">{{item.element_name}}</text>

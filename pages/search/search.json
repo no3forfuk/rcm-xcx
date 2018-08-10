@@ -1,1 +1,6 @@
-{}
+{
+    "usingComponents": {
+        "icon-font": "/components/iconfont/iconfont",
+        "rank-card": "/components/indexRankCard/indexRankCard"
+    }
+}

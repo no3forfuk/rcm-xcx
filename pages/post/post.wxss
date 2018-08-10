@@ -1,6 +1,6 @@
 /* pages/post/post.wxss */
 
-@import "../../wxParse/wxParse.wxss"
+@import "../../wxParse/wxParse.wxss";
 
 .post-page-components {
     padding-top: 25.34rpx;

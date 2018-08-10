@@ -39,6 +39,7 @@ Component({
                                         //临时处理
                                         let d_reg = /&[a-z]*;/g
                                         srcArr[1] = srcArr[1].replace(d_reg, '&')
+                                        srcArr[1] = srcArr[1].replace("http://", "https://")
                                         n.data[i].img = srcArr[1]
                                     }
                                 }
@@ -58,6 +59,7 @@ Component({
                                         //临时处理
                                         let d_reg = /&[a-z]*;/g
                                         srcArr[1] = srcArr[1].replace(d_reg, '&')
+                                        srcArr[1] = srcArr[1].replace("http://", "https://")
                                         n.data[i].img = srcArr[1]
                                     }
                                 }
