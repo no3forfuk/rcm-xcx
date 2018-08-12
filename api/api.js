@@ -225,6 +225,19 @@ const ApiFactory = function(token) {
                 }
             })
         },
+        //添加元素
+        addElement(data,success,fail) {
+            ajax_post({
+                uri: '/home/element/addElement',
+                params: data,
+                s_cb(res) {
+                    success(res)
+                },
+                f_cb(res){
+                    fail(res)
+                }
+            })
+        },
         //获取七牛上传token 
         get7niuToken(success) {
             ajax_post({

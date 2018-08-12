@@ -6,11 +6,11 @@
     </view>
     <view class="index-rank-card-right">
         <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">
-            <view wx:if="{{nameType != 'search'}}" class="rank-list-title">
-                <text>#{{rankData.ranking_name}}</text>
+            <view class="rank-list-title">
+                <text wx:if="{{nameType != 'search'}}">#{{rankData.ranking_name}}</text>
+                <rich-text wx:if="{{nameType == 'search'}}" nodes="{{rankTitle}}"></rich-text>
                 <slot></slot>
             </view>
-            <rich-text wx:if="{{nameType == 'search'}}"></rich-text>
         </view>
         <view class="index-rank-card-right-element-list" style="{{freeStyle}}">
             <scroll-view class="rank-card-element-ul" scroll-x="true">

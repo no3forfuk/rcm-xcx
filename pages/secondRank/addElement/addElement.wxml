@@ -3,7 +3,7 @@
     <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
     <view class="add-element-body">
         <view class="add-element-name">
-            <input type="text" placeholder-class="placeholder-class" placeholder="为这个榜单添加新的成员" class="add-element-name-input" adjust-position="false" confirm-type="next" bindconfirm="clickNext" confirm-hold="true"></input>
+            <input type="text" placeholder-class="placeholder-class" placeholder="为这个榜单添加新的成员" class="add-element-name-input" adjust-position="false" confirm-type="next" bindconfirm="clickNext" confirm-hold="true" bindblur="clickNext"></input>
         </view>
         <textarea placeholder="{{textareaPlaceholder}}" class="add-element-desc" placeholder-class="placeholder-class" focus="{{inputDesc}}">
         </textarea>

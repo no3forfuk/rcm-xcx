@@ -9,7 +9,7 @@
     </tab>
     <view class="second-page-footer"></view>
     <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" popup-show="{{showPopup}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
-        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}"></add-element>
+        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}" bindsetNewElementName="setNewElementName"></add-element>
         <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" wx:if="{{popupType == 'addDiscuss'}}"></add-discuss>
         <invite slot="large" bindcancel="closePopup" bindconfirm="submitInvite" wx:if="{{popupType == 'invite'}}"></invite>
         <second-detail slot="large" bindcancel="closePopup" wx:if="{{popupType == 'detail'}}" second-info="{{detailInfo}}">

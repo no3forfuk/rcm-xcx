@@ -22,7 +22,6 @@ Page({
                 this.setData({
                     postInfo: res.data
                 })
-                console.log(res.data)
                 wx.request({
                     url: 'http://www.962.net/wz/169885.html',
                     success: res => {

@@ -62,6 +62,11 @@ Page({
             this.goAuthorize()
         }
     },
+    setNewElementName(e){
+        this.setData({
+            newElementName:e.detail.value
+        })
+    },
     //添加评论
     addDiscuss() {
         if (app.token) {
@@ -75,18 +80,32 @@ Page({
             this.goAuthorize()
         }
     },
-    submitadd() {
-        console.log('添加元素')
-        app._ajax().get7niuToken(res => {
-            console.log(res)
-            wx.uploadFile({
-                url: '',
-                filePath: '',
-                name: '',
-            })
+    submitadd(e) {
+        app._ajax().addElement({
+            ranking_id:this.data.secondId,
+            element_name: this.data.newElementName
+        },res=>{
+            if(res.status_code == 1){
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success'
+                })
+            }else{
+                wx.showToast({
+                    title: res.message
+                })
+            }
         })
+        // app._ajax().get7niuToken(res => {
+        //     console.log(res)
+        //     wx.uploadFile({
+        //         url: '',
+        //         filePath: '',
+        //         name: '',
+        //     })
+        // })
     },
-    submitDiscuss() {
+    submitDiscuss(e) {
         console.log('评论')
     },
     submitInvite() {
@@ -116,6 +135,7 @@ Page({
         //举报
     },
     listToInvite() {
+        
         if (app.token) {
             this.setData({
                 popupType: 'invite',

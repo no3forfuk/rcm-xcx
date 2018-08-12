@@ -56,6 +56,15 @@ Component({
 
                 }
             }
+        },
+        rankTitle:{
+            type: Array,
+            value: [],
+            observer(n, o, c) {
+                if (n) {
+
+                }
+            }
         }
     },
 

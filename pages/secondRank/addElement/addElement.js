@@ -34,7 +34,8 @@ Component({
         confirm() {
             this.triggerEvent('confirm')
         },
-        clickNext() {
+        clickNext(e) {
+            this.triggerEvent('setNewElementName',e.detail)
             this.setData({
                 inputDesc: true
             })

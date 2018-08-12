@@ -3,6 +3,7 @@
 .search-page-component {
     width: 100%;
     box-sizing: border-box;
+    height: 100%;
 }
 
 .search-header {
@@ -75,7 +76,9 @@
 }
 
 .search-result-element {
-    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 /* pages/index/hotPost/hotPost.wxss */
 
@@ -100,7 +103,9 @@
     font-size: 28.96rpx;
     line-height: 28.96rpx;
 }
-
+.search-result-page{
+    height: calc(100% - 42.23rpx);
+}
 .hot-post-content {
     /* max-height: 90.07rpx; */
     padding-top: 5px;
@@ -111,5 +116,44 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+}
+.hot-rank-father {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.hot-rank-father-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hot-rank-father-text {
+    color: #808080;
+    font-size: 28.96rpx;
+}
+.search-result-element-top{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-left: 5px;
+}
+.element-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+.search-result-element-btm{
+    color: #808080;
+    font-size: 14px;
+    padding-left: 5px;
+}
+.search-result-element-image{
+    width: 106.79rpx;
+    height: 106.79rpx;
 }
 
