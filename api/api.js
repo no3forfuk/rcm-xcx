@@ -1,55 +1,3 @@
-function ajax_get(data) {
-    let baseUrl = 'https://www.rcm.ink/api'
-    wx.request({
-        url: baseUrl + data.uri,
-        data: data.params,
-        method: 'GET',
-        header: {},
-        dataType: 'json',
-        success(res) {
-            if (data.s_cb && res.statusCode == 200) {
-                data.s_cb(res.data)
-            }
-        },
-        fail(err) {
-            if (data.f_cb) {
-                data.f_cb(err)
-            }
-        },
-        complete(res) {
-            if (data.c_cb && res.statusCode == 200) {
-                data.c_cb(res.data)
-            }
-        }
-    })
-}
-
-
-function ajax_post(data) {
-    let baseUrl = 'https://www.rcm.ink/api'
-    wx.request({
-        url: baseUrl + data.uri,
-        data: data.params,
-        method: 'POST',
-        header: {},
-        dataType: 'json',
-        success(res) {
-            if (data.s_cb && res.statusCode == 200) {
-                data.s_cb(res.data)
-            }
-        },
-        fail(err) {
-            if (data.f_cb) {
-                data.f_cb(err)
-            }
-        },
-        complete(res) {
-            if (data.c_cb && res.statusCode == 200) {
-                data.c_cb(res.data)
-            }
-        }
-    })
-}
 const ApiFactory = function(token) {
     let baseUrl = 'https://www.rcm.ink/api'
 
@@ -229,6 +177,58 @@ const ApiFactory = function(token) {
             ajax_get({
                 uri: '/home/ranking/getRanking',
                 params: params,
+                s_cb(res) {
+                    success(res.data)
+                }
+            })
+        },
+        //获取热门榜单
+        getHotRank(page, success) {
+            ajax_get({
+                uri: '/home/index/hotRanking',
+                params: {
+                    page: page
+                },
+                s_cb(res) {
+                    success(res.data)
+                }
+            })
+        },
+        //获取热门Post
+        getHotPost(page, success) {
+            ajax_get({
+                uri: '/home/index/hotPost',
+                params: {
+                    page: page
+                },
+                s_cb(res) {
+                    success(res.data)
+                }
+            })
+        },
+        //获取热门搜索词
+        getHotKeyWords(success) {
+            ajax_get({
+                uri: '/home/search/hotSearchKey',
+                s_cb(res) {
+                    success(res.data)
+                }
+            })
+        },
+        //关键字搜索
+        searchByKeyWords(params, success) {
+            ajax_post({
+                uri: '/home/search/search',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //获取七牛上传token 
+        get7niuToken(success) {
+            ajax_post({
+                uri: '/home/qiniu/getUploadToken',
                 s_cb(res) {
                     success(res)
                 }

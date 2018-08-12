@@ -1,5 +1,5 @@
 <!--components/rankHeader/rankheader.wxml-->
-<view class="rank-header">
+<view class="rank-header" style="{{headerType == 'second'?'padding-top:19.91rpx;':''}}">
     <view class="rank-header-left {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}">
         <view class="rank-header-title {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}" bindtap="openDetails">
             <text>{{headerInfo.flag}}{{headerInfo.title}}</text>

@@ -6,12 +6,17 @@ Page({
      */
     //点击更多
     ontapmore(options) {
-        this.setData({
-            canScroll: false,
-            activePopup: true,
-            popupSize: 'small',
-            popupType: 'more'
-        })
+        if (app.token) {
+            this.setData({
+                canScroll: false,
+                activePopup: true,
+                popupSize: 'small',
+                popupType: 'more'
+            })
+        } else {
+            this.goAuthorize()
+        }
+
     },
     //切换tab页签
     tabchange(options) {
@@ -33,26 +38,53 @@ Page({
         }.bind(this), 220)
 
     },
+    closeAuthorize() {
+        this.setData({
+            goAuthorize: false
+        })
+    },
+    //去授权
+    goAuthorize() {
+        this.setData({
+            goAuthorize: true
+        })
+    },
     //添加元素--打开popup
     addelement() {
-        this.setData({
-            popupType: 'addElement',
-            popupSize: 'large',
-            canScroll: false,
-            activePopup: true
-        })
+        if (app.token) {
+            this.setData({
+                popupType: 'addElement',
+                popupSize: 'large',
+                canScroll: false,
+                activePopup: true
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     //添加评论
     addDiscuss() {
-        this.setData({
-            popupType: 'addDiscuss',
-            popupSize: 'large',
-            canScroll: false,
-            activePopup: true
-        })
+        if (app.token) {
+            this.setData({
+                popupType: 'addDiscuss',
+                popupSize: 'large',
+                canScroll: false,
+                activePopup: true
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     submitadd() {
         console.log('添加元素')
+        app._ajax().get7niuToken(res => {
+            console.log(res)
+            wx.uploadFile({
+                url: '',
+                filePath: '',
+                name: '',
+            })
+        })
     },
     submitDiscuss() {
         console.log('评论')
@@ -81,7 +113,19 @@ Page({
         }.bind(this), 300)
     },
     report() {
-
+        //举报
+    },
+    listToInvite() {
+        if (app.token) {
+            this.setData({
+                popupType: 'invite',
+                popupSize: 'large',
+                canScroll: false,
+                activePopup: true
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     tabItemClick() {
         wx.reLaunch({
@@ -119,7 +163,7 @@ Page({
         ],
         activePopup: false,
         subType: 0,
-        subElement: {},
+        subElement: [],
         lastElement: {},
         secondId: '',
         largePopupAnimation: {},
@@ -134,30 +178,27 @@ Page({
                 result: 'report'
             }
         ],
-        activeHeaderInfo: {}
+        activeHeaderInfo: {},
+        goAuthorize: false,
+        crtPage: 1,
+        solt_name: 'created_at',
+        totalPage: 1,
+        fatherRank: {}
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function(options) {
-        this.setData({
-            //榜单id
-            secondId: options.secondId,
-            //收藏榜单所需参数
-            collectParams: {
-                ranking_id: options.secondId,
-            },
-            //是否可以滚动
-            canScroll: true
-        })
+    loadNextPage() {
+        if (this.data.totalPage >= this.data.crtPage) {
+            this.getSecondInfo()
+        } else {
+            return
+        }
+    },
+    getSecondInfo() {
         app._ajax().getSecondRankDetails({
             level: 2,
-            id: options.secondId,
-            page: 1,
-            solt_name: 'created_at'
+            id: this.data.secondId,
+            page: this.data.crtPage,
+            solt_name: this.data.solt_name
         }, res => {
-            let firstRank = JSON.parse(options.first)
             this.setData({
                 //详情页数据
                 detailInfo: {
@@ -174,18 +215,38 @@ Page({
                     vote: res.data.vote,
                     childrenNum: res.data.data.total
                 },
-                //榜单子元素集合--对象
-                subElement: res.data.data,
+                //榜单子元素集合--数组
+                subElement: this.data.subElement.concat(res.data.data.data),
                 //最后一条元素
                 lastElement: res.data.last,
                 activeHeaderInfo: {
-                    parent: firstRank,
+                    parent: this.data.fatherRank,
                     son: {
                         num: res.data.data.total
                     }
-                }
+                },
+                //加载当前页码
+                crtPage: res.data.data.current_page + 1,
+                totalPage: res.data.data.last_page
             })
         })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
+        this.setData({
+            //榜单id
+            secondId: options.secondId,
+            //收藏榜单所需参数
+            collectParams: {
+                ranking_id: options.secondId,
+            },
+            //是否可以滚动
+            canScroll: true,
+            fatherRank: JSON.parse(options.first)
+        })
+        this.getSecondInfo()
     },
 
     /**

@@ -11,6 +11,7 @@
         "add-discuss": "./addDiscuss/addDiscuss",
         "invite": "./invite/invite",
         "active-header": "./activeHeader/activeHeader",
-        "second-detail": "./detail/detail"
+        "second-detail": "./detail/detail",
+        "authorize": "/components/authorize/authorize"
     }
 }

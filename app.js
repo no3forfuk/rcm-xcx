@@ -1,6 +1,7 @@
 /*Created By Jsir on 2018/7/26*/
-const api = require('./api/api.js')
 'use strict'
+const api = require('./api/api.js')
+const qiniu = require('./static/vonder/qiniu.js')
 App({
     _ajax() {
         return api(this.token)
@@ -39,7 +40,7 @@ App({
             }
         })
     },
-    authorize: {},
+    qiniuSDK: qiniu,
     globalData: {
         userInfo: {},
         scrollY: true

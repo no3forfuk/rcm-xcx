@@ -3,10 +3,10 @@
     <view class="search-page-header">
         <view class="search-header">
             <icon-font icon-value="iconfont icon-search" icon-style="font-size:12px; margin-left:10px;"></icon-font>
-            <input placeholder="#租房季" placeholder-class="placeholder-class" class="search-value-input"></input>
+            <input placeholder="#租房季" placeholder-class="placeholder-class" class="search-value-input" confirm-type="search" bindconfirm="submitSearch"></input>
         </view>
     </view>
-    <view class="search-before-page" wx:if="{{haveResult}}">
+    <view class="search-before-page" wx:if="{{!haveResult}}">
         <view class="search-title">
             <text class="search-title-text">热词</text>
         </view>
@@ -17,19 +17,35 @@
             <image class="search-before-banner-img"></image>
         </view>
     </view>
-    <view class="search-result-page" wx:if="{{!haveResult}}">
-        <view class="search-result-rank">
+    <view class="search-result-page" wx:if="{{haveResult}}">
+        <view class="search-result-rank" wx:if="{{resultRank.length>0}}">
             <view class="search-title">
                 <text class="search-title-text">榜单</text>
             </view>
             <rank-card rank-data="{{item}}" wx:for="{{resultRank}}" wx:key="{{index}}" free-style="{{index+1 == resultRank.length?'border-bottom:0 none;':''}}"></rank-card>
         </view>
-        <view class="search-result-rank">
+        <view class="search-result-rank" wx:if="{{resultElement.length>0}}">
             <view class="search-title">
                 <text class="search-title-text">排名</text>
             </view>
             <view class="search-result-element">
-            
+
+            </view>
+        </view>
+        <view class="search-result-rank" wx:if="{{resultPost.length>0}}">
+            <view class="search-title">
+                <text class="search-title-text">帖子</text>
+            </view>
+            <view class="search-result-post">
+                <view class="hot-post-components" wx:for="{{resultPost}}" wx:key="{{index}}">
+                    <view class="hot-post-title">
+                        <icon-font icon-value="iconfont icon-tiezi" icon-style="font-size: 36.2rpx;"></icon-font>
+                        <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
+                        <text class="hot-post-title-text">@{{item.element_name}}</text>
+                    </view>
+                    <view class="hot-post-content">{{item.postContent}}</view>
+                    <user-card card-type="tiny" user-info="{{createUser}}" created-time="{{createTime}}"></user-card>
+                </view>
             </view>
         </view>
     </view>

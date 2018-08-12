@@ -1,12 +1,15 @@
 <!--components/indexRankCard/indexRankCard.wxml-->
 <view class="index-rank-card">
     <view class="index-rank-card-left">
-        <!-- <span>{{rating[0]}}</span>
-        <span class="rating-sup">{{rating[1]}}</span> -->
+        <span>{{rating[0]}}</span>
+        <span class="rating-sup">{{rating[1]}}</span>
     </view>
     <view class="index-rank-card-right">
         <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">
-            <text wx:if="{{nameType != 'search'}}">#{{rankData.ranking_name}}</text>
+            <view wx:if="{{nameType != 'search'}}" class="rank-list-title">
+                <text>#{{rankData.ranking_name}}</text>
+                <slot></slot>
+            </view>
             <rich-text wx:if="{{nameType == 'search'}}"></rich-text>
         </view>
         <view class="index-rank-card-right-element-list" style="{{freeStyle}}">

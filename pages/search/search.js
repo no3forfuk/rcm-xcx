@@ -1,4 +1,5 @@
 // pages/search/search.js
+const app = getApp()
 Page({
 
     /**
@@ -6,118 +7,44 @@ Page({
      */
     data: {
         haveResult: false,
-        hotKey: [{
-                "search_key": "面膜"
-            },
-            {
-                "search_key": "哈哈哈"
-            },
-            {
-                "search_key": "哈哈哈"
-            },
-            {
-                "search_key": "哈哈哈1"
-            },
-            {
-                "search_key": "设置列大卡司进口量达"
-            },
-            {
-                "search_key": "阿斯达斯"
-            }
-        ],
+        hotKey: [],
         searchResult: {},
-        resultRank: [{
-            "ranking_p_name": "日本COSME大赏2017年度榜单",
-            "ranking_name": "2018年度热门排行榜",
-            "rating": "B",
-            "id": 40,
-            "data": [{
-                    "element_name": "SK-II 护肤面膜",
-                    "id": 520,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "雅诗兰黛 全新微精华面膜",
-                    "id": 521,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "悦木之源 粉滑嫩面膜",
-                    "id": 522,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "科颜氏 姜黄蔓越莓籽活力亮采面膜",
-                    "id": 523,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "芳珂 盈润细致精华面膜",
-                    "id": 524,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                }
-            ]
-        }, {
-            "ranking_p_name": "日本COSME大赏2017年度榜单",
-            "ranking_name": "2018年度热门面膜排行榜",
-            "rating": "B",
-            "id": 40,
-            "data": [{
-                    "element_name": "SK-II 护肤面膜",
-                    "id": 520,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "雅诗兰黛 全新微精华面膜",
-                    "id": 521,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "悦木之源 粉滑嫩面膜",
-                    "id": 522,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "科颜氏 姜黄蔓越莓籽活力亮采面膜",
-                    "id": 523,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                },
-                {
-                    "element_name": "芳珂 盈润细致精华面膜",
-                    "id": 524,
-                    "created_at": "2018-05-14 10:12:15",
-                    "updated_at": "2018-05-14 10:12:15",
-                    "img": null
-                }
-            ]
-        }],
+        resultRank: [],
         resultElement: [],
         resultPost: []
     },
-
+    submitSearch(e) {
+        app._ajax().searchByKeyWords({
+            type: 'all',
+            search_key: e.detail.value
+        }, res => {
+            let postArr = []
+            if (res.data.post.data.length > 0) {
+                let arr = res.data.post.data
+                let reg = /<[^>]+>|&[a-z]*;/g
+                for (let i = 0; i < arr.length; i++) {
+                    let text = arr[i].post_content.replace(reg, '')
+                    arr[i].post_content = text
+                }
+                postArr = arr
+            }
+            this.setData({
+                haveResult: true,
+                resultRank: res.data.second.data,
+                resultElement: res.data.element.data,
+                resultPost: postArr,
+            })
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        app._ajax().getHotKeyWords(res => {
+            this.setData({
+                hotKey: res.hot
+            })
+        })
     },
 
     /**

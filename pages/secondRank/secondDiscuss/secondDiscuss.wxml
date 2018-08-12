@@ -10,6 +10,11 @@
         </view>
     </view>
     <view class="second-discuss-body">
-        <discuss-card wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></discuss-card>
+        <discuss-card wx:for="{{discussList}}" wx:if="{{discussList.length != 0}}" wx:key="{{index}}" discuss-data="{{item}}"></discuss-card>
+        <view class="no-discuss" wx:if="{{discussList.length == 0}}">
+            <text class="no-discuss-text">自我认知的过程，就像在做一个排行榜</text>
+            <image src="/static/images/usercenter_null.png" class="no-discuss-img"></image>
+            <text class="no-discuss-text">这里暂时空空的，手快第一就是你的</text>
+        </view>
     </view>
 </view>

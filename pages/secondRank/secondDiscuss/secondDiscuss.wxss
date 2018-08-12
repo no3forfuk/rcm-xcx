@@ -35,3 +35,20 @@
     font-size: 16px;
     margin-left: 13.2rpx;
 }
+
+.no-discuss {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-discuss-text {
+    font-size: 21.72rpx;
+    color: #c8c7cd;
+}
+
+.no-discuss-img {
+    margin-top: 36.2rpx;
+    width: 246.17rpx;
+    height: 213.59rpx;
+}

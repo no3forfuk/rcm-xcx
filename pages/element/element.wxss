@@ -8,7 +8,37 @@
 .element-page-neck {
     display: flex;
     flex-direction: row;
-    height: 42px;
+    padding-left: 36.2rpx;
+}
+
+.element-page-neck-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.element-page-neck-vote {
+    font-size: 43.44rpx;
+}
+
+.element-page-neck-voter {
+    color: #8e8f93;
+    font-size: 21.72rpx;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+.element-page-neck-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-left: 54.3rpx;
+}
+
+.element-page-neck-right-item {
+    display: inline-block;
+    margin-left: 36.2rpx;
 }
 
 .element-page-shoulder {

@@ -7,6 +7,9 @@
         "rank-card": "/components/indexRankCard/indexRankCard",
         "pop-up": "/components/popup/popup",
         "tab-bar": "/components/tabBar/tabBar",
-        "icon-font": "/components/iconfont/iconfont"
+        "icon-font": "/components/iconfont/iconfont",
+        "hot-rank": "./hotRank/hotRank",
+        "hot-post": "./hotPost/hotPost",
+        "authorize": "/components/authorize/authorize"
     }
 }

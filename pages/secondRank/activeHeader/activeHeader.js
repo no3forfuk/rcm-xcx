@@ -8,7 +8,12 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
-                console.log(n)
+                if ('parent' in n && 'son' in n) {
+                    this.setData({
+                        parent: n.parent,
+                        son: n.son
+                    })
+                }
             }
         }
     },
@@ -17,7 +22,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        parent: {},
+        son: {}
     },
 
     /**

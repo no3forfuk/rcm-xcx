@@ -1,11 +1,21 @@
 /* components/indexRankCard/indexRankCard.wxss */
 
+.rank-list-title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    /* width: calc(100% - ) */
+}
+
 .index-rank-card {
     padding-left: 14.48rpx;
     display: flex;
     flex-direction: row;
     justify-content: left;
     padding-top: 21.72rpx;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .index-rank-card-left {
@@ -29,6 +39,8 @@
 
 .index-rank-card-right {
     padding-left: 16.29rpx;
+    width: calc(100% - 32.58rpx);
+    box-sizing: border-box;
 }
 
 .index-rank-card-right-title {
@@ -55,6 +67,7 @@
     margin-right: 19.91rpx;
     border: 1px solid rgba(0, 0, 0, 0.2);
     position: relative;
+    overflow: hidden;
 }
 
 .rank-card-element-item-text {

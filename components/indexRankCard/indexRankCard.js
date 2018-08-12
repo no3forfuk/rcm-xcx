@@ -9,7 +9,15 @@ Component({
             value: {},
             observer(n, o, c) {
                 if (n) {
-
+                    if (n.rating) {
+                        this.setData({
+                            rating: n.rating.split('')
+                        })
+                    } else {
+                        this.setData({
+                            rating: ['A']
+                        })
+                    }
                 }
             }
         },
@@ -19,6 +27,15 @@ Component({
             observer(n, o, c) {
                 if (n) {
 
+                }
+            }
+        },
+        firs: {
+            type: String,
+            value: '',
+            observer(n, o, c) {
+                if (n) {
+                    console.log(n)
                 }
             }
         },
@@ -46,7 +63,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        rating: []
     },
 
     /**

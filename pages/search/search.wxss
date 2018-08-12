@@ -77,3 +77,39 @@
 .search-result-element {
     
 }
+/* pages/index/hotPost/hotPost.wxss */
+
+.hot-post-components {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid #ebebeb;
+}
+
+.hot-post-title {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.hot-post-title-text {
+    color: #808080;
+    font-size: 28.96rpx;
+    line-height: 28.96rpx;
+}
+
+.hot-post-content {
+    /* max-height: 90.07rpx; */
+    padding-top: 5px;
+    margin-bottom: 5px;
+    font-size: 25.34rpx;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+}
+

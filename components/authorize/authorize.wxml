@@ -1,0 +1,18 @@
+<!--components/authorize/authorize.wxml-->
+<view class="authorize-component">
+    <view class="authorize-content">
+        <view class="authorize-icon" style="padding:0 0 18.1rpx 0;">
+            <view></view>
+            <view bindtap="cancelAuthorize">
+                <icon-font icon-value="iconfont icon-guanbi" icon-style="color:#ABABAB;font-size:12.85rpx;font-weight:blod;"></icon-font>
+            </view>
+        </view>
+        <view style="padding:18.1rpx 0;">
+            <image src="../../static/images/authorization.png" class="authorize-img"></image>
+        </view>
+        <view class="authorize-text" style="padding:18.1rpx 0;">关联后可以创建榜单，解锁更多玩法</view>
+        <view style="padding:18.1rpx 0;">
+            <button class="authorize-button" bindgetuserinfo="getUserInfo" open-type="getUserInfo">去关联</button>
+        </view>
+    </view>
+</view>

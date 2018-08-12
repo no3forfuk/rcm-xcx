@@ -5,8 +5,8 @@ Component({
      */
     properties: {
         subElement: {
-            type: Object,
-            value: {},
+            type: Array,
+            value: [],
             observer(n, o, c) {}
         },
         lastElement: {
@@ -34,8 +34,11 @@ Component({
                 url: '/pages/element/element?elementId=' + e.currentTarget.dataset.id,
             })
         },
-        addelement(e){
-          this.triggerEvent('addelement')
+        addelement(e) {
+            this.triggerEvent('addelement')
+        },
+        goInvite(){
+            this.triggerEvent('goinvite')
         }
     }
 })

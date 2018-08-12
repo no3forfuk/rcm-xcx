@@ -46,20 +46,23 @@ Component({
      */
     methods: {
         collect() {
-            if (this.data.headerType == 'second') {
-                app._ajax().collectRankLv2(this.data.collectParams, res => {
+            if (app.token) {
+                if (this.data.headerType == 'second') {
+                    app._ajax().collectRankLv2(this.data.collectParams, res => {
 
-                }, err => {
+                    }, err => {
 
-                })
-            } else if (this.data.headerType == 'element') {
-                app._ajax().collectElement(this.data.collectParams, res => {
+                    })
+                } else if (this.data.headerType == 'element') {
+                    app._ajax().collectElement(this.data.collectParams, res => {
 
-                }, err => {
+                    }, err => {
 
-                })
+                    })
+                }
+            } else {
+                this.triggerEvent('goAuthorize')
             }
-
         },
         more() {
             var myEventDetail = {} // detail对象，提供给事件监听函数

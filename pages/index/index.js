@@ -13,28 +13,30 @@ Page({
         })
         let id = e.currentTarget.dataset.item.id
         if (id == '-1') {
-
+            this.setData({
+                indexType: 'hotPost',
+                crtHotPostPage: 1,
+                hotPostList: [],
+                hotPostTotalPage: 1
+            })
+            this.getIndexHotPost()
         } else if (id == '-2') {
             this.setData({
-                beforeDay: 0,
-                rankData: []
+                indexType: 'hotRank',
+                crtHotPage: 1,
+                hotRankList: [],
+                hotRankTotalPage: 1
             })
-            this.getIndexHotRank(this.data.beforeDay)
+            this.getIndexHotRank()
         } else {
             this.setData({
-                crtPage: 1,
-                crtRankId: id
+                indexType: 'firstRank',
+                firstId: id,
+                crtFirstPage: 1,
+                firstRankList: [],
+                firstRankTotalPage: 1,
             })
-            let params = {
-                level: 1,
-                id: id,
-                page: 1
-            }
-            app._ajax().getFirstDetails(params, res => {
-                this.setData({
-                    rankData: res.data.data.data
-                })
-            })
+            this.getIndexFirstRank()
         }
     },
     //点击tabBar项目
@@ -52,45 +54,63 @@ Page({
             url: '/pages/search/search',
         })
     },
-    indexScroll(e) {
-        //初始高度
-        let baseHeight = this.data.scrollHeightNum;
-        //总高度
-        let totalHeight = e.detail.scrollHeight;
-        //被卷去的高度
-        let top = e.detail.scrollTop
-        //距离底部的距离
-        let Y = totalHeight - top - baseHeight
-        if (this.data.crtIndex >= 2) {
-            console.log('榜单')
-        } else {
-            if (Y < 200) {
-                this.setData({
-                    beforeDay: this.data.beforeDay + 1
-                })
-                this.getIndexHotRank(this.data.beforeDay)
+    //获取热门Post
+    getIndexHotPost() {
+        app._ajax().getHotPost(this.data.crtHotPostPage, res => {
+            let list = this.data.hotPostList.concat(res.data)
+            this.setData({
+                crtHotPostPage: res.current_page + 1,
+                hotPostList: list,
+                hotPostTotalPage: res.last_page
+            })
+        })
+    },
+    //获取热门榜单
+    getIndexHotRank() {
+        app._ajax().getHotRank(this.data.crtHotPage, res => {
+            let list = this.data.hotRankList.concat(res.data)
+            this.setData({
+                crtHotPage: res.current_page + 1,
+                hotRankList: list,
+                hotRankTotalPage: res.last_page
+            })
+        })
+    },
+    //获取一级榜单
+    getIndexFirstRank() {
+        app._ajax().getFirstDetails({
+            page: this.data.crtFirstPage,
+            level: 1,
+            id: this.data.firstId
+        }, res => {
+            let list = this.data.firstRankList.concat(res.data.data)
+            this.setData({
+                crtFirstPage: res.data.current_page + 1,
+                firstRankList: list,
+                firstRankTotalPage: res.data.last_page
+            })
+        })
+    },
+    loadNextPage() {
+        if (this.data.indexType == 'hotRank') {
+            if (this.data.hotRankTotalPage >= this.data.crtHotPage) {
+                this.getIndexHotRank()
+            } else {
+                return
+            }
+        } else if (this.data.indexType == 'firstRank') {
+            if (this.data.firstRankTotalPage >= this.data.crtFirstPage) {
+                this.getIndexFirstRank()
+            } else {
+                return
+            }
+        } else if (this.data.indexType == 'hotPost') {
+            if (this.data.hotPostTotalPage >= this.data.crtHotPostPage) {
+                this.getIndexHotPost()
+            } else {
+                return
             }
         }
-
-    },
-    //获取推送数据
-    getIndexHotRank(day) {
-        let params = new Date().getTime() - (day * 24 * 3600 * 1000)
-        params = app.timeFormat('-', params)
-        if (params == '2018-05-01') return;
-        app._ajax().getIndexRanking(params, res => {
-            if (res.data.length <= 0) {
-                this.setData({
-                    beforeDay: this.data.beforeDay + 1
-                })
-                this.getIndexHotRank(this.data.beforeDay)
-            } else {
-                let arr = this.data.rankData.concat(res.data)
-                this.setData({
-                    rankData: arr
-                })
-            }
-        })
     },
     /**
      * 页面的初始数据
@@ -110,7 +130,22 @@ Page({
         scrollHeight: '',
         scrollHeightNum: 0,
         crtPage: 1,
-        crtRankId: null
+        crtRankId: null,
+        //hot
+        indexType: 'hotRank',
+        crtHotPage: 1,
+        hotRankList: [],
+        hotRankTotalPage: 1,
+        //first
+        firstId: 0,
+        crtFirstPage: 1,
+        firstRankList: [],
+        firstRankTotalPage: 1,
+        //Post
+        crtHotPostPage: 1,
+        hotPostList: [],
+        hotPostTotalPage: 1
+
     },
 
     /**
@@ -121,7 +156,6 @@ Page({
 
         } else {
             app.initApi = res => {
-                this.getIndexHotRank(this.data.beforeDay)
                 // 获取一级榜单列表
                 app._ajax().getFirstRanking(res => {
                     let firstRankArr = [{
@@ -136,7 +170,9 @@ Page({
                         firstRank: firstRankArr
                     })
                 })
+                this.getIndexHotRank()
             }
+
         }
     },
 

@@ -1,0 +1,20 @@
+/* pages/index/hotRank/hotRank.wxss */
+
+.hot-rank-father {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.hot-rank-father-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.hot-rank-father-text {
+    color: #808080;
+    font-size: 28.96rpx;
+}

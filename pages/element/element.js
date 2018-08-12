@@ -48,6 +48,7 @@ Page({
      */
     data: {
         headerData: {},
+        neckData: [],
         postList: {},
         activePopup: false,
         popupType: '',
@@ -81,6 +82,7 @@ Page({
                     vote: res.data.vote,
                     vote_user: res.data.vote_user
                 },
+                neckData: res.data.ranking_p,
                 collectParams: {
                     element_id: options.elementId
                 },
