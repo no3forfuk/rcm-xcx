@@ -1,6 +1,6 @@
 <!--pages/element/element.wxml-->
-<scroll-view scroll-y class="element-page-component">
-    <element-header header-info="{{headerData}}" header-type="element" collect-params="{{collectParams}}" bindtapdetail="opendetail" bindtapmore="ontapmore"></element-header>
+<scroll-view scroll-y="{{canScroll}}" class="element-page-component">
+    <element-header header-info="{{headerData}}" header-type="element" collect-params="{{collectParams}}" bindtapdetail="opendetail" bindtapmore="ontapmore" bindgoAuthorize="goAuthorize" is-collected="{{isCollected}}" bindvoteForElemenet="vote"></element-header>
     <view class="element-page-neck">
         <view class="element-page-neck-left">
             <text class="element-page-neck-vote">{{headerData.vote}}<text style="font-size:8px;">票</text></text>
@@ -29,7 +29,9 @@
     <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
         <element-detail slot="large" bindcancel="closePopup" wx:if="{{popupType == 'detail'}}" element-info="{{detailInfo}}">
         </element-detail>
-        <add-post slot="large" bindcancel="closePopup" wx:if="{{popupType == 'addPost'}}" bindconfirm="submitadd">
+        <add-post slot="large" bindcancel="closePopup" wx:if="{{popupType == 'addPost'}}" bindconfirm="submitadd" element-id="{{elementId}}">
         </add-post>
+        <report slot="large" bindcancel="closePopup" bindconfirm="submitReport" wx:if="{{popupType == 'report'}}" report-id="{{elementId}}" report-type="3" id-type="element_id"></report>
     </pop-up>
 </scroll-view>
+<authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>

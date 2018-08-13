@@ -38,6 +38,7 @@
 
 .invite-tab-body {
     padding: 36.2rpx;
+    padding-top: 0;
 }
 
 .invite-tab-item {
@@ -46,6 +47,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-top: 18.1rpx;
 }
 
 .invite-btn {
@@ -61,4 +63,14 @@
 
 .invite-btn::after {
     border: 0;
+}
+.no-body{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 18.1rpx;
+    color: #d3d3d3;
+    font-size: 12px;
+    justify-content: space-around;
 }

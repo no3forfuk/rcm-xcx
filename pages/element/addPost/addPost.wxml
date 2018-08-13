@@ -12,7 +12,7 @@
         <icon-font icon-value="iconfont icon-lianjie" bindtap="insertLink" icon-style="font-size:48rpx;margin-left:15px;"></icon-font>
     </view>
     <view class="input-text" wx:if="{{insertType == 'text'}}">
-        <textarea type="text" class="input-text-textarea" bindconfirm="insertTextConfirm"></textarea>
+        <textarea type="text" class="input-text-textarea" bindconfirm="insertTextConfirm" bindinput="setText" focus="{{startInsetText}}"></textarea>
     </view>
     <view class="input-link" wx:if="{{insertType == 'link'}}">
         <view class="input-link-box">

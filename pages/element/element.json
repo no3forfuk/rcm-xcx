@@ -5,6 +5,8 @@
         "icon-font": "/components/iconfont/iconfont",
         "pop-up": "/components/popup/popup",
         "element-detail": "./detail/detail",
-        "add-post": "./addPost/addPost"
+        "add-post": "./addPost/addPost",
+        "authorize": "/components/authorize/authorize",
+        "report": "/components/report/report"
     }
 }

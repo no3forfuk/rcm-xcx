@@ -5,18 +5,20 @@ Page({
         this.setData({
             activePopup: true,
             popupType: 'detail',
-            popupSize: 'large'
+            popupSize: 'large',
+            canScroll: false
         })
     },
     addpost() {
         this.setData({
             activePopup: true,
             popupType: 'addPost',
-            popupSize: 'large'
+            popupSize: 'large',
+            canScroll: false
         })
     },
-    submitadd() {
-
+    submitadd(e) {
+        console.log(e)
     },
     closePopup() {
         const $popup = this.selectComponent('#popup')
@@ -25,6 +27,7 @@ Page({
             this.setData({
                 popupSize: '',
                 popupType: '',
+                canScroll: true,
                 activePopup: false
             })
         }.bind(this), 220)
@@ -34,14 +37,32 @@ Page({
         this[result]()
     },
     ontapmore() {
-        this.setData({
-            activePopup: true,
-            popupSize: 'small',
-            popupType: 'more'
-        })
+        if (app.token) {
+            this.setData({
+                canScroll: false,
+                activePopup: true,
+                popupSize: 'small',
+                popupType: 'more'
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     report() {
-
+        this.setData({
+            canScroll: true,
+            popupSize: '',
+            popupType: '',
+            activePopup: false
+        })
+        setTimeout(function() {
+            this.setData({
+                canScroll: true,
+                popupType: 'report',
+                popupSize: 'large',
+                activePopup: true
+            })
+        }.bind(this), 300)
     },
     /**
      * 页面的初始数据
@@ -56,9 +77,48 @@ Page({
         moreItems: [{
             label: '举报',
             result: 'report'
-        }]
+        }],
+        isCollected: false,
+        goAuthorize: false,
+        elementId: '',
+        canScroll: true
     },
+    goAuthorize() {
+        this.setData({
+            goAuthorize: true
+        })
+    },
+    closeAuthorize() {
+        this.setData({
+            goAuthorize: false
+        })
+    },
+    submitReport() {
 
+    },
+    vote() {
+        app._ajax().vote(this.data.elementId, res => {
+            wx.showToast({
+                title: res.message,
+            })
+            app._ajax().getElementDetails({
+                id: this.data.elementId,
+                page: 1,
+                solt_name: 'exponent'
+            }, res => {
+                this.setData({
+                    headerData: {
+                        flag: '@',
+                        title: res.data.element_name,
+                        desc: res.data.element_desc,
+                        img: res.data.img,
+                        vote: res.data.vote,
+                        vote_user: res.data.vote_user
+                    }
+                })
+            })
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -66,9 +126,16 @@ Page({
         app._ajax().getElementDetails({
             id: options.elementId,
             page: 1,
-            solt_name: 'exponent'
+            solt_name: 'created_at'
         }, res => {
+            let collect = false;
+            if (res.data.collect == 0) {
+                collect = false;
+            } else {
+                collect = true;
+            }
             this.setData({
+                elementId: options.elementId,
                 detailInfo: {
                     title: res.data.element_name,
                     desc: res.data.element_desc,

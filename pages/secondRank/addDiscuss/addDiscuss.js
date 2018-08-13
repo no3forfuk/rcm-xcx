@@ -32,6 +32,12 @@ Component({
         },
         confirm() {
             this.triggerEvent('confirm')
+        },
+        setValue(e) {
+            this.triggerEvent('setValue', e.detail.value)
+        },
+        editconfirm(e){
+            this.triggerEvent('confirm', e.detail.value)
         }
     }
 })

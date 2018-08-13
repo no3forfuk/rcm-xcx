@@ -8,11 +8,11 @@
             <text class="rank-header-desc-text">{{headerInfo.desc}}</text>
         </view>
         <view class="rank-header-options">
-            <view style="position:relative;">
+            <view style="position:relative;" bindtap="emitVote">
                 <text class="rank-header-vote" wx:if="{{headerType == 'element'}}">投一票</text>
             </view>
             <view class="rank-header-options-right">
-                <icon-font icon-value="iconfont icon-like text-size-14" text-class="text-size-8" text-value="收藏" style="margin-left:10px;" bindtapicon="collect"></icon-font>
+                <icon-font icon-value="iconfont icon-like text-size-14" text-class="text-size-8" text-value="收藏" style="margin-left:10px;{{isCollected? 'color:#FF2C09;':''}}" text-color="{{isCollected? '#FF2C09':''}}" bindtapicon="collect"></icon-font>
                 <icon-font icon-value="iconfont icon-gengduo text-size-14" text-class="text-size-8" text-value="更多" style="margin-left:10px;" bindtapicon="more"></icon-font>
             </view>
         </view>

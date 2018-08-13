@@ -11,6 +11,18 @@ Component({
             observer(n, o, c) {
 
             }
+        },
+        discussInfo: {
+            type: Object,
+            value: null,
+            observer(n, o, c) {
+                if (n) {
+                    this.setData({
+                        discussData: n,
+                        discussList: n.data
+                    })
+                }
+            }
         }
     },
 
@@ -43,7 +55,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        addDiscuss(){
+        addDiscuss() {
             this.triggerEvent('addDiscuss')
         }
     }

@@ -3,7 +3,7 @@
     <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
     <view class="add-discuss-body">
         <user-card user-info="{{userInfo}}" card-type="tiny" class="add-discuss-user-card"></user-card>
-        <textarea class="add-discuss-content" maxlength="350">
+        <textarea class="add-discuss-content" maxlength="350" bindconfirm="editconfirm" bindblur="setValue">
         </textarea>
     </view>
 </scroll-view>

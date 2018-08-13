@@ -1,5 +1,21 @@
 // pages/secondRank/secondRank.js
 const app = getApp()
+const qiniuSDK = require('../../static/vonder/qiniuUploader.js')
+
+function init7niu() {
+    app._ajax().get7niuToken(res => {
+        let token = res.data.qiniu_token
+        let url = `https://up-z2.qbox.me`
+        let options = {
+            uptoken: token,
+            uploadURL: url,
+            region: 'SCN'
+        }
+        qiniuSDK.init(options)
+    })
+}
+init7niu()
+
 Page({
     /** 
      * 自定义事件
@@ -62,9 +78,131 @@ Page({
             this.goAuthorize()
         }
     },
-    setNewElementName(e){
+    setNewElementName(e) {
         this.setData({
-            newElementName:e.detail.value
+            newElementName: e.detail.value
+        })
+    },
+    setElementImg(e) {
+        this.setData({
+            imgFile: e.detail.tempFiles[0]
+        })
+    },
+    setElementDesc(e) {
+        this.setData({
+            newElementDesc: e.detail.value
+        })
+    },
+    submitadd(e) {
+        if (e.detail.bindItem.length > 0) {
+            let list = e.detail.bindItem
+            let arr = [],
+                str = '';
+            for (let i = 0; i < list.length; i++) {
+                arr.push(list[i].id)
+            }
+            str = arr.join(',')
+            let params = {
+                ranking_id: this.data.secondId,
+                list: str
+            }
+            if (!this.data.imgFile) {
+                app._ajax().bindElement(params, res => {
+                    wx.showToast({
+                        title: res.message
+                    })
+                    this.refreshArea(res => {
+                        this.setData({
+                            subElement: res.data.data.data
+                        })
+                    })
+                    this.closePopup()
+                })
+            } else {
+                let path = this.data.imgFile.path
+                qiniuSDK.upload(path, complete => {
+                    params.img = app.qiniuPrefix + complete.imageURL
+                    app._ajax().bindElement(params, res => {
+                        wx.showToast({
+                            title: res.message
+                        })
+                        this.refreshArea(res => {
+                            this.setData({
+                                subElement: res.data.data.data
+                            })
+                        })
+                        this.closePopup()
+                    })
+                })
+            }
+
+        } else {
+            if (!this.data.newElementName || this.data.newElementName.length <= 0) {
+                wx.showToast({
+                    title: '请输入元素名称'
+                })
+            } else {
+                if (this.data.imgFile) {
+                    let path = this.data.imgFile.path
+                    qiniuSDK.upload(path, complete => {
+                        let params = {
+                            ranking_id: this.data.secondId,
+                            element_name: this.data.newElementName,
+                            element_desc: this.data.newElementDesc || '',
+                            img: app.qiniuPrefix + complete.imageURL
+                        }
+                        app._ajax().addElement(params, res => {
+                            if (res.status_code == 1) {
+                                wx.showToast({
+                                    title: res.message,
+                                    icon: 'success'
+                                })
+                            } else {
+                                wx.showToast({
+                                    title: res.message
+                                })
+                            }
+                            this.refreshArea(res => {
+                                this.setData({
+                                    subElement: res.data.data.data
+                                })
+                            })
+                            this.closePopup()
+                        })
+                    })
+                } else {
+                    let params = {
+                        ranking_id: this.data.secondId,
+                        element_name: this.data.newElementName,
+                        element_desc: this.data.newElementDesc || ''
+                    }
+                    app._ajax().addElement(params, res => {
+                        if (res.status_code == 1) {
+                            wx.showToast({
+                                title: res.message,
+                                icon: 'success'
+                            })
+                        } else {
+                            wx.showToast({
+                                title: res.message
+                            })
+                        }
+                        this.closePopup()
+                    })
+                }
+            }
+        }
+
+
+
+    },
+    //获取评论
+    getDiscuss() {
+        app._ajax().getSecondDiscuss(this.data.secondId, res => {
+            this.setData({
+                discussData: res.data,
+                discussList: res.data.data
+            })
         })
     },
     //添加评论
@@ -80,33 +218,30 @@ Page({
             this.goAuthorize()
         }
     },
-    submitadd(e) {
-        app._ajax().addElement({
-            ranking_id:this.data.secondId,
-            element_name: this.data.newElementName
-        },res=>{
-            if(res.status_code == 1){
-                wx.showToast({
-                    title: '成功',
-                    icon: 'success'
-                })
-            }else{
-                wx.showToast({
-                    title: res.message
-                })
-            }
+    setDiscussValue(e) {
+        this.setData({
+            discussValue: e.detail
         })
-        // app._ajax().get7niuToken(res => {
-        //     console.log(res)
-        //     wx.uploadFile({
-        //         url: '',
-        //         filePath: '',
-        //         name: '',
-        //     })
-        // })
     },
     submitDiscuss(e) {
-        console.log('评论')
+        let params = {
+            comment_type: 2,
+            type: 1,
+            ranking_id: this.data.secondId
+        }
+        if (e.detail) {
+            params.content = e.detail
+        } else {
+            params.content = this.data.discussValue
+        }
+        app._ajax().addDiscuss(params, res => {
+            wx.showToast({
+                title: res.message,
+            })
+
+            this.closePopup()
+            this.getDiscuss()
+        })
     },
     submitInvite() {
         console.log('邀请')
@@ -132,10 +267,22 @@ Page({
         }.bind(this), 300)
     },
     report() {
-        //举报
+        this.setData({
+            canScroll: true,
+            popupSize: '',
+            popupType: '',
+            activePopup: false
+        })
+        setTimeout(function() {
+            this.setData({
+                popupType: 'report',
+                popupSize: 'large',
+                canScroll: false,
+                activePopup: true
+            })
+        }.bind(this), 300)
     },
     listToInvite() {
-        
         if (app.token) {
             this.setData({
                 popupType: 'invite',
@@ -158,6 +305,19 @@ Page({
             popupSize: 'large',
             canScroll: false,
             activePopup: true
+        })
+    },
+    refreshArea(success) {
+        this.setData({
+            crtPage: 1
+        })
+        app._ajax().getSecondRankDetails({
+            level: 2,
+            id: this.data.secondId,
+            page: 1,
+            solt_name: this.data.solt_name
+        }, res => {
+            success(res)
         })
     },
     /**
@@ -203,7 +363,12 @@ Page({
         crtPage: 1,
         solt_name: 'created_at',
         totalPage: 1,
-        fatherRank: {}
+        fatherRank: {},
+        discussValue: '',
+        discussData: {},
+        discussList: [],
+        isCollected: false
+
     },
     loadNextPage() {
         if (this.data.totalPage >= this.data.crtPage) {
@@ -219,7 +384,14 @@ Page({
             page: this.data.crtPage,
             solt_name: this.data.solt_name
         }, res => {
+            let collect = false;
+            if (res.data.collect == 0) {
+                collect = false;
+            } else {
+                collect = true;
+            }
             this.setData({
+                isCollected: collect,
                 //详情页数据
                 detailInfo: {
                     title: res.data.ranking_name,

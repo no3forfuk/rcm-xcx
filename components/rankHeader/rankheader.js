@@ -31,6 +31,11 @@ Component({
             type: String,
             value: '',
             observer(n, o, c) {}
+        },
+        isCollected: {
+            type: Boolean,
+            value: false,
+            observer(n, o, c) {}
         }
     },
 
@@ -49,13 +54,23 @@ Component({
             if (app.token) {
                 if (this.data.headerType == 'second') {
                     app._ajax().collectRankLv2(this.data.collectParams, res => {
-
+                        wx.showToast({
+                            title: res.message
+                        })
+                        this.setData({
+                            isCollected: !this.properties.isCollected
+                        })
                     }, err => {
 
                     })
                 } else if (this.data.headerType == 'element') {
                     app._ajax().collectElement(this.data.collectParams, res => {
-
+                        wx.showToast({
+                            title: res.message
+                        })
+                        this.setData({
+                            isCollected: !this.properties.isCollected
+                        })
                     }, err => {
 
                     })
@@ -71,6 +86,9 @@ Component({
         },
         openDetails() {
             this.triggerEvent('tapdetail')
+        },
+        emitVote(){
+            this.triggerEvent('voteForElemenet')
         }
     }
 })

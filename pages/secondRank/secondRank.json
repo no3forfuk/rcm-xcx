@@ -12,6 +12,7 @@
         "invite": "./invite/invite",
         "active-header": "./activeHeader/activeHeader",
         "second-detail": "./detail/detail",
-        "authorize": "/components/authorize/authorize"
+        "authorize": "/components/authorize/authorize",
+        "report": "/components/report/report"
     }
 }

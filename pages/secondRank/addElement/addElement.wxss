@@ -2,6 +2,7 @@
 
 .add-element-component {
     width: 100%;
+    height: calc(100% - 68.78rpx);
 }
 
 .add-element-body {
@@ -50,4 +51,26 @@
     max-width: 80rpx;
     max-height: 80rpx;
     border-radius: 2px;
+}
+
+.pick-element-buffer {
+  
+}
+
+.pick-element-buffer-item {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 14px;
+}
+
+.pick-element-buffer-item-text {
+    background: linear-gradient(to top, #ccc 0%, #ccc, 40%, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 1) 100%);
+}
+
+.pick-element-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
 }

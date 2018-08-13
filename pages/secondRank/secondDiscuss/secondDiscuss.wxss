@@ -9,10 +9,12 @@
     justify-content: space-between;
     padding: 12.07rpx 39.22rpx;
     align-items: center;
+
 }
 
 .second-discuss-body {
-    padding-left: 39.22rpx;
+    padding: 0 39.22rpx;
+
 }
 
 .second-discuss-header-left {

@@ -197,7 +197,30 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        app._ajax().getFirstRanking(res => {
+            let firstRankArr = [{
+                ranking_name: '热榜',
+                id: -2
+            }, {
+                ranking_name: '热帖',
+                id: -1
+            }]
+            firstRankArr = firstRankArr.concat(res.data.data)
+            this.setData({
+                firstRank: firstRankArr
+            })
+        })
+        this.getIndexHotRank()
+        let windowY = wx.getSystemInfoSync().windowHeight
+        const query = wx.createSelectorQuery()
+        query.select('.index-scroll-view').boundingClientRect()
+        query.exec(res => {
+            let num = windowY - res[0].top - 46
+            this.setData({
+                scrollHeight: 'height:' + num + 'px;',
+                scrollHeightNum: num
+            })
+        })
     },
 
     /**

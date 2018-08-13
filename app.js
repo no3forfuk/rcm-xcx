@@ -1,10 +1,25 @@
 /*Created By Jsir on 2018/7/26*/
 'use strict'
 const api = require('./api/api.js')
-const qiniu = require('./static/vonder/qiniu.js')
+const qiniu = require('./static/vonder/qiniuUploader.js')
+
+function qiniuInit() {
+    api.get7niuToken(res => {
+        let options = {
+            region: 'z2',
+            uptoken: res.data.qiniu_token
+        }
+        qiniu.init(options)
+    })
+}
+
 App({
     _ajax() {
-        return api(this.token)
+        if (this.token) {
+            return api(this.token)
+        } else {
+            return api('')
+        }
     },
     onLaunch() {
         wx.getSetting({
@@ -40,6 +55,7 @@ App({
             }
         })
     },
+    qiniuPrefix: 'http://p8rk87lub.bkt.clouddn.com/',
     qiniuSDK: qiniu,
     globalData: {
         userInfo: {},

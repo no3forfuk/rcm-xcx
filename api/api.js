@@ -226,15 +226,116 @@ const ApiFactory = function(token) {
             })
         },
         //添加元素
-        addElement(data,success,fail) {
+        addElement(data, success, fail) {
             ajax_post({
                 uri: '/home/element/addElement',
                 params: data,
                 s_cb(res) {
                     success(res)
                 },
-                f_cb(res){
+                f_cb(res) {
                     fail(res)
+                }
+            })
+        },
+        //绑定元素 
+        bindElement(data, success, fail) {
+            ajax_post({
+                uri: '/home/ranking/secondBindElement',
+                params: data,
+                s_cb(res) {
+                    success(res)
+                },
+                f_cb(res) {
+                    fail(res)
+                }
+            })
+        },
+        //搜索元素 
+        searchElement(key, success) {
+            ajax_post({
+                uri: '/home/element/getElementName',
+                params: {
+                    like: key
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //评论
+        addDiscuss(params, success) {
+            ajax_post({
+                uri: '/home/comment/addComment',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //获取邀请信息 
+        getInviter(type, success) {
+            ajax_post({
+                uri: '/home/ranking/inviteView',
+                params: {
+                    type: type
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //搜索其他人
+        searchPeople(name, success) {
+            ajax_post({
+                uri: '/home/ranking/searchInvite',
+                params: {
+                    name: name
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //邀请其他人 
+        invitePeople(params, success) {
+            ajax_post({
+                uri: '/home/ranking/invite',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //举报 
+        report(params, success) {
+            ajax_post({
+                uri: '/home/report/report',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //投票
+        vote(id, success) {
+            ajax_post({
+                uri: '/home/vote/addVote',
+                params: {
+                    element_id: id
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //添加post
+        addpost(params, success) {
+            ajax_post({
+                uri: '/home/post/addPost',
+                params: params,
+                s_cb(res) {
+                    success(res)
                 }
             })
         },

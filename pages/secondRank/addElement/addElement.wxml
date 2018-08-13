@@ -1,15 +1,34 @@
 <!--pages/secondRank/addElement/addElement.wxml-->
+<cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
 <scroll-view scroll-y class="add-element-component">
-    <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
     <view class="add-element-body">
         <view class="add-element-name">
             <input type="text" placeholder-class="placeholder-class" placeholder="为这个榜单添加新的成员" class="add-element-name-input" adjust-position="false" confirm-type="next" bindconfirm="clickNext" confirm-hold="true" bindblur="clickNext"></input>
         </view>
-        <textarea placeholder="{{textareaPlaceholder}}" class="add-element-desc" placeholder-class="placeholder-class" focus="{{inputDesc}}">
+        <textarea placeholder="{{textareaPlaceholder}}" class="add-element-desc" placeholder-class="placeholder-class" focus="{{inputDesc}}" bindblur="setElementDesc" bindconfirm="setElementDesc">
         </textarea>
         <view class="add-element-img">
             <image class="view-img" wx:if="{{hasImg}}" src="{{imgSrc}}" bindtap="previewImage"></image>
             <icon-font icon-value="iconfont icon-tianjia1" icon-style="font-size:80rpx;color:#dedede;" bindtapicon="selectImg"></icon-font>
+        </view>
+        <view class="pick-element">
+            <view class="pick-element-buffer">
+                <view wx:for="{{selectList}}" wx:key="{{idnex}}" class="pick-element-buffer-item" bindtap="deleteSelectElement" data-index="{{index}}">
+                    <text class="pick-element-buffer-item-text">{{item.element_name}}</text>
+                    <view>
+                        <icon-font icon-value="iconfont icon-shanchu" icon-style="font-size:14px;"></icon-font>
+                    </view>
+                </view>
+            </view>
+            <view class="pick-element-ul">
+                <view class="pick-element-li" wx:for="{{searchElementResult}}" wx:key="{{index}}" bindtap="selectElement" data-item="{{item}}" data-idx="{{index}}">
+                    <text>{{item.element_name}}</text>
+                    <view>
+                        <icon-font icon-value="iconfont icon-yuanquanweixuanfuben" icon-style="font-weight:blod;" wx:if="{{index !== iconList[index]}}"></icon-font>
+                        <icon-font icon-value="iconfont icon-xuanze1" wx:if="{{index == iconList[index]}}" icon-style="color:#d3d3d3;"></icon-font>
+                    </view>
+                </view>
+            </view>
         </view>
     </view>
 </scroll-view>

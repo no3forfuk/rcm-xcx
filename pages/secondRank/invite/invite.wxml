@@ -5,16 +5,17 @@
         <view class="invite-input-icon">
             <icon-font icon-value="iconfont icon-search"></icon-font>
         </view>
-        <input type="text" confirm-type="search" class="invite-input" placeholder="想邀请谁" placeholder-class="placeholder-class">
+        <input type="text" confirm-type="search" class="invite-input" placeholder="想邀请谁" placeholder-class="placeholder-class" bindconfirm="searchOther">
         </input>
     </view>
     <view class="invite-tab">
-        <invite-tab header-data="{{tabHeaderData}}">
+        <invite-tab header-data="{{tabHeaderData}}" bindchange="tabchange">
             <view class="invite-tab-body">
                 <view class="invite-tab-item" wx:for="{{inviteLists}}" wx:key="{{index}}">
                     <user-card user-info="{{item}}" card-type="small"></user-card>
-                    <view class="invite-btn">邀请</view>
+                    <view class="invite-btn" bindtap="submitInvite" data-uid="{{item.id}}">邀请</view>
                 </view>
+                <view class="no-body" wx:if="{{inviteLists.length == 0}}"><text>没有其他人了</text></view>
             </view>
         </invite-tab>
     </view>
