@@ -9,9 +9,29 @@ Page({
     data: {
         createUser: {},
         postInfo: {},
-        discussList: []
+        discussList: [],
+        tabBarList: [{
+            label: '首页',
+            result: 'goHome',
+            iconValue: 'icon-zhuye'
+        }, {
+            label: '评论',
+            result: 'addDiscuss',
+            iconValue: 'icon-edit'
+        }]
     },
-
+    tabItemClick(e) {
+        let func = e.detail.result
+        this[func]()
+    },
+    goHome(){
+        wx.reLaunch({
+            url: '/pages/index/index',
+        })
+    },
+    addDiscuss(){
+        
+    },
     /**
      * 生命周期函数--监听页面加载
      */

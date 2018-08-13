@@ -56,35 +56,31 @@ Component({
             this.triggerEvent('cancel')
         },
         confirm() {
+            wx.showLoading({
+                title: '发布中',
+                mask:true
+            })
             let html = this.data.startContent + this.data.submitContent + this.data.endContent
-            if (this.data.imgArr.length > 0) {
-                let params = {
-                    element_id: this.data.elementId,
-                    post_content: html,
-                    type: 3
-                }
-                for (let i = 0; i < this.data.imgArr.length; i++) {
-                    let path = this.data.imgArr[i].path
-                    qiniuSDK.upload(path, complete => {})
-                }
-                app._ajax().addpost(params, res => {
-                    console.log(res)
-                })
-            } else if (this.data.videoArr.length > 0) {
-                let params = {
-                    element_id: this.data.elementId,
-                    post_content: html,
-                    type: 4
-                }
-                for (let i = 0; i < this.data.videoArr.length; i++) {
-                    let path = this.data.videoArr[i]
-                    qiniuSDK.upload(path, complete => {})
-                }
-                app._ajax().addpost(params, res => {
-                    console.log(res)
-                })
+            let params = {
+                element_id: this.data.elementId,
+                post_content: html,
+                type: 3
             }
-
+            for (let i = 0; i < this.data.imgArr.length; i++) {
+                let path = this.data.imgArr[i].path
+                qiniuSDK.upload(path, complete => {})
+                params.type = 3
+            }
+            for (let i = 0; i < this.data.videoArr.length; i++) {
+                let path = this.data.videoArr[i]
+                qiniuSDK.upload(path, complete => {})
+                params.type = 4
+            }
+            app._ajax().addpost(params, res => {
+                wx.hideLoading()
+                this.cancel()
+                this.triggerEvent('refreshSubPost')
+            })
         },
         insertText() {
             this.setData({

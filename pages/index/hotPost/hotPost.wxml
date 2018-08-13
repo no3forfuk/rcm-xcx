@@ -1,11 +1,11 @@
 <!--pages/index/hotPost/hotPost.wxml-->
 <view class="hot-post-components">
-    <view class="hot-post-title">
+    <view class="hot-post-title" bindtap="linkToPost" data-id="{{hotPostData.id}}">
         <icon-font icon-value="iconfont icon-tiezi" icon-style="font-size: 36.2rpx;"></icon-font>
         <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
         <text class="hot-post-title-text">@{{elementName}}</text>
     </view>
-    <view class="hot-post-content">{{postContent}}</view>
+    <view class="hot-post-content" bindtap="linkToPost" data-id="{{hotPostData.id}}">{{postContent}}</view>
     <user-card card-type="tiny" user-info="{{createUser}}" created-time="{{createTime}}"></user-card>
     <view class="hot-post-discuss">
         <view class="hot-post-discuss-content">

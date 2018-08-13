@@ -11,4 +11,5 @@
         <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></post-discuss>
     </view>
 </scroll-view>
+<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
 <web-view src="{{postInfo.out_link}}" wx:if="{{postInfo.type == 5}}"></web-view>

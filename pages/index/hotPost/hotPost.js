@@ -37,6 +37,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        linkToPost(e){
+            wx.navigateTo({
+                url: '/pages/post/post?postId=' + e.currentTarget.dataset.id,
+            })
+        }
     }
 })

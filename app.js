@@ -55,7 +55,7 @@ App({
             }
         })
     },
-    qiniuPrefix: 'http://p8rk87lub.bkt.clouddn.com/',
+    qiniuPrefix: 'https://p8rk87lub.bkt.clouddn.com/',
     qiniuSDK: qiniu,
     globalData: {
         userInfo: {},

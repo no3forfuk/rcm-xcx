@@ -48,6 +48,17 @@ Page({
             this.goAuthorize()
         }
     },
+    refreshSubPost(){
+        app._ajax().getElementDetails({
+            id: this.data.elementId,
+            page: 1,
+            solt_name: 'created_at'
+        }, res => {
+            this.setData({
+                postList: res.data.data
+            })
+        })
+    },
     report() {
         this.setData({
             canScroll: true,
@@ -67,7 +78,16 @@ Page({
     /**
      * 页面的初始数据
      */
+    tabItemClick() {
+        wx.reLaunch({
+            url: '/pages/index/index',
+        })
+    },
     data: {
+        tabBarList: [{
+            label: '首页',
+            iconValue: 'icon-zhuye'
+        }],
         headerData: {},
         neckData: [],
         postList: {},
