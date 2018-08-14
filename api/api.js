@@ -382,7 +382,13 @@ const ApiFactory = function(token) {
                 }
             })
         },
+        //收藏列表home/user/userCollect
+        //用户动态home/user/userDynamic
+        //用户发布榜单列表home/user/userRank
+        //获取广告home/advert/getAdvert
         //获取七牛上传token 
+        //关注home/user/userAttention  to_uid
+        //点赞 home/praise/add  comment_id  user_type
         get7niuToken(success) {
             ajax_post({
                 uri: '/home/qiniu/getUploadToken',
