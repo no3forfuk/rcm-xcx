@@ -6,27 +6,27 @@ Component({
      */
     properties: {
         postList: {
-            type: Object,
-            value: {},
+            type: Array,
+            value: [],
             observer(n, o, c) {
                 for (let k in n) {
-                    for (let i = 0; i < n.data.length; i++) {
+                    for (let i = 0; i < n.length; i++) {
                         //POST创建者数据
                         let userInfoObj = {
-                            avatar: n.data[i].avatar,
-                            name: n.data[i].create_user
+                            avatar: n[i].avatar,
+                            name: n[i].create_user
                         }
-                        n.data[i].user = userInfoObj;
-                        if (n.data[i].type == 1) {
-                            let html = n.data[i].post_content;
+                        n[i].user = userInfoObj;
+                        if (n[i].type == 1) {
+                            let html = n[i].post_content;
                             let reg = /<[^>]+>|&[a-z]*;/g;
                             let htmlArr = html.split(reg)
-                            n.data[i].post_content = htmlArr.join('')
-                        } else if (n.data[i].type == 3) {
-                            let html = n.data[i].post_content;
+                            n[i].post_content = htmlArr.join('')
+                        } else if (n[i].type == 3) {
+                            let html = n[i].post_content;
                             let reg = /<[^>]+>|&[a-z]*;/g
                             let htmlArr = html.split(reg);
-                            if (n.data[i].img) {
+                            if (n[i].img) {
 
                             } else {
                                 let imgReg = /<img.*?(?:>|\/>)/g
@@ -40,13 +40,13 @@ Component({
                                         let d_reg = /&[a-z]*;/g
                                         srcArr[1] = srcArr[1].replace(d_reg, '&')
                                         srcArr[1] = srcArr[1].replace("http://", "https://")
-                                        n.data[i].img = srcArr[1]
+                                        n[i].img = srcArr[1]
                                     }
                                 }
                             }
-                            n.data[i].post_content = htmlArr.join('')
-                        } else if (n.data[i].type == 2) {
-                            if (n.data[i].img) {
+                            n[i].post_content = htmlArr.join('')
+                        } else if (n[i].type == 2) {
+                            if (n[i].img) {
 
                             } else {
                                 let imgReg = /<img.*?(?:>|\/>)/g
@@ -60,16 +60,16 @@ Component({
                                         let d_reg = /&[a-z]*;/g
                                         srcArr[1] = srcArr[1].replace(d_reg, '&')
                                         srcArr[1] = srcArr[1].replace("http://", "https://")
-                                        n.data[i].img = srcArr[1]
+                                        n[i].img = srcArr[1]
                                     }
                                 }
                             }
-                        } else if (n.data[i].type == 5) {
+                        } else if (n[i].type == 5) {
 
                         }
                     }
                     this.setData({
-                        subPost: n.data
+                        subPost: n
                     })
                     break;
                 }

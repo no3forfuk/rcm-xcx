@@ -24,7 +24,6 @@ Component({
             this.triggerEvent('closeAuthorize')
             wx.getUserInfo({
                 success: res => {
-                    app.globalData.userInfo = res.userInfo
                     let options = {
                         encryptedData: res.encryptedData,
                         iv: res.iv
@@ -34,6 +33,9 @@ Component({
                             options.code = res.code
                             api().login(options, success => {
                                 app.token = success.data.token.access_token
+                                app._ajax(success.data.token.access_token).getSelfInfo(res => {
+                                    app.globalData.userInfo = res.data
+                                })
                             })
                         }
                     })

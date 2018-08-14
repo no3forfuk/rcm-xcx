@@ -7,12 +7,15 @@
 
 .index-scroll-view {
     height: 100%;
+    box-sizing: border-box;
     margin-top: 10px;
 }
 
 .index-page-header {
     padding: 0 25.94rpx;
 }
+
+
 
 .index-page-header-top {
     display: flex;

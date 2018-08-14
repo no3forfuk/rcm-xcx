@@ -1,20 +1,6 @@
 // pages/secondRank/secondRank.js
 const app = getApp()
-const qiniuSDK = require('../../static/vonder/qiniuUploader.js')
 
-function init7niu() {
-    app._ajax().get7niuToken(res => {
-        let token = res.data.qiniu_token
-        let url = `https://up-z2.qbox.me`
-        let options = {
-            uptoken: token,
-            uploadURL: url,
-            region: 'SCN'
-        }
-        qiniuSDK.init(options)
-    })
-}
-init7niu()
 
 Page({
     /** 
@@ -120,7 +106,7 @@ Page({
                 })
             } else {
                 let path = this.data.imgFile.path
-                qiniuSDK.upload(path, complete => {
+                app.qiniuSDK.upload(path, complete => {
                     params.img = app.qiniuPrefix + complete.imageURL
                     app._ajax().bindElement(params, res => {
                         wx.showToast({

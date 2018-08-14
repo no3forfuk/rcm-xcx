@@ -48,7 +48,7 @@ Page({
             this.goAuthorize()
         }
     },
-    refreshSubPost(){
+    refreshSubPost() {
         app._ajax().getElementDetails({
             id: this.data.elementId,
             page: 1,
@@ -90,7 +90,7 @@ Page({
         }],
         headerData: {},
         neckData: [],
-        postList: {},
+        postList: [],
         activePopup: false,
         popupType: '',
         popupSize: '',
@@ -101,7 +101,42 @@ Page({
         isCollected: false,
         goAuthorize: false,
         elementId: '',
-        canScroll: true
+        canScroll: true,
+        showActiveHeader: false,
+        currentPage: 1,
+        totalPage: 1
+    },
+    hideorshowActiveHeader(e) {
+        let top = e.detail.scrollTop;
+        if (top < 127) {
+            this.setData({
+                showActiveHeader: false
+            })
+        } else {
+            this.setData({
+                showActiveHeader: true
+            })
+        }
+    },
+    loadNextPage() {
+        if (this.data.totalPage >= this.data.currentPage) {
+            app._ajax().getElementDetails({
+                id: this.data.elementId,
+                page: this.data.currentPage,
+                solt_name: 'created_at'
+            }, res => {
+                let list0 = this.data.postList
+                let list = res.data.data.data
+                list0 = list0.concat(list)
+                this.setData({
+                    currentPage: res.data.data.current_page + 1,
+                    postList: list0,
+                    totalPage: res.data.data.last_page
+                })
+            })
+        } else {
+            return
+        }
     },
     goAuthorize() {
         this.setData({
@@ -173,7 +208,9 @@ Page({
                 collectParams: {
                     element_id: options.elementId
                 },
-                postList: res.data.data
+                postList: res.data.data.data,
+                currentPage: res.data.data.current_page + 1,
+                totalPage: res.data.data.last_page
             })
         })
     },

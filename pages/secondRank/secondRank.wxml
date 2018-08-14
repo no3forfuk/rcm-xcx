@@ -7,7 +7,6 @@
         <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}" bindaddDiscuss="addDiscuss" discuss-info="{{discussData}}"></second-discuss>
         <second-activity wx:if="{{subType === 2}}"></second-activity>
     </tab>
-    <view class="second-page-footer"></view>
     <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" popup-show="{{showPopup}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
         <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}" bindsetNewElementName="setNewElementName" bindsetNewElementDesc="setElementDesc" bindsetElementImg="setElementImg"></add-element>
         <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" wx:if="{{popupType == 'addDiscuss'}}" bindsetValue="setDiscussValue"></add-discuss>
@@ -18,4 +17,4 @@
     </pop-up>
 </scroll-view>
 <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
-<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
+<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick"></tab-bar>

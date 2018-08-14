@@ -41,10 +41,13 @@ Page({
     },
     //点击tabBar项目
     tabItemClick(e) {
-        if (e.detail.userInfo) {
-            app.globalData.userInfo = e.detail.userInfo
+        if (app.token) {
             wx.navigateTo({
                 url: '/pages/userCenter/userCenter',
+            })
+        } else {
+            this.setData({
+                goAuthorize: true
             })
         }
     },
@@ -112,13 +115,18 @@ Page({
             }
         }
     },
+    closeAuthorize() {
+        this.setData({
+            goAuthorize: false
+        })
+    },
     /**
      * 页面的初始数据
      */
     data: {
+        goAuthorize: false,
         tabBarList: [{
             label: '个人中心',
-            openType: 'getUserInfo',
             iconValue: 'icon-shenfenzheng'
         }],
         rankData: [],
@@ -152,28 +160,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        if (app.token) {
 
-        } else {
-            app.initApi = res => {
-                // 获取一级榜单列表
-                app._ajax().getFirstRanking(res => {
-                    let firstRankArr = [{
-                        ranking_name: '热榜',
-                        id: -2
-                    }, {
-                        ranking_name: '热帖',
-                        id: -1
-                    }]
-                    firstRankArr = firstRankArr.concat(res.data.data)
-                    this.setData({
-                        firstRank: firstRankArr
-                    })
-                })
-                this.getIndexHotRank()
-            }
-
-        }
     },
 
     /**

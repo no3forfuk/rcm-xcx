@@ -21,4 +21,5 @@
         <hot-rank wx:if="{{indexType == 'hotRank'}}" hot-rank-data="{{hotRankList}}"></hot-rank>
     </scroll-view>
     <tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
+    <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
 </view>

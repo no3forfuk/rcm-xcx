@@ -1,24 +1,27 @@
 /*Created By Jsir on 2018/7/26*/
 'use strict'
 const api = require('./api/api.js')
-const qiniu = require('./static/vonder/qiniuUploader.js')
+const qiniuSDK = require('./static/vonder/qiniuUploader.js')
 
-function qiniuInit() {
-    api.get7niuToken(res => {
+function init7niu() {
+    api().get7niuToken(res => {
+        let token = res.data.qiniu_token
+        let url = `https://up-z2.qbox.me`
         let options = {
-            region: 'z2',
-            uptoken: res.data.qiniu_token
+            uptoken: token,
+            uploadURL: url,
+            region: 'SCN'
         }
-        qiniu.init(options)
+        qiniuSDK.init(options)
     })
 }
-
+init7niu()
 App({
-    _ajax() {
+    _ajax(token) {
         if (this.token) {
             return api(this.token)
         } else {
-            return api('')
+            return api(token)
         }
     },
     onLaunch() {
@@ -38,6 +41,10 @@ App({
                                     options.code = res.code
                                     api().login(options, success => {
                                         this.token = success.data.token.access_token
+                                        this.globalData.userInfo = success.data.user
+                                        this._ajax(success.data.token.access_token).getSelfInfo(res => {
+                                            this.globalData.userInfo = res.data
+                                        })
                                         if (this.initApi) {
                                             this.initApi()
                                         }
@@ -55,8 +62,8 @@ App({
             }
         })
     },
-    qiniuPrefix: 'https://p8rk87lub.bkt.clouddn.com/',
-    qiniuSDK: qiniu,
+    qiniuPrefix: 'http://p8rk87lub.bkt.clouddn.com/',
+    qiniuSDK: qiniuSDK,
     globalData: {
         userInfo: {},
         scrollY: true

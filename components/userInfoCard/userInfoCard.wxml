@@ -1,10 +1,24 @@
 <!--components/userInfoCard/userInfCard.wxml-->
 <view class="user-info-card">
     <view class="edit-info">
-        <image src="{{userInfo.avatarUrl}}" class="user-photo"></image>
-        <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit"></icon-font>
+        <view class="user-img">
+            <image src="{{userInfo.avatar}}" class="user-photo"></image>
+        </view>
+        <view class="user-img-right">
+            <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit"></icon-font>
+        </view>
     </view>
     <view class="user-name">
-        <text class="user-name-text">{{userInfo.nickName}}</text>
+        <text class="user-name-text">{{userInfo.name}}</text>
+    </view>
+    <view class="rank-sign" wx:if="{{userInfo.ranking_name}}">
+        <text>#{{userInfo.ranking_name}}</text>
+        <text style="margin:0 5px;">|</text>
+        <text>{{userInfo.signature}}</text>
+    </view>
+    <view class="focus-funs">
+        <text class="focus-funs-item"><text class="focus-num">{{userInfo.attention}}</text>关注</text>
+        <text class="focus-funs-item"><text class="focus-num">{{userInfo.fan}}</text>粉丝</text>
+        <text class="focus-funs-item"><text class="focus-num">{{userType == 'self'?userInfo.collect:''}}</text>{{userType == 'self'? '收藏':'获赞'}}</text>
     </view>
 </view>

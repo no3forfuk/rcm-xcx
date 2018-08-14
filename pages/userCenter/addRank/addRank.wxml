@@ -1,0 +1,16 @@
+<!--pages/userCenter/addRank/addRank.wxml-->
+<cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
+<view class="input-rank-name">
+    <input class="input-rank-name-text" placeholder="#榜单好玩重要，名字帅更重要" bindinput="setRankName" confirm-type="next" bindconfirm="tapNext"></input>
+</view>
+<view class="input-rank-name">
+    <textarea class="input-rank-desc-text" placeholder="对这个榜单简单的描述下吧" bindconfirm="setRankDesc" focus="{{textareaFocus}}" bindinput="setRankDesc"></textarea>
+</view>
+<picker range="{{firstArray}}" range-key="ranking_name" value="{{firstIndex}}" mode="selector" bindchange="selectRank">
+    <view class="input-rank-name">
+        <view class="blone-rank">
+            <text>选择所属领域:</text>
+            <text> {{firstArray[firstIndex].ranking_name}}</text>
+        </view>
+    </view>
+</picker>

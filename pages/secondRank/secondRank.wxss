@@ -2,11 +2,6 @@
 
 .second-page {
     width: 100%;
-    height: 100%;
-}
-
-.second-page-footer {
-    width: 100%;
-    height: 80px;
-    background-color: #fff;
+    height: calc(100% - 46px);
+    box-sizing: border-box;
 }

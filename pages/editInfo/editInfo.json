@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "icon-font": "/components/iconfont/iconfont",
+        "pop-up": "/components/popup/popup",
+        "cancel-confirm": "/components/cancelAndConfirm/cancelAndConfirm"
+    }
+}

@@ -1,3 +1,64 @@
-<view class="app user-center">
-  <userinfo-card></userinfo-card>
-</view>
+<scroll-view class="user-center" scroll-y>
+    <userinfo-card user-info="{{user}}" user-type="self" bindopenEdit="editUserInfo"></userinfo-card>
+    <view class="split-item first-split"></view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-iconfontpinglun" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right" bindtap="goMyMessage">
+            <text class="user-center-item-text">我的消息</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="split-item"></view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-paixingbang" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right border-bottom" bindtap="goMyRank">
+            <text class="user-center-item-text">发布的榜单</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-gongsidongtai" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right border-bottom" bindtap="goMyMessage">
+            <text class="user-center-item-text">全部动态</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-ico_shoucangjia" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right" bindtap="goMyCollect">
+            <text class="user-center-item-text">收藏夹</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="split-item"></view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-woderenwu" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right border-bottom">
+            <text class="user-center-item-text">每日任务</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-tubiaolunkuo-" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right border-bottom">
+            <text class="user-center-item-text">会员状态</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="user-center-item">
+        <icon-font icon-value="iconfont icon-shezhi" icon-style="font-size:18px;color:#848484;"></icon-font>
+        <view class="user-center-item-right">
+            <text class="user-center-item-text">设置</text>
+            <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        </view>
+    </view>
+    <view class="split-item"></view>
+    <view class="add-rank">
+        <view class="add-rank-item" bindtap="addRank">发个榜试试</view>
+    </view>
+    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" id="popup">
+        <add-rank wx:if="{{popupType == 'addRank'}}" slot="large" bindcancel="closePopup" bindconfirm="submitadd"></add-rank>
+    </pop-up>
+</scroll-view>
+
+<!-- <tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick"></tab-bar> -->

@@ -339,6 +339,49 @@ const ApiFactory = function(token) {
                 }
             })
         },
+        //获取个人信息 
+        getSelfInfo(success) {
+            ajax_post({
+                uri: '/home/user/userInfo',
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //编辑个人信息
+        editSelfInfo(params, success) {
+            ajax_post({
+                uri: '/home/user/editUser',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //获取通知 home/user/userNotice
+        getnotice(type, success) {
+            ajax_post({
+                uri: '/home/user/userNotice',
+                params: {
+                    notice_type: type
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //读取通知 
+        readnotice(id, success) {
+            ajax_post({
+                uri: '/home/user/userNoticeEdit',
+                params: {
+                    id: id
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
         //获取七牛上传token 
         get7niuToken(success) {
             ajax_post({

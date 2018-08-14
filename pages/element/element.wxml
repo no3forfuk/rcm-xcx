@@ -1,6 +1,6 @@
 <!--pages/element/element.wxml-->
-<active-header wx:if="true" is-collected="{{isCollected}}" header-info="{{headerData}}" bindtapmore="ontapmore" bindvoteForElemenet="vote" bindgoAuthorize="goAuthorize" collect-params="{{collectParams}}"></active-header>
-<scroll-view scroll-y="{{canScroll}}" class="element-page-component" >
+<active-header wx:if="{{showActiveHeader}}" is-collected="{{isCollected}}" header-info="{{headerData}}" bindtapmore="ontapmore" bindvoteForElemenet="vote" bindgoAuthorize="goAuthorize" collect-params="{{collectParams}}"></active-header>
+<scroll-view scroll-y="{{canScroll}}" class="element-page-component" bindscrolltolower="loadNextPage" lower-threshold="500" bindscroll="hideorshowActiveHeader">
     <element-header header-info="{{headerData}}" header-type="element" collect-params="{{collectParams}}" bindtapdetail="opendetail" bindtapmore="ontapmore" bindgoAuthorize="goAuthorize" is-collected="{{isCollected}}" bindvoteForElemenet="vote"></element-header>
     <view class="element-page-neck">
         <view class="element-page-neck-left">

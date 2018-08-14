@@ -1,21 +1,7 @@
 // pages/element/addPost/addPost.js
 const WxParse = require('../../../wxParse/wxParse.js');
 const app = getApp()
-const qiniuSDK = require('../../../static/vonder/qiniuUploader.js')
 
-function init7niu() {
-    app._ajax().get7niuToken(res => {
-        let token = res.data.qiniu_token
-        let url = `https://up-z2.qbox.me`
-        let options = {
-            uptoken: token,
-            uploadURL: url,
-            region: 'SCN'
-        }
-        qiniuSDK.init(options)
-    })
-}
-init7niu()
 Component({
     /**
      * 组件的属性列表
@@ -58,7 +44,7 @@ Component({
         confirm() {
             wx.showLoading({
                 title: '发布中',
-                mask:true
+                mask: true
             })
             let html = this.data.startContent + this.data.submitContent + this.data.endContent
             let params = {
@@ -68,12 +54,12 @@ Component({
             }
             for (let i = 0; i < this.data.imgArr.length; i++) {
                 let path = this.data.imgArr[i].path
-                qiniuSDK.upload(path, complete => {})
+                app.qiniuSDK.upload(path, complete => {})
                 params.type = 3
             }
             for (let i = 0; i < this.data.videoArr.length; i++) {
                 let path = this.data.videoArr[i]
-                qiniuSDK.upload(path, complete => {})
+                app.qiniuSDK.upload(path, complete => {})
                 params.type = 4
             }
             app._ajax().addpost(params, res => {

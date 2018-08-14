@@ -5,6 +5,7 @@
     <user-card card-type="small" user-info="{{createUser}}"></user-card>
     <view class="post-content">
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+        <view class="created-time">{{postInfo.created_at}}</view>
     </view>
     <view class="post-discuss">
         <text class="post-discuss-title">评论({{postInfo.comment_num}}）</text>
