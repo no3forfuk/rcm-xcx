@@ -16,7 +16,7 @@ Component({
             type: Object,
             value: null,
             observer(n, o, c) {
-                
+
             },
         },
         collectParams: {
@@ -24,6 +24,31 @@ Component({
             value: 0,
             observer(n, o, c) {
 
+            }
+        },
+        isShow: {
+            type: Boolean,
+            value: 0,
+            observer(n, o, c) {
+                if (n) {
+                    const animation = wx.createAnimation({
+                        duration: 300,
+                        timingFunction: 'ease'
+                    })
+                    animation.translateY(0).step()
+                    this.setData({
+                        animationData: animation.export()
+                    })
+                } else {
+                    const animation = wx.createAnimation({
+                        duration: 300,
+                        timingFunction: 'ease'
+                    })
+                    animation.translateY('-100%').step()
+                    this.setData({
+                        animationData: animation.export()
+                    })
+                }
             }
         }
     },
@@ -34,7 +59,8 @@ Component({
     data: {
         elementName: '',
         vote: 0,
-        voter: 0
+        voter: 0,
+        animationData: ''
     },
 
     /**

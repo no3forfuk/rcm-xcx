@@ -11,15 +11,15 @@
                 <image class="message-item-user-photo" src="{{item.from_user.avatar}}"></image>
             </view>
             <view class="message-item-right {{item.is_read == 0? 'not-read':''}}">
-                <view class="message-item-1" wx:if="{{item.notice_type == 1}}">
+                <view class="message-item-1" wx:if="{{item.notice_type == 1}}" bindtap="linkToRank" data-id="{{item.second.id}}">
                     <text class="message-item-1-title">{{item.from_user.name}} 回复了你的榜单</text>
-                    <text class="message-item-1-old">我在主页找到了你的帖子</text>
-                    <text class="message-item-1-new">有人 回复了你的榜单</text>
+                    <text class="message-item-1-old">{{item.comment.content}}</text>
+                    <text class="message-item-1-new">#{{item.second.ranking_name}}</text>
                 </view>
                 <view class="message-item-5" wx:if="{{item.notice_type == 5}}">
                     <text class="message-item-1-title">{{item.from_user.name}} </text>
                     <text class="message-item-1-title">赞了你的评论 </text>
-                    <text class="message-item-5-message">赞了你的评论</text>
+                    <text class="message-item-5-message">{{item.comment.content}}</text>
                 </view>
                 <view class="message-item-6" wx:if="{{item.notice_type == 6}}">
                     <text>#榜单 </text>
@@ -27,16 +27,16 @@
                     <text class="message-item-6-level">S+</text>
                 </view>
                 <view class="message-item-4" wx:if="{{item.notice_type == 4}}">
-                    <text class="message-item-1-title">@元素 </text>
+                    <text class="message-item-1-title">@{{item.element.element_name}} </text>
                     <text class="message-item-1-title">有了新的帖子 </text>
                 </view>
                 <view class="message-item-1" wx:if="{{item.notice_type == 2}}">
                     <text class="message-item-1-title">{{item.from_user.name}} 回复了你的帖子</text>
-                    <text class="message-item-1-new">回复了你的帖子</text>
+                    <text class="message-item-1-new">{{item.comment.content}}</text>
                 </view>
                 <view class="message-item-1" wx:if="{{item.notice_type == 7}}">
                     <text class="message-item-1-title">{{item.from_user.name}} 邀请您填充榜单</text>
-                    <text class="message-item-5-message">#回复了你的帖子</text>
+                    <text class="message-item-5-message">#{{item.second.ranking_name}}</text>
                 </view>
                 <text class="message-time">{{item.created_at}}</text>
             </view>

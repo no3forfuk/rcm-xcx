@@ -3,14 +3,18 @@
 
 <scroll-view class="post-page-components" scroll-y wx:if="{{postInfo.type != 5}}">
     <user-card card-type="small" user-info="{{createUser}}"></user-card>
-    <view class="post-content">
+    <view class="post-content" wx:if="{{!activePopup || postInfo.type != 4}}">
         <template is="wxParse" data="{{wxParseData:content.nodes}}" />
         <view class="created-time">{{postInfo.created_at}}</view>
     </view>
     <view class="post-discuss">
         <text class="post-discuss-title">评论({{postInfo.comment_num}}）</text>
-        <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}"></post-discuss>
+        <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}" discuss-id="{{item.id}}" bindlikeComplete="getDiscuss"></post-discuss>
     </view>
+
 </scroll-view>
-<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
+<pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="large" id="popup" catchtouchmove="ture">
+    <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" bindsetValue="setDiscussValue"></add-discuss>
+</pop-up>
+<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick"></tab-bar>
 <web-view src="{{postInfo.out_link}}" wx:if="{{postInfo.type == 5}}"></web-view>

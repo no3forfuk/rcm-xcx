@@ -1,5 +1,5 @@
 <!--pages/element/activeHeader/activeHeader.wxml-->
-<view class="element-active-header">
+<view class="element-active-header" animation="{{animationData}}">
     <view>
         <view class="element-active-header-left-top">@{{headerInfo.title}}</view>
         <view class="element-active-header-left-bottom">

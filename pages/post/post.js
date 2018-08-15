@@ -18,24 +18,77 @@ Page({
             label: '评论',
             result: 'addDiscuss',
             iconValue: 'icon-edit'
-        }]
+        }],
+        activePopup: false,
+        postId: '',
+        discussValue: ''
     },
     tabItemClick(e) {
         let func = e.detail.result
         this[func]()
     },
-    goHome(){
+    goHome() {
         wx.reLaunch({
             url: '/pages/index/index',
         })
     },
-    addDiscuss(){
-        
+    addDiscuss() {
+        this.setData({
+            activePopup: true
+        })
+    },
+    closePopup() {
+        const $popup = this.selectComponent('#popup')
+        $popup.cancle()
+        setTimeout(function() {
+            this.setData({
+                activePopup: false
+            })
+        }.bind(this), 220)
+    },
+    setDiscussValue(e) {
+        this.setData({
+            discussValue: e.detail
+        })
+    },
+    submitDiscuss(e) {
+        let params = {
+            comment_type: 3,
+            type: 1,
+            post_id: this.data.postId
+        }
+        if (e.detail) {
+            params.content = e.detail
+        } else {
+            params.content = this.data.discussValue
+        }
+        app._ajax().addDiscuss(params, res => {
+            wx.showToast({
+                title: res.message,
+                mask: true
+            })
+
+            this.closePopup()
+            this.getDiscuss()
+        })
+    },
+    likeComplete(){
+
+    },
+    getDiscuss() {
+        app._ajax().getPostDiscuss(this.data.postId, res => {
+            this.setData({
+                discussList: res.data.data
+            })
+        })
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.setData({
+            postId: options.postId
+        })
         app._ajax().getPostDetails(options.postId, res => {
             let that = this;
             if (res.data.type == 5) {

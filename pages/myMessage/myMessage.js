@@ -1,7 +1,11 @@
 // pages/myMessage/myMessage.js
 const app = getApp()
 Page({
-
+    linkToRank(e) {
+        wx.navigateTo({
+            url: '/pages/secondRank/secondRank?secondId=' + e.currentTarget.dataset.id
+        })
+    },
     /**
      * 页面的初始数据
      */

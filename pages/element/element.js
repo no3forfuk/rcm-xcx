@@ -17,6 +17,11 @@ Page({
             canScroll: false
         })
     },
+    linkToSecond(e) {
+        wx.navigateTo({
+            url: '/pages/secondRank/secondRank?secondId=' + e.currentTarget.dataset.id + '&first={}'
+        })
+    },
     submitadd(e) {
         console.log(e)
     },
@@ -104,10 +109,23 @@ Page({
         canScroll: true,
         showActiveHeader: false,
         currentPage: 1,
-        totalPage: 1
+        totalPage: 1,
+        showTabbar: true
     },
     hideorshowActiveHeader(e) {
         let top = e.detail.scrollTop;
+        let direction = e.detail.deltaY
+        if (direction > 0) {
+            //向上
+            this.setData({
+                showTabbar: true
+            })
+        } else {
+            //向下
+            this.setData({
+                showTabbar: false
+            })
+        }
         if (top < 127) {
             this.setData({
                 showActiveHeader: false
@@ -184,13 +202,14 @@ Page({
             solt_name: 'created_at'
         }, res => {
             let collect = false;
-            if (res.data.collect == 0) {
-                collect = false;
-            } else {
+            if (res.data.collect && res.data.collect == 1) {
                 collect = true;
+            } else {
+                collect = false;
             }
             this.setData({
                 elementId: options.elementId,
+                isCollected: collect,
                 detailInfo: {
                     title: res.data.element_name,
                     desc: res.data.element_desc,

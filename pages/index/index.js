@@ -5,8 +5,41 @@ Page({
     /**
      * 自定义事件
      */
+    indexScroll(e) {
+        let direction = e.detail.deltaY
+        if (direction > 0) {
+            //向上
+            this.setData({
+                showTabbar: true
+            })
+        } else {
+            //向下
+            this.setData({
+                showTabbar: false
+            })
+        }
+    },
+    removeRank(e) {
+        let index = e.detail.index
+        let list = this.data.hotRankList
+        list.splice(index, 1)
+        this.setData({
+            hotRankList: list
+        })
+    },
+    likeComplete() {
+        console.log('a')
+        this.setData({
+            indexType: 'hotRank',
+            crtHotPage: 1,
+            hotRankList: [],
+            hotRankTotalPage: 1
+        })
+        this.getIndexHotRank()
+    },
     //nav改变
     changeNav(e) {
+
         this.setData({
             crtIndex: e.currentTarget.dataset.index,
             crtFirstRank: e.currentTarget.dataset.item
@@ -38,6 +71,11 @@ Page({
             })
             this.getIndexFirstRank()
         }
+    },
+    goauth() {
+        this.setData({
+            goAuthorize: true
+        })
     },
     //点击tabBar项目
     tabItemClick(e) {
@@ -120,10 +158,13 @@ Page({
             goAuthorize: false
         })
     },
+
     /**
      * 页面的初始数据
      */
     data: {
+        animationData: '',
+        showTabbar: true,
         goAuthorize: false,
         tabBarList: [{
             label: '个人中心',
@@ -167,16 +208,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        let windowY = wx.getSystemInfoSync().windowHeight
-        const query = wx.createSelectorQuery()
-        query.select('.index-scroll-view').boundingClientRect()
-        query.exec(res => {
-            let num = windowY - res[0].top - 46
-            this.setData({
-                scrollHeight: 'height:' + num + 'px;',
-                scrollHeightNum: num
-            })
-        })
+
 
     },
 
@@ -198,16 +230,7 @@ Page({
             })
         })
         this.getIndexHotRank()
-        let windowY = wx.getSystemInfoSync().windowHeight
-        const query = wx.createSelectorQuery()
-        query.select('.index-scroll-view').boundingClientRect()
-        query.exec(res => {
-            let num = windowY - res[0].top - 46
-            this.setData({
-                scrollHeight: 'height:' + num + 'px;',
-                scrollHeightNum: num
-            })
-        })
+
     },
 
     /**

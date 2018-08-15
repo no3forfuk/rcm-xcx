@@ -4,12 +4,13 @@
     width: 100%;
     height: 72.4rpx;
     box-sizing: border-box;
-    padding: 10rpx;
+    padding: 18.1rpx 36.2rpx;
     flex-direction: row;
     justify-content: space-between;
     background-color: #fff;
     align-items: center;
     position: absolute;
+    transform: translateY(-100%);
     top: 0;
     left: 0;
     z-index: 20;

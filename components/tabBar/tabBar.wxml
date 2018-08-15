@@ -1,5 +1,5 @@
 <!--components/tabBar/tabBar.wxml-->
-<view class="tab-bar-component">
+<view class="tab-bar-component" animation="{{animationData}}">
     <button wx:for="{{tabBarList}}" class="tab-bar-item" wx:key="{{index}}" style="{{itemFlex}}" bindtap="tapItem" data-item="{{item}}" open-type="{{item.openType}}" bindgetuserinfo="tapItem">
         <view class="tab-bar-item-content">
             <icon-font icon-value="iconfont {{item.iconValue}}" icon-style="font-size:36rpx;line-height:40rpx;"></icon-font>

@@ -6,6 +6,52 @@ Page({
     /** 
      * 自定义事件
      */
+    secondScroll(e) {
+        let direction = e.detail.deltaY
+        if (direction > 0) {
+            //向上
+            this.setData({
+                showTabbar: true
+            })
+        } else {
+            //向下
+            this.setData({
+                showTabbar: false
+            })
+        }
+    },
+    /**
+     * 获取二级榜单详情
+     * s_cb--成功之后的回调函数
+     */
+    getSecondDetails(s_cb) {
+        let data = {
+            level: 2,
+            id: this.data.secondId,
+            page: this.data.crtListPage,
+            solt_name: this.data.solt_name
+        }
+        app._ajax().getSecondRankDetails(data, res => {
+            s_cb(res)
+        })
+    },
+    sortElementByType(e) {
+        let sortType = e.detail.new
+        if (sortType == 'hot') {
+            this.setData({
+                solt_name: 'exponent',
+                subElement: [],
+                crtPage: 1
+            })
+        } else {
+            this.setData({
+                subElement: [],
+                solt_name: 'created_at',
+                crtPage: 1
+            })
+        }
+        this.getSecondInfo()
+    },
     //点击更多
     ontapmore(options) {
         if (app.token) {
@@ -130,7 +176,7 @@ Page({
             } else {
                 if (this.data.imgFile) {
                     let path = this.data.imgFile.path
-                    qiniuSDK.upload(path, complete => {
+                    app.qiniuSDK.upload(path, complete => {
                         let params = {
                             ranking_id: this.data.secondId,
                             element_name: this.data.newElementName,
@@ -223,10 +269,11 @@ Page({
         app._ajax().addDiscuss(params, res => {
             wx.showToast({
                 title: res.message,
+                mask: true
             })
-
+            const $discuss = this.selectComponent('#discuss')
+            $discuss.getDiscuss()
             this.closePopup()
-            this.getDiscuss()
         })
     },
     submitInvite() {
@@ -353,7 +400,9 @@ Page({
         discussValue: '',
         discussData: {},
         discussList: [],
-        isCollected: false
+        isCollected: false,
+        haveSubElement: false,
+        showTabbar: true
 
     },
     loadNextPage() {
@@ -371,11 +420,14 @@ Page({
             solt_name: this.data.solt_name
         }, res => {
             let collect = false;
-            if (res.data.collect == 0) {
-                collect = false;
-            } else {
+            if (res.data.collect && res.data.collect == 1) {
                 collect = true;
+            } else {
+                collect = false;
             }
+            wx.setNavigationBarTitle({
+                title: res.data.ranking_name
+            })
             this.setData({
                 isCollected: collect,
                 //详情页数据
@@ -407,6 +459,15 @@ Page({
                 crtPage: res.data.data.current_page + 1,
                 totalPage: res.data.data.last_page
             })
+            if (res.data.data.data && res.data.data.data.length > 0) {
+                this.setData({
+                    haveSubElement: true
+                })
+            } else {
+                this.setData({
+                    haveSubElement: false
+                })
+            }
         })
     },
     /**
@@ -424,6 +485,7 @@ Page({
             canScroll: true,
             fatherRank: JSON.parse(options.first)
         })
+        // this.getSecondDetails()
         this.getSecondInfo()
     },
 

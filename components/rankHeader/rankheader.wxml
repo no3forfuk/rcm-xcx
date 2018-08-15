@@ -19,7 +19,7 @@
     </view>
     <view class="rank-header-right" wx:if="{{headerType == 'second'}}">
         <view class="rcm-text">RCM评级</view>
-        <view class="rcm-rating">{{headerInfo.rating}}</view>
+        <view class="rcm-rating">{{headerInfo.rating || 'B'}}</view>
         <view class="rcm-vote">{{headerInfo.vote}}(票)</view>
         <view class="rcm-son">{{headerInfo.childrenNum}}(排名)</view>
     </view>

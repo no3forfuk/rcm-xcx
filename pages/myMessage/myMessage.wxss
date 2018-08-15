@@ -14,6 +14,7 @@
 
 .not-read {
     background-color: #ebebeb;
+    border-radius: 3px;
 }
 
 .message-item {
@@ -34,6 +35,7 @@
 
 .message-item-right {
     box-sizing: border-box;
+    transition: all 0.3s;
     padding: 0 18.32rpx;
     width: 620.25rpx;
     border-bottom: 1px solid #c8c7cd;

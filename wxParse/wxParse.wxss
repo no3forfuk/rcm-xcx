@@ -17,10 +17,10 @@
     line-height: 1.8;
 }
 
-view {
+/* view {
     word-break: break-all;
-    overflow: auto;
-}
+    overflow: hidden;
+} */
 
 .wxParse-inline {
     display: inline;
@@ -151,14 +151,7 @@ view {
     overflow: auto;
 }
 
-.wxParse-video {
-    text-align: center;
-    margin: 10px 0;
-}
 
-.wxParse-video-video {
-    width: 100%;
-}
 
 .wxParse-img {
     /*background-color: #efefef;*/

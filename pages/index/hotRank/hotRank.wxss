@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     flex: 1;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 .hot-rank-father-left {

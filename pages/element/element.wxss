@@ -2,7 +2,7 @@
 
 .element-page-component {
     width: 100%;
-    height: calc(100% - 46px);
+    height: 100%;
     box-sizing: border-box;
 }
 

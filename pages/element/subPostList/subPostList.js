@@ -49,6 +49,7 @@ Component({
                             if (n[i].img) {
 
                             } else {
+                                let html = n[i].post_content;
                                 let imgReg = /<img.*?(?:>|\/>)/g
                                 let imgArr = html.match(imgReg)
                                 if (imgReg.test(html)) {
@@ -66,6 +67,22 @@ Component({
                             }
                         } else if (n[i].type == 5) {
 
+                        } else if (n[i].type == 4) {
+                            let html = n[i].post_content;
+                            let imgReg = /<video.*?(?:>|\/>)/g
+                            let imgArr = html.match(imgReg)
+                            if (imgReg.test(html)) {
+                                let img = html.match(imgReg)[0]
+                                let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+                                if (srcReg.test(img)) {
+                                    let srcArr = img.match(srcReg)[0].split('"')
+                                    //临时处理
+                                    let d_reg = /&[a-z]*;/g
+                                    srcArr[1] = srcArr[1].replace(d_reg, '&')
+                                    // srcArr[1] = srcArr[1].replace("http://", "https://")
+                                    n[i].video = srcArr[1]
+                                }
+                            }
                         }
                     }
                     this.setData({
@@ -75,6 +92,11 @@ Component({
                 }
 
             }
+        },
+        havePopup: {
+            type: Boolean,
+            value: true,
+            observer(n, o, c) {}
         }
     },
 

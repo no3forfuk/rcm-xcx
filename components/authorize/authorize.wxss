@@ -10,6 +10,7 @@
     justify-content: space-around;
     align-items: center;
     z-index: 100;
+    transform: scale(0);
 }
 
 .authorize-content {

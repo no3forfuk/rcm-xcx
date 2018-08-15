@@ -15,8 +15,6 @@
     padding: 0 25.94rpx;
 }
 
-
-
 .index-page-header-top {
     display: flex;
     flex-direction: row;
@@ -61,9 +59,10 @@
 .index-page-header-nav-text {
     font-size: 28.96rpx;
     color: #999899;
+    display: inline-block;
     line-height: 42.23rpx;
     margin-right: 92.92rpx;
-    transition: all 0.5s;
+    transition: all 0.2s;
 }
 
 .index-page-header-nav-text:nth-last-child(1) {
@@ -73,6 +72,6 @@
 .active-nav {
     color: #ff2c09;
     font-weight: bold;
-    font-size: 36.2rpx;
+    font-size: 18px;
     background: linear-gradient(to top, #ffcece 0%, #ffcece, 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 100%);
 }

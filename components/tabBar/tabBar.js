@@ -23,6 +23,31 @@ Component({
             observer(n, o, c) {
 
             }
+        },
+        isShow: {
+            type: Boolean,
+            value: false,
+            observer(n, o, c) {
+                if (n) {
+                    const animation = wx.createAnimation({
+                        duration: 300,
+                        timingFunction: 'ease'
+                    })
+                    animation.translateY(0).step()
+                    this.setData({
+                        animationData: animation.export()
+                    })
+                } else {
+                    const animation = wx.createAnimation({
+                        duration: 300,
+                        timingFunction: 'ease'
+                    })
+                    animation.translateY('100%').step()
+                    this.setData({
+                        animationData: animation.export()
+                    })
+                }
+            }
         }
     },
 
@@ -30,7 +55,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        itemFlex: ''
+        itemFlex: '',
+        animationData:''
     },
     /**
      * 组件的方法列表

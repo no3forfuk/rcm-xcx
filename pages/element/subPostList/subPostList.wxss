@@ -69,3 +69,7 @@
     font-weight: bold;
     font-size: 30.17rpx;
 }
+.post-video{
+    max-width: 90%;
+    border-radius: 4px;
+}

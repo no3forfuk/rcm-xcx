@@ -52,7 +52,7 @@
 .index-rank-card-right-element-list {
     padding-top: 16.29rpx;
     padding-bottom: 23.53rpx;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1px solid #f7f7f7;
 }
 
 .rank-card-element-ul {

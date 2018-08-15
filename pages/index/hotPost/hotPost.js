@@ -1,4 +1,5 @@
 // pages/index/hotPost/hotPost.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -20,6 +21,15 @@ Component({
                         postContent: text,
                         elementName: n.element_name
                     })
+                    if (n.data) {
+                        this.setData({
+                            discussData: n.data,
+                            discussUser: {
+                                avatar: n.data.user.avatar,
+                                name: n.data.user.create_user
+                            }
+                        })
+                    }
                 }
             }
         }
@@ -37,10 +47,37 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        linkToPost(e){
+        linkToPost(e) {
             wx.navigateTo({
                 url: '/pages/post/post?postId=' + e.currentTarget.dataset.id,
             })
+        },
+        dolike(e) {
+            if (!app.token) {
+                this.triggerEvent('goAuth')
+            } else {
+                let id = e.currentTarget.dataset.id
+                app._ajax().addLikeDiscuss(id, res => {
+                    if (res.status_code == 1) {
+                        wx.showToast({
+                            title: res.message,
+                            mask: true
+                        })
+                        let disData = this.data.discussData
+                        disData.like += 1
+                        this.setData({
+                            discussData: disData
+                        })
+
+                    } else {
+                        wx.showToast({
+                            title: res.message,
+                            mask: true
+                        })
+                    }
+                })
+            }
+
         }
     }
 })

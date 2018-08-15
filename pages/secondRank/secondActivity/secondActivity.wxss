@@ -1,1 +1,17 @@
 /* pages/secondRank/secondActivity/secondActivity.wxss */
+
+.active-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.active-class-img {
+    /* max-width: 100%;
+    height: 100%; */
+    width: 100%;
+}

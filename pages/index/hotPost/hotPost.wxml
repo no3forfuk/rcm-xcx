@@ -7,14 +7,14 @@
     </view>
     <view class="hot-post-content" bindtap="linkToPost" data-id="{{hotPostData.id}}">{{postContent}}</view>
     <user-card card-type="tiny" user-info="{{createUser}}" created-time="{{createTime}}"></user-card>
-    <view class="hot-post-discuss">
+    <view class="hot-post-discuss" wx:if="{{discussData}}">
         <view class="hot-post-discuss-content">
             <icon-font icon-value="iconfont icon-huoyan" icon-style="color:#FF2C09;font-size:25.89rpx;"></icon-font>
             <view class="hot-post-discuss-right">
-                <text class="hot-post-discuss-text">{{postContent}}</text>
-                <user-card card-type="tiny" user-info="{{createUser}}"></user-card>
+                <text class="hot-post-discuss-text">{{discussData.content}}</text>
+                <user-card card-type="tiny" user-info="{{discussUser}}"></user-card>
             </view>
         </view>
-        <icon-font icon-value="iconfont icon-zan" icon-style="font-size:33.18rpx;" text-color="#8B8B8B" text-value="0" text-class="text-size-12"></icon-font>
+        <icon-font icon-value="iconfont icon-zan" icon-style="font-size:33.18rpx;" text-color="#8B8B8B" text-value="{{discussData.like}}" text-class="text-size-12" bindtapicon="dolike" data-id="{{discussData.id}}"></icon-font>
     </view>
 </view>

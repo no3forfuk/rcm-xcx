@@ -36,24 +36,24 @@
                 <text class="search-title-text">排名</text>
             </view>
             <view class="search-result-element" wx:for="{{resultElement}}" wx:key="{{index}}" bindtap="goElement" data-id="{{item.id}}">
-                <view class="search-result-element-left">
+                <view class="search-result-element-left {{item.img?'short-width':'long-width'}}">
                     <view class="search-result-element-top">
-                        <rich-text nodes="{{item.elementNodes}}" class="element-title"></rich-text>
-                        <view class="hot-rank-father">
-                            <view class="hot-rank-father-left">
-                                <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
-                                <text class="hot-rank-father-text">#{{item.ranking_p_name == null? '其他':item.ranking_p_name}}</text>
-                            </view>
-                        </view>
+                        <rich-text nodes="{{item.elementNodes}}" class="rich-element"></rich-text>
+                        <!-- <view class="hot-rank-father"> -->
+                        <!-- <view class="hot-rank-father-left"> -->
+                        <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
+                        <text class="hot-rank-father-text">#{{item.ranking_p_name == null? '其他':item.ranking_p_name}}</text>
+                        <!-- </view> -->
+                        <!-- </view> -->
                     </view>
                     <view class="search-result-element-btm">
                         <text>286投票</text>·
                         <text>35关注</text>
                     </view>
                 </view>
-                <view class="search-result-element-right">
-                    <image class="search-result-element-image"></image>
-                </view>
+                <!-- <view class="search-result-element-right">
+                    <image class="search-result-element-image" src="{{item.img}}"></image>
+                </view> -->
             </view>
         </view>
         <view class="search-result-rank" wx:if="{{resultPost.length>0}}">

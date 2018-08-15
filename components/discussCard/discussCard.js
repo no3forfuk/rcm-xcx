@@ -33,18 +33,25 @@ Component({
      */
     methods: {
         doLike() {
-            app._ajax().addLikeDiscuss(this.properties.discussId, res => {
-                if (res.status_code == 1) {
-                    wx.showToast({
-                        title: res.message
-                    })
-                    this.triggerEvent('likeComplete')
-                } else {
-                    wx.showToast({
-                        title: res.message
-                    })
-                }
-            })
+            if (!app.token) {
+                this.triggerEvent('goauth')
+            } else {
+                app._ajax().addLikeDiscuss(this.properties.discussId, res => {
+                    if (res.status_code == 1) {
+                        wx.showToast({
+                            title: res.message,
+                            mask: true
+                        })
+                        this.triggerEvent('likeComplete')
+                    } else {
+                        wx.showToast({
+                            title: res.message,
+                            mask: true
+                        })
+                    }
+                })
+            }
+
         }
     }
 })

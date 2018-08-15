@@ -87,7 +87,7 @@ Component({
         openDetails() {
             this.triggerEvent('tapdetail')
         },
-        emitVote(){
+        emitVote() {
             this.triggerEvent('voteForElemenet')
         }
     }

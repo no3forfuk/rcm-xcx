@@ -1,6 +1,6 @@
 <!--pages/secondRank/invite/invite.wxml-->
 <view class="invite-component">
-    <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
+    <cancel-confirm bindcancel="cancel" bindconfirm="cancel"></cancel-confirm>
     <view class="invite-input-box">
         <view class="invite-input-icon">
             <icon-font icon-value="iconfont icon-search"></icon-font>
@@ -15,7 +15,9 @@
                     <user-card user-info="{{item}}" card-type="small"></user-card>
                     <view class="invite-btn" bindtap="submitInvite" data-uid="{{item.id}}">邀请</view>
                 </view>
-                <view class="no-body" wx:if="{{inviteLists.length == 0}}"><text>没有其他人了</text></view>
+                <view class="no-body" wx:if="{{inviteLists.length == 0}}">
+                    <text>没有其他人了</text>
+                </view>
             </view>
         </invite-tab>
     </view>

@@ -1,5 +1,5 @@
 <!--components/authorize/authorize.wxml-->
-<view class="authorize-component">
+<view class="authorize-component" animation="{{animationData}}">
     <view class="authorize-content">
         <view class="authorize-icon" style="padding:0 0 18.1rpx 0;">
             <view></view>

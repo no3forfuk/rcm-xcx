@@ -1,5 +1,5 @@
 <!--pages/element/element.wxml-->
-<active-header wx:if="{{showActiveHeader}}" is-collected="{{isCollected}}" header-info="{{headerData}}" bindtapmore="ontapmore" bindvoteForElemenet="vote" bindgoAuthorize="goAuthorize" collect-params="{{collectParams}}"></active-header>
+<active-header is-show="{{showActiveHeader}}" is-collected="{{isCollected}}" header-info="{{headerData}}" bindtapmore="ontapmore" bindvoteForElemenet="vote" bindgoAuthorize="goAuthorize" collect-params="{{collectParams}}"></active-header>
 <scroll-view scroll-y="{{canScroll}}" class="element-page-component" bindscrolltolower="loadNextPage" lower-threshold="500" bindscroll="hideorshowActiveHeader">
     <element-header header-info="{{headerData}}" header-type="element" collect-params="{{collectParams}}" bindtapdetail="opendetail" bindtapmore="ontapmore" bindgoAuthorize="goAuthorize" is-collected="{{isCollected}}" bindvoteForElemenet="vote"></element-header>
     <view class="element-page-neck">
@@ -8,7 +8,7 @@
             <text class="element-page-neck-voter">{{headerData.vote_user}}人投票</text>
         </view>
         <scroll-view scroll-x class="element-page-neck-right">
-            <view class="element-page-neck-right-item" wx:for="{{neckData}}" wx:key="{{index}}">
+            <view class="element-page-neck-right-item" wx:for="{{neckData}}" wx:key="{{index}}" bindtap="linkToSecond" data-id="{{item.id}}">
                 <text class="element-page-neck-vote">
                 <text>#{{item.ranking_num}}</text>
                 <text style="font-size:8px;">{{headerData.vote}}/{{item.vote}}</text>
@@ -26,7 +26,7 @@
             <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
         </view>
     </view>
-    <post-list post-list="{{postList}}"></post-list>
+    <post-list post-list="{{postList}}" have-popup="{{activePopup}}"></post-list>
     <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
         <element-detail slot="large" bindcancel="closePopup" wx:if="{{popupType == 'detail'}}" element-info="{{detailInfo}}">
         </element-detail>
@@ -34,6 +34,7 @@
         </add-post>
         <report slot="large" bindcancel="closePopup" bindconfirm="submitReport" wx:if="{{popupType == 'report'}}" report-id="{{elementId}}" report-type="3" id-type="element_id"></report>
     </pop-up>
+    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;">---从前有个太监---</view>
 </scroll-view>
 <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
-<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true"></tab-bar>
+<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-show="{{showTabbar}}"></tab-bar>

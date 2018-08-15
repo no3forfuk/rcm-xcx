@@ -15,7 +15,25 @@ Component({
     data: {
 
     },
+    attached() {
+        var animation = wx.createAnimation({
+            duration: 200,
+            timingFunction: 'ease',
+        })
+        animation.scale(1.2, 1.2).step()
+        this.setData({
+            animationData: animation.export()
+        })
+        setTimeout(function() {
+            animation.scale(1).step()
+            this.setData({
+                animationData: animation.export()
+            })
+        }.bind(this), 200)
+    },
+    detached() {
 
+    },
     /**
      * 组件的方法列表
      */

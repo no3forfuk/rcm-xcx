@@ -382,11 +382,40 @@ const ApiFactory = function(token) {
                 }
             })
         },
-        //收藏列表home/user/userCollect
+        //发布榜单
+        addRank(params, success) {
+            ajax_post({
+                uri: '/home/ranking/addSecond',
+                params: params,
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //收藏列表
+        getuserCollect(type, success) {
+            ajax_post({
+                uri: '/home/user/userCollect',
+                params: {
+                    type: type
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
         //用户动态home/user/userDynamic
-        //用户发布榜单列表home/user/userRank
+        //用户发布榜单列表
+        getuserRank(success) {
+            ajax_post({
+                uri: '/home/user/userRank',
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
         //获取广告home/advert/getAdvert
-        
+
         //关注home/user/userAttention  to_uid
         //点赞 home/praise/add  comment_id  user_type
         addLikeDiscuss(id, success) {
