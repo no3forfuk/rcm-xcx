@@ -10,12 +10,16 @@ Page({
         })
     },
     addpost() {
-        this.setData({
-            activePopup: true,
-            popupType: 'addPost',
-            popupSize: 'large',
-            canScroll: false
-        })
+        if (app.token) {
+            this.setData({
+                activePopup: true,
+                popupType: 'addPost',
+                popupSize: 'large',
+                canScroll: false
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     linkToSecond(e) {
         wx.navigateTo({
@@ -170,27 +174,34 @@ Page({
 
     },
     vote() {
-        app._ajax().vote(this.data.elementId, res => {
-            wx.showToast({
-                title: res.message,
-            })
-            app._ajax().getElementDetails({
-                id: this.data.elementId,
-                page: 1,
-                solt_name: 'exponent'
-            }, res => {
-                this.setData({
-                    headerData: {
-                        flag: '@',
-                        title: res.data.element_name,
-                        desc: res.data.element_desc,
-                        img: res.data.img,
-                        vote: res.data.vote,
-                        vote_user: res.data.vote_user
-                    }
+        if (app.token) {
+            app._ajax().vote(this.data.elementId, res => {
+                wx.showToast({
+                    title: res.message,
+                })
+                app._ajax().getElementDetails({
+                    id: this.data.elementId,
+                    page: 1,
+                    solt_name: 'exponent'
+                }, res => {
+                    this.setData({
+                        headerData: {
+                            flag: '@',
+                            title: res.data.element_name,
+                            desc: res.data.element_desc,
+                            img: res.data.img,
+                            vote: res.data.vote,
+                            vote_user: res.data.vote_user
+                        }
+                    })
                 })
             })
-        })
+        } else {
+            this.setData({
+                goAuthorize: true
+            })
+        }
+
     },
     /**
      * 生命周期函数--监听页面加载
@@ -201,6 +212,9 @@ Page({
             page: 1,
             solt_name: 'created_at'
         }, res => {
+            wx.setNavigationBarTitle({
+                title: res.data.element_name
+            })
             let collect = false;
             if (res.data.collect && res.data.collect == 1) {
                 collect = true;

@@ -13,12 +13,13 @@
 
 .space-between {
     justify-content: space-between;
+    margin-right: 0;
 }
 
 .tab-header-text {
-    font-size: 16px;
+    font-size: 28.96rpx;
     color: #939398;
-    line-height: 16px;
+    line-height: 28.96rpx;
     margin-right: 33.79rpx;
     transition: all 0.5s;
 }
@@ -38,8 +39,8 @@
 .selected {
     transform: scale(1.2);
     color: #000;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 28.96rpx;
+    line-height: 28.96rpx;
     margin-right: 33.79rpx;
     transition: all 0.5s;
 }
@@ -47,8 +48,8 @@
 .unselected {
     transform: scale(1);
     color: #939398;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: 28.96rpx;
+    line-height: 28.96rpx;
     margin-right: 33.79rpx;
     transition: all 0.5s;
 }

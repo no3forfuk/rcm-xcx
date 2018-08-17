@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "userinfo-card": "/components/userInfoCard/userInfoCard",
+        "icon-font": "/components/iconfont/iconfont",
+        "tab": "/components/tab/tab"
+    }
+}

@@ -57,7 +57,7 @@ Component({
                 }
             }
         },
-        rankTitle:{
+        rankTitle: {
             type: Array,
             value: [],
             observer(n, o, c) {
@@ -80,14 +80,15 @@ Component({
      */
     methods: {
         linkToSecondRank(e) {
-            let firstRank = JSON.stringify(e.currentTarget.dataset.firstrank)
+            let id = e.currentTarget.dataset.id
             wx.navigateTo({
-                url: '/pages/secondRank/secondRank?secondId=' + e.currentTarget.dataset.id + '&first=' + firstRank,
+                url: `/pages/secondRank/secondRank?secondId=${id}`,
             })
         },
         linkToELement(e) {
+            let id = e.currentTarget.dataset.id
             wx.navigateTo({
-                url: '/pages/element/element?elementId=' + e.currentTarget.dataset.id,
+                url: `/pages/element/element?elementId=${id}`,
             })
         }
     }

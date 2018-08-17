@@ -404,7 +404,30 @@ const ApiFactory = function(token) {
                 }
             })
         },
-        //用户动态home/user/userDynamic
+        //其他用户信息
+        getOtherUserInfo(id, success) {
+            ajax_get({
+                uri: '/home/user/orderUserInfo',
+                params: {
+                    id: id
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //用户动态
+        getuserDynamic(id, success) {
+            ajax_post({
+                uri: '/home/user/userDynamic',
+                params: {
+                    to_uid: id
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
         //用户发布榜单列表
         getuserRank(success) {
             ajax_post({
@@ -416,7 +439,18 @@ const ApiFactory = function(token) {
         },
         //获取广告home/advert/getAdvert
 
-        //关注home/user/userAttention  to_uid
+        //关注  
+        takeFocus(id, success) {
+            ajax_post({
+                uri: '/home/user/userAttention',
+                params: {
+                    to_uid: id
+                },
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
         //点赞 home/praise/add  comment_id  user_type
         addLikeDiscuss(id, success) {
             ajax_post({

@@ -1,12 +1,29 @@
 /* pages/post/post.wxss */
 @import "../../wxParse/wxParse.wxss";
 
+.post-header {
+    font-size: 36.2rpx;
+    padding: 0 36.2rpx;
+    font-weight: bold;
+}
+
+.post-header-place {
+    font-size: 36.2rpx;
+    padding: 0 36.2rpx;
+    font-weight: bold;
+    opacity: 0;
+}
+
+.post-header-text {
+    background: linear-gradient(to top, #ffcece 0%, #ffcece, 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
+}
+
 .post-page-components {
-    padding-top: 25.34rpx;
     padding-left: 25.34rpx;
     box-sizing: border-box;
     width: 100%;
     height: calc(100% - 46px);
+    position: relative;
 }
 
 image {

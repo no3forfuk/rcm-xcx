@@ -8,16 +8,23 @@ Page({
      */
     secondScroll(e) {
         let direction = e.detail.deltaY
-        if (direction > 0) {
-            //向上
+        let top = e.detail.scrollTop
+        if (top < 46) {
             this.setData({
                 showTabbar: true
             })
         } else {
-            //向下
-            this.setData({
-                showTabbar: false
-            })
+            if (direction > 0) {
+                //向上
+                this.setData({
+                    showTabbar: true
+                })
+            } else {
+                //向下
+                this.setData({
+                    showTabbar: false
+                })
+            }
         }
     },
     /**
@@ -449,8 +456,12 @@ Page({
                 subElement: this.data.subElement.concat(res.data.data.data),
                 //最后一条元素
                 lastElement: res.data.last,
+                //父级榜单
                 activeHeaderInfo: {
-                    parent: this.data.fatherRank,
+                    parent: res.data.ranking_p[0] || {
+                        ranking_name: '其他',
+                        id: 1
+                    },
                     son: {
                         num: res.data.data.total
                     }
@@ -458,6 +469,7 @@ Page({
                 //加载当前页码
                 crtPage: res.data.data.current_page + 1,
                 totalPage: res.data.data.last_page
+
             })
             if (res.data.data.data && res.data.data.data.length > 0) {
                 this.setData({
@@ -482,8 +494,7 @@ Page({
                 ranking_id: options.secondId,
             },
             //是否可以滚动
-            canScroll: true,
-            fatherRank: JSON.parse(options.first)
+            canScroll: true
         })
         // this.getSecondDetails()
         this.getSecondInfo()

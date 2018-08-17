@@ -4,6 +4,7 @@
         "post-discuss": "/components/discussCard/discussCard",
         "tab-bar": "/components/tabBar/tabBar",
         "add-discuss": "./addDiscuss/addDiscuss",
-        "pop-up": "/components/popup/popup"
+        "pop-up": "/components/popup/popup",
+        "authorize": "/components/authorize/authorize"
     }
 }

@@ -71,7 +71,7 @@
                         <rich-text nodes="{{item.postNodes}}"></rich-text>
                         <!-- {{item.post_content}} -->
                     </view>
-                    <user-card card-type="tiny" user-info="{{createUser}}" created-time="{{createTime}}"></user-card>
+                    <user-card card-type="tiny" user-info="{{item._user}}" created-time="{{item.created_at}}"></user-card>
                 </view>
             </view>
         </view>

@@ -5,19 +5,35 @@ Page({
     /**
      * 自定义事件
      */
+    authorizeSuccess() {
+        let arr = getCurrentPages()
+        let length = arr.length
+        let router = arr[length - 1].route
+        wx.redirectTo({
+            url: `/${router}`,
+        })
+    },
     indexScroll(e) {
         let direction = e.detail.deltaY
-        if (direction > 0) {
-            //向上
+        let top = e.detail.scrollTop
+        if (top < 46) {
             this.setData({
                 showTabbar: true
             })
         } else {
-            //向下
-            this.setData({
-                showTabbar: false
-            })
+            if (direction > 0) {
+                //向上
+                this.setData({
+                    showTabbar: true
+                })
+            } else {
+                //向下
+                this.setData({
+                    showTabbar: false
+                })
+            }
         }
+
     },
     removeRank(e) {
         let index = e.detail.index

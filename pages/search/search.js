@@ -103,10 +103,17 @@ Page({
                     }
                     node.push(obj)
                     _arr[i].postNodes = node
+                    let user = {
+                        avatar: _arr[i].avatar,
+                        name: _arr[i].create_user,
+                        time: _arr[i].created_at
+                    }
+                    _arr[i]._user = user
+
                 }
                 postArr = _arr
             }
-
+            
             let rankList = res.data.second.data;
             if (rankList.length > 0) {
                 for (let i = 0; i < rankList.length; i++) {

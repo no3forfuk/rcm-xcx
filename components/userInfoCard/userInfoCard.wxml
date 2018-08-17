@@ -5,7 +5,8 @@
             <image src="{{userInfo.avatar}}" class="user-photo"></image>
         </view>
         <view class="user-img-right">
-            <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit"></icon-font>
+            <slot></slot>
+            <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit" wx:if="{{userType == 'self'}}"></icon-font>
         </view>
     </view>
     <view class="user-name">
@@ -19,6 +20,6 @@
     <view class="focus-funs">
         <text class="focus-funs-item"><text class="focus-num">{{userInfo.attention}}</text>关注</text>
         <text class="focus-funs-item"><text class="focus-num">{{userInfo.fan}}</text>粉丝</text>
-        <text class="focus-funs-item"><text class="focus-num">{{userType == 'self'?userInfo.collect:''}}</text>{{userType == 'self'? '收藏':'获赞'}}</text>
+        <text class="focus-funs-item"><text class="focus-num">{{userType == 'self'?userInfo.collect:userInfo.praise_num}}</text>{{userType == 'self'? '收藏':'获赞'}}</text>
     </view>
 </view>

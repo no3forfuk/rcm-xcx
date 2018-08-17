@@ -36,6 +36,7 @@ App({
                                 encryptedData: res.encryptedData,
                                 iv: res.iv
                             }
+                            delete this.token
                             wx.login({
                                 success: res => {
                                     options.code = res.code

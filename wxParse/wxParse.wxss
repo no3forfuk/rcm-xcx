@@ -151,8 +151,6 @@
     overflow: auto;
 }
 
-
-
 .wxParse-img {
     /*background-color: #efefef;*/
     overflow: hidden;
@@ -271,4 +269,9 @@
 
 .wxParse-figure {
     overflow: hidden;
+}
+
+.wxParse-video-video {
+    max-width: 80%;
+    border-radius: 4px;
 }

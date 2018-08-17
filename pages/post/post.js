@@ -7,6 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        showTabbar: true,
+        goAuthorize: false,
         createUser: {},
         postInfo: {},
         discussList: [],
@@ -27,15 +29,53 @@ Page({
         let func = e.detail.result
         this[func]()
     },
+    closeAuthorize() {
+        this.setData({
+            goAuthorize: false
+        })
+    },
+    postScroll(e) {
+        let direction = e.detail.deltaY
+        let top = e.detail.scrollTop
+        if (top < 46) {
+            this.setData({
+                showTabbar: true
+            })
+        } else {
+            if (direction > 0) {
+                //向上
+                this.setData({
+                    showTabbar: true
+                })
+            } else {
+                //向下
+                this.setData({
+                    showTabbar: false
+                })
+            }
+        }
+    },
+    goauth() {
+        this.setData({
+            goAuthorize: true
+        })
+    },
     goHome() {
         wx.reLaunch({
             url: '/pages/index/index',
         })
     },
     addDiscuss() {
-        this.setData({
-            activePopup: true
-        })
+        if (app.token) {
+            this.setData({
+                activePopup: true
+            })
+        } else {
+            this.setData({
+                goAuthorize: true
+            })
+        }
+
     },
     closePopup() {
         const $popup = this.selectComponent('#popup')
@@ -72,7 +112,7 @@ Page({
             this.getDiscuss()
         })
     },
-    likeComplete(){
+    likeComplete() {
 
     },
     getDiscuss() {
@@ -90,6 +130,9 @@ Page({
             postId: options.postId
         })
         app._ajax().getPostDetails(options.postId, res => {
+            wx.setNavigationBarTitle({
+                title: res.data.element_name
+            })
             let that = this;
             if (res.data.type == 5) {
                 this.setData({

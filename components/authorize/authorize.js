@@ -39,7 +39,6 @@ Component({
      */
     methods: {
         getUserInfo() {
-            this.triggerEvent('closeAuthorize')
             wx.getUserInfo({
                 success: res => {
                     let options = {
@@ -50,9 +49,11 @@ Component({
                         success: res => {
                             options.code = res.code
                             api().login(options, success => {
+                                this.triggerEvent('successCallBack')
                                 app.token = success.data.token.access_token
                                 app._ajax(success.data.token.access_token).getSelfInfo(res => {
                                     app.globalData.userInfo = res.data
+                                    this.cancelAuthorize()
                                 })
                             })
                         }

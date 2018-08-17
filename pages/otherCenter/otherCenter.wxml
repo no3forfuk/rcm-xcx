@@ -1,0 +1,18 @@
+<!--pages/otherCenter/otherCenter.wxml-->
+<userinfo-card user-info="{{user}}" user-type="other" bindopenEdit="editUserInfo">
+    <view class="focus-btn" style="{{user.attention_status == 0?'color:#FF2C09;':'color:#010101;'}}" bindtap="focus" data-id="{{user.id}}">{{user.attention_status == 0?'关注':'已关注'}}</view>
+</userinfo-card>
+<view style="padding-top:10px;">
+    <tab header-data="{{tabHeaderData}}" bindchange="tabchange" flex-type="space-between">
+        <view wx:if="{{renderType == 1}}" class="outer">
+            <view wx:for="{{rankData}}" wx:key="{{index}}" class="rank-self" bindtap="linkToSecond" data-sid="{{item.id}}">#{{item.ranking_name}}</view>
+        </view>
+        <view wx:if="{{renderType == 2}}" class="outer-dt">
+            <text>暂无动态</text>
+        </view>
+        <view wx:if="{{renderType == 3}}" class="outer">
+            <view wx:for="{{collectSecond}}" wx:key="{{index}}" class="rank-self" bindtap="linkToSecond" data-sid="{{item.id}}">#{{item.ranking_name}}</view>
+            <view wx:for="{{collectElement}}" wx:key="{{index}}" class="rank-self" bindtap="linkToElement" data-eid="{{item.id}}">@{{item.element_name}}</view>
+        </view>
+    </tab>
+</view>
