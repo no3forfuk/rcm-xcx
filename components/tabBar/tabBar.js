@@ -17,13 +17,6 @@ Component({
                 }
             }
         },
-        isIndex: {
-            type: Boolean,
-            value: false,
-            observer(n, o, c) {
-
-            }
-        },
         isShow: {
             type: Boolean,
             value: false,
@@ -56,7 +49,7 @@ Component({
      */
     data: {
         itemFlex: '',
-        animationData:''
+        animationData: ''
     },
     /**
      * 组件的方法列表
@@ -64,17 +57,7 @@ Component({
     methods: {
         tapItem(e) {
             let target = e.currentTarget.dataset.item
-            if (target.openType == 'getUserInfo') {
-                app.authorize = e.detail
-                this.triggerEvent('tapItem', {
-                    target,
-                    userInfo: e.detail.userInfo
-                })
-            } else {
-                this.triggerEvent('tapItem', target)
-            }
-
-
+            this.triggerEvent('tapItem', target)
         }
     }
 })

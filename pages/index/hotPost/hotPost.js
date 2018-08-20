@@ -26,7 +26,7 @@ Component({
                             discussData: n.data,
                             discussUser: {
                                 avatar: n.data.user.avatar,
-                                name: n.data.user.create_user
+                                name: n.data.user.name
                             }
                         })
                     }
@@ -47,11 +47,6 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        linkToPost(e) {
-            wx.navigateTo({
-                url: '/pages/post/post?postId=' + e.currentTarget.dataset.id,
-            })
-        },
         dolike(e) {
             if (!app.token) {
                 this.triggerEvent('goAuth')

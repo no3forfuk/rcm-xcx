@@ -34,8 +34,8 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        removeThisRank(e) {
-            this.triggerEvent('removeRank', e.currentTarget.dataset)
+        ontapdelete(e) {
+            this.triggerEvent('tapdeleteitem', e.currentTarget.dataset)
         }
     }
 })

@@ -9,12 +9,12 @@
     flex-direction: row;
     justify-content: space-between;
     height: 46px;
-    background-color: #40aabb;
+    background-color: #ddd59f;
     line-height: 46px;
 }
 
 .tab-bar-item {
-    background-color: #40aabb;
+    background-color: #ddd59f;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

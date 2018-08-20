@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 12.07rpx 39.22rpx;
+    padding: 12.07rpx 36.2rpx;
     align-items: center;
 }
 
@@ -24,7 +24,7 @@
     align-items: center;
     border: 1px solid #c8c7cd;
     border-radius: 4px;
-    padding: 13.2rpx 41.63rpx 13.2rpx 13.2rpx;
+    padding: 11.46rpx 41.63rpx 11.46rpx 13.2rpx;
 }
 
 .second-list-item {
@@ -102,7 +102,7 @@
 
 .list-header-left-text {
     color: #939398;
-    font-size: 16px;
+    font-size: 28.96rpx;
     margin-left: 13.2rpx;
 }
 

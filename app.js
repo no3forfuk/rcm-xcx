@@ -25,6 +25,7 @@ App({
         }
     },
     onLaunch() {
+        // 获取授权状态
         wx.getSetting({
             success: res => {
                 if (res.authSetting['scope.userInfo']) {
@@ -62,12 +63,32 @@ App({
                 }
             }
         })
+        //获取用户手机信息
+        wx.getSystemInfo({
+            success: res => {
+                this.phone = res
+            }
+        })
     },
     qiniuPrefix: 'http://p8rk87lub.bkt.clouddn.com/',
     qiniuSDK: qiniuSDK,
     globalData: {
         userInfo: {},
         scrollY: true
+    },
+    phone: null,
+    activity: {
+        current: {
+            url: 'http://p8rk87lub.bkt.clouddn.com/active-0806.png',
+            text: '租房季',
+            ranking: '公寓',
+            rankingId: 15
+        },
+        _default: {
+            url: 'http://p8rk87lub.bkt.clouddn.com/active-08-20.jpg',
+            text: '招募体验官'
+        }
+
     },
     timeFormat(type, ms) {
         let time;

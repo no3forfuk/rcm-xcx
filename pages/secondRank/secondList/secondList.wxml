@@ -17,7 +17,7 @@
     </view>
     <view class="second-list-body">
         <view class="second-list-item" wx:for="{{subElement}}" wx:if="{{subElement.length != 0}}" wx:key="{{index}}">
-            <text class="second-list-item-left">{{index + 1}}</text>
+            <text class="second-list-item-left">{{item.pm}}</text>
             <view class="second-list-item-right">
                 <view class="second-list-item-content" bindtap="linkToElement" data-id="{{item.id}}">
                     <text class="second-list-item-right-text">@{{item.element_name}}</text>

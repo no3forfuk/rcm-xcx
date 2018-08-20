@@ -10,6 +10,7 @@
         "icon-font": "/components/iconfont/iconfont",
         "hot-rank": "./hotRank/hotRank",
         "hot-post": "./hotPost/hotPost",
-        "authorize": "/components/authorize/authorize"
+        "authorize": "/components/authorize/authorize",
+        "page-footer": "/components/pageFooter/pageFooter"
     }
 }

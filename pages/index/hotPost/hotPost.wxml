@@ -1,12 +1,14 @@
 <!--pages/index/hotPost/hotPost.wxml-->
-<view class="hot-post-components">
-    <view class="hot-post-title" bindtap="linkToPost" data-id="{{hotPostData.id}}">
+<navigator class="hot-post-components" url="/pages/post/post?postId={{hotPostData.id}}">
+    <view class="hot-post-title">
         <icon-font icon-value="iconfont icon-tiezi" icon-style="font-size: 36.2rpx;"></icon-font>
         <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
         <text class="hot-post-title-text">@{{elementName}}</text>
     </view>
-    <view class="hot-post-content" bindtap="linkToPost" data-id="{{hotPostData.id}}">{{postContent}}</view>
+    <view class="hot-post-content">{{postContent}}</view>
     <user-card card-type="tiny" user-info="{{createUser}}" created-time="{{createTime}}"></user-card>
+</navigator>
+<view class="post-bottom">
     <view class="hot-post-discuss" wx:if="{{discussData}}">
         <view class="hot-post-discuss-content">
             <icon-font icon-value="iconfont icon-huoyan" icon-style="color:#FF2C09;font-size:25.89rpx;"></icon-font>

@@ -1,0 +1,14 @@
+/* components/pageFooter/pageFooter.wxss */
+.page-footer-component{
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.page-footer-text{
+    font-size: 21.72rpx;
+    color: #C8C7CD;
+}

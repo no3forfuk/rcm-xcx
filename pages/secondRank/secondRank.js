@@ -43,7 +43,8 @@ Page({
         })
     },
     sortElementByType(e) {
-        let sortType = e.detail.new
+        let sortType = e.detail.type
+        console.log(sortType)
         if (sortType == 'hot') {
             this.setData({
                 solt_name: 'exponent',
@@ -409,8 +410,13 @@ Page({
         discussList: [],
         isCollected: false,
         haveSubElement: false,
-        showTabbar: true
-
+        showTabbar: true,
+        elementList: {
+            currentPage: 1,
+            totalPage: 1,
+            sortType: 'exponent',
+            items: []
+        },
     },
     loadNextPage() {
         if (this.data.totalPage >= this.data.crtPage) {
@@ -483,21 +489,100 @@ Page({
         })
     },
     /**
+     * 获取二级榜单详情
+     */
+    _getSecondRankDetail(success) {
+        let params = {
+            level: 2,
+            id: this.data.secondId,
+            page: this.data.elementList.currentPage,
+            solt_name: this.data.elementList.sortType
+        }
+        app._ajax().getSecondRankDetails(params, res => {
+            console.log(res.data)
+            success(res.data)
+        })
+    },
+    /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        //初始化基本数据
         this.setData({
-            //榜单id
-            secondId: options.secondId,
-            //收藏榜单所需参数
-            collectParams: {
-                ranking_id: options.secondId,
-            },
-            //是否可以滚动
-            canScroll: true
+            //二级榜单id
+            secondId: options.secondId
         })
-        // this.getSecondDetails()
-        this.getSecondInfo()
+        this._getSecondRankDetail(res => {
+            wx.setNavigationBarTitle({
+                title: res.ranking_name
+            });
+            //父榜单---activeHeader
+            (() => {
+                if (!res.ranking_p[0]) {
+                    this.setData({
+                        pageHeader: {
+                            ranking: {
+                                ranking_name: '其他',
+                                id: 1
+                            },
+                            subNum: '99+'
+                        },
+                    })
+                } else {
+                    this.setData({
+                        pageHeader: {
+                            ranking: res.ranking_p[0],
+                            subNum: res.data.total
+                        },
+                    })
+                }
+            })();
+            // 页面头部
+            (() => {
+                let collect = false;
+                if (res.collect && res.collect == 1) {
+                    collect = true;
+                } else {
+                    collect = false;
+                }
+                this.setData({
+                    headerInfo: {
+                        flag: '#',
+                        title: res.ranking_name,
+                        desc: res.ranking_desc,
+                        rating: res.rating,
+                        vote: res.vote,
+                        childrenNum: res.data.total,
+                        isCollect: collect,
+                        id: this.data.secondId
+                    }
+                })
+            })();
+            //详情页数据
+            this.setData({
+                detailInfo: {
+                    title: res.ranking_name,
+                    desc: res.ranking_desc,
+                    img: res.img
+                }
+            });
+            //子元素
+            (() => {
+                let arr = this.data.elementList.items
+                arr = arr.concat(res.data.data)
+                this.setData({
+                    elementList: {
+                        currentPage: res.data.current_page + 1,
+                        totalPage: res.data.last_page,
+                        items: arr,
+                        sortType: this.data.elementList.sortType
+                    }
+                })
+            })();
+
+        })
+
+        // this.getSecondInfo()
     },
 
     /**

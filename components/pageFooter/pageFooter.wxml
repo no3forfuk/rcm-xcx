@@ -1,0 +1,4 @@
+<!--components/pageFooter/pageFooter.wxml-->
+<view class="page-footer-component">
+    <text class="page-footer-text">{{footerText}}</text>
+</view>

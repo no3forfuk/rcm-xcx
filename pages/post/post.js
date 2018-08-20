@@ -146,7 +146,7 @@ Page({
                 })
             } else {
                 let content = res.data.post_content
-                content = content.replace("http://", "https://")
+                // content = content.replace("http://", "https://")
                 WxParse.wxParse('content', 'html', content, that)
                 this.setData({
                     createUser: res.data.user,

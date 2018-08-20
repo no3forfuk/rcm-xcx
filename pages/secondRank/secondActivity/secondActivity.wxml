@@ -1,5 +1,5 @@
 <!--pages/secondRank/secondActivity/secondActivity.wxml-->
 <view class="active-page">
-    <image src="http://p8rk87lub.bkt.clouddn.com/active-0806.png" class="active-class-img" mode="widthFix" bindtap="viewImg" bindlongtap="longtapimg"></image>
-    <text>暂时没有活动</text>
+    <image src="{{activeImg}}" class="active-class-img" mode="widthFix" bindtap="viewImg" bindlongtap="longtapimg"></image>
+    <!-- <text>暂时没有活动</text> -->
 </view>

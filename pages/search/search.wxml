@@ -3,7 +3,7 @@
     <view class="search-page-header">
         <view class="search-header">
             <icon-font icon-value="iconfont icon-search" icon-style="font-size:12px; margin-left:10px;"></icon-font>
-            <input placeholder="#租房季" placeholder-class="placeholder-class" class="search-value-input" confirm-type="search" bindconfirm="submitSearch"></input>
+            <input placeholder="#租房季" placeholder-class="placeholder-class" class="search-value-input" confirm-type="search" bindconfirm="submitSearch" focus="true"></input>
         </view>
     </view>
     <view class="search-before-page" wx:if="{{!haveResult}}">

@@ -79,17 +79,6 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        linkToSecondRank(e) {
-            let id = e.currentTarget.dataset.id
-            wx.navigateTo({
-                url: `/pages/secondRank/secondRank?secondId=${id}`,
-            })
-        },
-        linkToELement(e) {
-            let id = e.currentTarget.dataset.id
-            wx.navigateTo({
-                url: `/pages/element/element?elementId=${id}`,
-            })
-        }
+
     }
 })

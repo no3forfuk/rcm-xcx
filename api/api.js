@@ -1,8 +1,9 @@
 const ApiFactory = function(token) {
-    let baseUrl = 'https://www.rcm.ink/api'
+    let baseUrl = 'http://test.bantangtv.com/api'
+    // let baseUrl = 'https://www.rcm.ink/api'
 
     function ajax_get(data) {
-        wx.request({
+        wx.request({            
             url: baseUrl + data.uri,
             data: data.params,
             method: 'GET',
@@ -29,7 +30,6 @@ const ApiFactory = function(token) {
     }
 
     function ajax_post(data) {
-        let baseUrl = 'https://www.rcm.ink/api'
         wx.request({
             url: baseUrl + data.uri,
             data: data.params,

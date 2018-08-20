@@ -5,19 +5,21 @@
         <span class="rating-sup">{{rating[1]}}</span>
     </view>
     <view class="index-rank-card-right">
-        <view class="index-rank-card-right-title" bindtap="linkToSecondRank" data-id="{{rankData.id}}" data-firstRank="{{firstData}}">
+        <view class="index-rank-card-right-title">
             <view class="rank-list-title">
-                <text wx:if="{{nameType != 'search'}}">#{{rankData.ranking_name}}</text>
+                <navigator wx:if="{{nameType != 'search'}}" url="/pages/secondRank/secondRank?secondId={{rankData.id}}">#{{rankData.ranking_name}}</navigator>
                 <rich-text wx:if="{{nameType == 'search'}}" nodes="{{rankTitle}}"></rich-text>
                 <slot></slot>
             </view>
         </view>
         <view class="index-rank-card-right-element-list" style="{{freeStyle}}">
             <scroll-view class="rank-card-element-ul" scroll-x="true">
-                <view class="rank-card-element-item" bindtap="linkToELement" data-id="{{item.id}}" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{!item.img}}">
-                    <text class="rank-card-element-item-text">{{item.element_name}}</text>
-                </view>
-                <image class="rank-card-element-img" bindtap="linkToELement" data-id="{{item.id}}" wx:for="{{rankData.data}}" wx:key="{{index}}" wx:if="{{item.img}}" src="{{item.img}}"></image>
+                <navigator url="/pages/element/element?elementId={{item.id}}" class="rank-card-element-item" wx:for="{{rankData.data}}" wx:key="{{index}}">
+                    <view wx:if="{{!item.img}}">
+                        <text class="rank-card-element-item-text">{{item.element_name}}</text>
+                    </view>
+                    <image class="rank-card-element-img" wx:if="{{item.img}}" src="{{item.img}}"></image>
+                </navigator>
             </scroll-view>
         </view>
     </view>

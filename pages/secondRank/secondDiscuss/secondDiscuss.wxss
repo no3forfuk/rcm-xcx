@@ -24,7 +24,7 @@
     align-items: center;
     border: 1px solid #c8c7cd;
     border-radius: 4px;
-    padding: 13.2rpx;
+    padding: 11.46rpx 41.63rpx 11.46rpx 13.2rpx;
 }
 
 .discuss-header-left-icon {
@@ -34,7 +34,7 @@
 
 .discuss-header-left-text {
     color: #939398;
-    font-size: 16px;
+    font-size: 28.96rpx;
     margin-left: 13.2rpx;
 }
 

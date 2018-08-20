@@ -1,25 +1,30 @@
-<view class="index-page">
-    <view class="index-page-header">
-        <!-- search -->
-        <view class="index-page-header-top">
-            <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
-            <view class="index-page-header-search-box" bindtap="goSearch">
-                <view class="index-page-header-search-inner">
-                    <icon-font icon-value="iconfont icon-search"></icon-font>
-                    <text>#租房记#</text>
-                </view>
+<view class="index-page-header">
+    <!-- search -->
+    <view class="index-page-header-top">
+        <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
+        <navigator class="index-page-header-search-box" url="/pages/search/search">
+            <view class="index-page-header-search-inner">
+                <icon-font icon-value="iconfont icon-search"></icon-font>
+                <text>#租房记#</text>
             </view>
-        </view>
-        <!-- nav   {{index == crtIndex? 'active-nav':''}}-->
-        <scroll-view class="index-page-header-nav" scroll-x>
-            <text wx:for="{{firstRank}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == crtIndex? 'active-nav':''}}" bindtap="changeNav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
-        </scroll-view>
+        </navigator>
     </view>
-    <scroll-view scroll-y class="index-scroll-view" enable-back-to-top="true" bindscrolltolower="loadNextPage" lower-threshold="500" bindscroll="indexScroll">
-        <rank-card wx:for="{{firstRankList}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{crtFirstRank}}" wx:if="{{indexType == 'firstRank'}}"></rank-card>
-        <hot-post wx:if="{{indexType == 'hotPost'}}" hot-post-data="{{item}}" wx:for="{{hotPostList}}" wx:key="{{index}}" bindlikeComplete="likeComplete" bindgoAuth="goauth"></hot-post>
-        <hot-rank wx:if="{{indexType == 'hotRank'}}" hot-rank-data="{{hotRankList}}" bindremoveRank="removeRank"></hot-rank>
+    <!-- nav -->
+    <scroll-view class="index-page-header-nav" scroll-x>
+        <text wx:for="{{headerNav}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == currentNavIndex? 'active-nav':''}}" bindtap="onchangenav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
     </scroll-view>
 </view>
-<authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize" bindsuccessCallBack="authorizeSuccess"></authorize>
-<tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-index="true" is-show="{{showTabbar}}"></tab-bar>
+<!-- 列表 -->
+<scroll-view scroll-y="true" class="index-scroll-view" enable-back-to-top="true" bindscrolltolower="onscrollbottom" lower-threshold="500" bindscroll="onlistscroll" style="height:{{scrollHeight}}px;">
+    <!-- 一级榜单 -->
+    <rank-card wx:for="{{firstRank.items}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{crtFirstRank}}" wx:if="{{indexType == 'firstRank'}}"></rank-card>
+    <!-- 热帖 -->
+    <hot-post wx:if="{{indexType == 'hotPost'}}" hot-post-data="{{item}}" wx:for="{{hotPost.items}}" wx:key="{{index}}" bindgoAuth="goauth"></hot-post>
+    <!-- 热榜 -->
+    <hot-rank wx:if="{{indexType == 'hotRank'}}" hot-rank-data="{{hotRank.items}}" bindtapdeleteitem="onremovehotrank"></hot-rank>
+    <page-footer footer-text="{{footerText}}"></page-footer>
+</scroll-view>
+<!-- 鉴权 -->
+<authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="oncloseauth" bindsuccessCallBack="onauthorizesuccess"></authorize>
+<!-- footer -->
+<tab-bar tab-bar-list="{{tabBar.list}}" bindtapItem="onclicktabbar" is-show="{{tabBar.show}}"></tab-bar>
