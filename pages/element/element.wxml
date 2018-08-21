@@ -23,7 +23,7 @@
             <text class="shoulder-left-text">说点什么，参与讨论</text>
         </view>
         <view class="element-page-shoulder-right">
-            <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
+            <!-- <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font> -->
         </view>
     </view>
     <post-list post-list="{{postList}}" have-popup="{{activePopup}}"></post-list>
@@ -34,7 +34,7 @@
         </add-post>
         <report slot="large" bindcancel="closePopup" bindconfirm="submitReport" wx:if="{{popupType == 'report'}}" report-id="{{elementId}}" report-type="3" id-type="element_id"></report>
     </pop-up>
-    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;">---从前有个太监---</view>
+    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;"></view>
 </scroll-view>
 <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
 <tab-bar tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick" is-show="{{showTabbar}}"></tab-bar>

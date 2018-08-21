@@ -14,7 +14,7 @@
             <text class="search-hot-key-li" bindtap="searchByHotKeyWords" data-value="{{item.search_key}}" wx:for="{{hotKey}}" wx:key="{{index}}">{{item.search_key}}</text>
         </view>
         <view class="search-before-banner">
-            <image class="search-before-banner-img"></image>
+            <image class="search-before-banner-img" src="http://p8rk87lub.bkt.clouddn.com/zfj.png"></image>
         </view>
     </view>
     <scroll-view scroll-y class="search-result-page" wx:if="{{haveResult}}">

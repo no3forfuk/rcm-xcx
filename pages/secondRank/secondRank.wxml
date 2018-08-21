@@ -1,29 +1,36 @@
 <!-- pages/secondRank/secondRank.wxml -->
-<view class="second-active-header">
-    <navigator class="second-active-father">{{pageHeader.ranking.ranking_name}}</navigator>
-    <text class="second-active-son">({{pageHeader.subNum}}个榜单)</text>
-</view>
-<scroll-view scroll-y="{{canScroll}}" class="second-page" enable-back-to-top="true" bindscrolltolower="loadNextPage" lower-threshold="500" bindscroll="secondScroll">
-    <rank-header header-info="{{headerInfo}}" collect-params="{{collectParams}}" bindtapmore="ontapmore" header-type="second" bindtapdetail="opendetail" bindgoAuthorize="goAuthorize" is-collected="{{isCollected}}"></rank-header>
-    <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
-        <!-- 二级榜单列表 -->
-        <second-list wx:if="{{subType === 0}}" sub-element="{{elementList.items}}" last-element="{{lastElement}}" bindaddelement="addelement" bindgoinvite="listToInvite" bindsortElementByType="sortElementByType" have-sub-element="{{haveSubElement}}"></second-list>
-        <!-- 二级榜单评论 -->
-        <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}" id="discuss" bindaddDiscuss="addDiscuss" discuss-info="{{discussData}}" bindgoauth="goAuthorize"></second-discuss>
-        <!-- 二级榜单活动 -->
-        <second-activity wx:if="{{subType === 2}}" first-rank="{{activeHeaderInfo.parent}}"></second-activity>
-    </tab>
-    <!-- 弹框 -->
-    <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" popup-show="{{showPopup}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="tapMoreItem">
-        <add-element slot="large" bindcancel="closePopup" bindconfirm="submitadd" wx:if="{{popupType == 'addElement'}}" bindsetNewElementName="setNewElementName" bindsetNewElementDesc="setElementDesc" bindsetElementImg="setElementImg"></add-element>
-        <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" wx:if="{{popupType == 'addDiscuss'}}" bindsetValue="setDiscussValue"></add-discuss>
-        <invite slot="large" bindcancel="closePopup" bindconfirm="submitInvite" wx:if="{{popupType == 'invite'}}" second-id="{{secondId}}" bindcompleteInvite="closePopup"></invite>
-        <second-detail slot="large" bindcancel="closePopup" wx:if="{{popupType == 'detail'}}" second-info="{{detailInfo}}"></second-detail>
-        <report slot="large" bindcancel="closePopup" bindconfirm="submitReport" wx:if="{{popupType == 'report'}}" report-id="{{secondId}}" report-type="2" id-type="second_id"></report>
-    </pop-up>
-    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;" wx:if="{{subType !== 2}}">
-        ---从前有个太监---
+<view class="second-page">
+    <view class="second-active-header">
+        <navigator class="second-active-father" url="/pages/firstRank/firstRank?firstId={{pageHeader.ranking.id}}">{{pageHeader.ranking.ranking_name}}</navigator>
+        <text class="second-active-son">({{pageHeader.subNum}}个榜单)</text>
     </view>
-</scroll-view>
-<authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
-<tab-bar is-show="{{showTabbar}}" tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick"></tab-bar>
+    <scroll-view scroll-y="true" class="second-page-scroll" enable-back-to-top="true" bindscrolltolower="onloadnextpage" lower-threshold="500" bindscroll="onsecondscroll">
+        <!-- page-header -->
+        <rank-header header-info="{{headerInfo}}" bindtapmore="ontapmore" header-type="second" bindtapdetail="opendetail" bindgoAuthorize="goAuthorize"></rank-header>
+        <!-- tab -->
+        <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
+            <!-- 二级榜单列表 -->
+            <second-list wx:if="{{subType === 0}}" sub-element="{{elementList.items}}" last-element="{{lastElement}}" bindaddelement="onaddelement" bindgoinvite="listToInvite" bindsortElementByType="sortElementByType" have-sub-element="{{haveSubElement}}" id="second-list"></second-list>
+            <!-- 二级榜单评论 -->
+            <second-discuss wx:if="{{subType === 1}}" second-id="{{secondId}}" id="discuss" bindaddDiscuss="addDiscuss" discuss-info="{{discussData}}" bindgoauth="goAuthorize"></second-discuss>
+            <!-- 二级榜单活动 -->
+            <second-activity wx:if="{{subType === 2}}" first-rank="{{pageHeader.ranking}}"></second-activity>
+            <page-footer footer-text="{{footerText}}"></page-footer>
+        </tab>
+        <!-- 弹框 -->
+        <pop-up wx:if="{{popup.show}}" bindclose="onclosepopup" popup-size="{{popup.size}}" id="popup" catchtouchmove="ture" small-data="{{moreItems}}" bindtapSmallItem="ontapmoreitem">
+            <!-- 添加元素 -->
+            <add-element slot="large" bindcancel="onclosepopup" bindconfirm="submitadd" wx:if="{{popup.type == 'addElement'}}" bindsetNewElementName="setNewElementName" bindsetNewElementDesc="setElementDesc" bindsetElementImg="setElementImg"></add-element>
+            <!-- 添加评论 -->
+            <add-discuss slot="large" bindcancel="onclosepopup" bindconfirm="submitDiscuss" wx:if="{{popup.type == 'addDiscuss'}}" bindsetValue="setDiscussValue"></add-discuss>
+            <!-- 邀请 -->
+            <invite slot="large" bindcancel="onclosepopup" bindconfirm="submitInvite" wx:if="{{popup.type == 'invite'}}" second-id="{{secondId}}" bindcompleteInvite="closePopup"></invite>
+            <!-- 榜单详情 -->
+            <second-detail slot="large" bindcancel="onclosepopup" wx:if="{{popup.type == 'detail'}}" second-info="{{detailInfo}}"></second-detail>
+            <!-- 举报 -->
+            <report slot="large" bindcancel="onclosepopup" bindconfirm="submitReport" wx:if="{{popup.type == 'report'}}" report-id="{{secondId}}" report-type="2" id-type="second_id"></report>
+        </pop-up>
+    </scroll-view>
+    <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="closeAuthorize"></authorize>
+    <tab-bar is-show="{{showTabbar}}" tab-bar-list="{{tabBarList}}" bindtapItem="tabItemClick"></tab-bar>
+</view>

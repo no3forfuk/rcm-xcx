@@ -1,6 +1,6 @@
 <!--pages/myCollect/myCollect.wxml-->
 <view class="my-message-banner">
-    <image class="my-message-banner-img"></image>
+    <image class="my-message-banner-img" src="http://p8rk87lub.bkt.clouddn.com/zml.png"></image>
 </view>
 <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
     <scroll-view class="tab-body-scroll" scroll-y style="{{scrollHeight}}">

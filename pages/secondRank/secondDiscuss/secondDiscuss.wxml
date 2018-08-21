@@ -6,7 +6,7 @@
             <text class="discuss-header-left-text">说点什么，参与讨论</text>
         </view>
         <view class="second-discuss-header-right">
-            <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font>
+            <!-- <icon-font icon-value="iconfont icon-paixu text-size-20" text-class="text-size-8" text-value="最热" text-color="#605F5F"></icon-font> -->
         </view>
     </view>
     <view class="second-discuss-body">

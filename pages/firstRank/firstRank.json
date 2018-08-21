@@ -1,0 +1,9 @@
+{
+    "disableScroll": false,
+    "usingComponents": {
+        "rank-card": "/components/indexRankCard/indexRankCard",
+        "tab-bar": "/components/tabBar/tabBar",
+        "icon-font": "/components/iconfont/iconfont",
+        "page-footer": "/components/pageFooter/pageFooter"
+    }
+}

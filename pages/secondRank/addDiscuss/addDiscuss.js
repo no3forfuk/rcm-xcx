@@ -13,16 +13,17 @@ Component({
             userInfo: {
                 avatar: user.avatar,
                 name: user.name
-            }
+            },
+            sendDiscuss: true
         })
     },
     /**
      * 组件的初始数据
      */
     data: {
-        userInfo: {}
+        userInfo: {},
+        sendDiscuss: true
     },
-
     /**
      * 组件的方法列表
      */
@@ -31,7 +32,14 @@ Component({
             this.triggerEvent('cancel')
         },
         confirm() {
-            this.triggerEvent('confirm')
+            if (this.data.sendDiscuss) {
+                this.triggerEvent('confirm')
+            } else {
+
+            }
+            this.setData({
+                sendDiscuss: false
+            })
         },
         setValue(e) {
             this.triggerEvent('setValue', e.detail.value)

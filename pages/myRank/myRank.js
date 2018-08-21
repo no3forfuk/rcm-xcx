@@ -18,6 +18,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        wx.setNavigationBarTitle({
+            title: '我的榜单'
+        });
         app._ajax().getuserRank(res => {
             this.setData({
                 ranklist: res.data

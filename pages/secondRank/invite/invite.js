@@ -75,6 +75,7 @@ Component({
             app._ajax().invitePeople(params, res => {
                 wx.showToast({
                     title: res.message,
+                    mask: true
                 })
                 // this.triggerEvent('completeInvite')
             })

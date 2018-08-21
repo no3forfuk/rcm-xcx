@@ -1,7 +1,7 @@
 <!--pages/myMessage/myMessage.wxml-->
 
 <view class="my-message-banner">
-    <image class="my-message-banner-img"></image>
+    <image class="my-message-banner-img" src="http://p8rk87lub.bkt.clouddn.com/zml.png"></image>
 </view>
 
 <tab header-data="{{tabHeaderData}}" bindchange="tabchange">
@@ -26,15 +26,15 @@
                     <text>升级到了 </text>
                     <text class="message-item-6-level">S+</text>
                 </view>
-                <view class="message-item-4" wx:if="{{item.notice_type == 4}}">
+                <navigator class="message-item-4" wx:if="{{item.notice_type == 4}}" url="/pages/element/element?elementId={{item.element.id}}">
                     <text class="message-item-1-title">@{{item.element.element_name}} </text>
                     <text class="message-item-1-title">有了新的帖子 </text>
-                </view>
-                <view class="message-item-1" wx:if="{{item.notice_type == 2}}">
+                </navigator>
+                <navigator class="message-item-1" wx:if="{{item.notice_type == 2}}" url="/pages/post/post?postId={{item.post.id}}">
                     <text class="message-item-1-title">{{item.from_user.name}} 回复了你的帖子</text>
                     <text class="message-item-1-new">{{item.comment.content}}</text>
-                </view>
-                <view class="message-item-1" wx:if="{{item.notice_type == 7}}">
+                </navigator>
+                <view class="message-item-1" wx:if="{{item.notice_type == 7}}" bindtap="linkToRank" data-id="{{item.second.id}}">
                     <text class="message-item-1-title">{{item.from_user.name}} 邀请您填充榜单</text>
                     <text class="message-item-5-message">#{{item.second.ranking_name}}</text>
                 </view>

@@ -1,9 +1,16 @@
+.index-page {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .index-scroll-view {
     box-sizing: border-box;
 }
 
 .index-page-header {
-    padding: 0 25.94rpx;
+    padding: 0;
 }
 
 .index-page-header-top {
@@ -17,6 +24,7 @@
 .index-page-header-logo {
     width: 95.33rpx;
     height: 37.41rpx;
+    margin-left: 25.94rpx;
 }
 
 .index-page-header-search-box {
@@ -42,9 +50,10 @@
 }
 
 .index-page-header-nav {
-    padding: 0 12.67rpx;
-    width: 100%;
+    padding-right: 25.94rpx;
+    width: calc(100% - 51.88rpx);
     white-space: nowrap;
+    margin-left: 25.94rpx;
 }
 
 .index-page-header-nav-text {
@@ -53,7 +62,11 @@
     display: inline-block;
     line-height: 42.23rpx;
     margin-right: 92.92rpx;
-    transition: all 0.2s;
+    transition: all 0.4s;
+}
+
+.index-page-header-nav-text:nth-child(1) {
+    margin-left: 12.67rpx;
 }
 
 .index-page-header-nav-text:nth-last-child(1) {
@@ -63,6 +76,13 @@
 .active-nav {
     color: #ff2c09;
     font-weight: bold;
-    font-size: 36.2rpx;
+    transform: scale(1.2);
+    /* font-size: 36.2rpx; */
     background: linear-gradient(to top, #ffcece 0%, #ffcece, 35%, rgba(255, 255, 255, 1) 35%, rgba(255, 255, 255, 1) 100%);
+}
+
+.unactive-nav {
+    transform: scale(1);
+    font-weight: normal;
+    background: 0;
 }

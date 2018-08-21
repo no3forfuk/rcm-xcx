@@ -1,30 +1,33 @@
-<view class="index-page-header">
-    <!-- search -->
-    <view class="index-page-header-top">
-        <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
-        <navigator class="index-page-header-search-box" url="/pages/search/search">
-            <view class="index-page-header-search-inner">
-                <icon-font icon-value="iconfont icon-search"></icon-font>
-                <text>#租房记#</text>
-            </view>
-        </navigator>
+<view class="index-page">
+    <view class="index-page-header">
+        <!-- search -->
+        <view class="index-page-header-top">
+            <image src="/static/images/rcm_logo.png" class="index-page-header-logo"></image>
+            <navigator class="index-page-header-search-box" url="/pages/search/search">
+                <view class="index-page-header-search-inner">
+                    <!-- <sprite></sprite> -->
+                    <icon-font icon-value="iconfont icon-search"></icon-font>
+                    <text>#租房记#</text>
+                </view>
+            </navigator>
+        </view>
+        <!-- nav -->
+        <scroll-view class="index-page-header-nav" scroll-x>
+            <text wx:for="{{headerNav}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == currentNavIndex? 'active-nav':'unactive-nav'}}" bindtap="onchangenav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
+        </scroll-view>
     </view>
-    <!-- nav -->
-    <scroll-view class="index-page-header-nav" scroll-x>
-        <text wx:for="{{headerNav}}" wx:key="{{index}}" class="index-page-header-nav-text {{index == currentNavIndex? 'active-nav':''}}" bindtap="onchangenav" data-index="{{index}}" data-item="{{item}}">{{item.ranking_name}}</text>
+    <!-- 列表 -->
+    <scroll-view scroll-y="true" class="index-scroll-view" enable-back-to-top="true" bindscrolltolower="onscrollbottom" lower-threshold="500" bindscroll="onlistscroll" style="height:{{scrollHeight}}px;">
+        <!-- 一级榜单 -->
+        <rank-card wx:for="{{firstRank.items}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{crtFirstRank}}" wx:if="{{indexType == 'firstRank'}}"></rank-card>
+        <!-- 热帖 -->
+        <hot-post wx:if="{{indexType == 'hotPost'}}" hot-post-data="{{item}}" wx:for="{{hotPost.items}}" wx:key="{{index}}" bindgoAuth="goauth"></hot-post>
+        <!-- 热榜 -->
+        <hot-rank wx:if="{{indexType == 'hotRank'}}" hot-rank-data="{{hotRank.items}}" bindtapdeleteitem="onremovehotrank"></hot-rank>
+        <page-footer footer-text="{{footerText}}"></page-footer>
     </scroll-view>
+    <!-- 鉴权 -->
+    <authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="oncloseauth" bindsuccessCallBack="onauthorizesuccess"></authorize>
+    <!-- footer -->
+    <tab-bar tab-bar-list="{{tabBar.list}}" bindtapItem="onclicktabbar" is-show="{{tabBar.show}}"></tab-bar>
 </view>
-<!-- 列表 -->
-<scroll-view scroll-y="true" class="index-scroll-view" enable-back-to-top="true" bindscrolltolower="onscrollbottom" lower-threshold="500" bindscroll="onlistscroll" style="height:{{scrollHeight}}px;">
-    <!-- 一级榜单 -->
-    <rank-card wx:for="{{firstRank.items}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{crtFirstRank}}" wx:if="{{indexType == 'firstRank'}}"></rank-card>
-    <!-- 热帖 -->
-    <hot-post wx:if="{{indexType == 'hotPost'}}" hot-post-data="{{item}}" wx:for="{{hotPost.items}}" wx:key="{{index}}" bindgoAuth="goauth"></hot-post>
-    <!-- 热榜 -->
-    <hot-rank wx:if="{{indexType == 'hotRank'}}" hot-rank-data="{{hotRank.items}}" bindtapdeleteitem="onremovehotrank"></hot-rank>
-    <page-footer footer-text="{{footerText}}"></page-footer>
-</scroll-view>
-<!-- 鉴权 -->
-<authorize catchtouchmove="ture" wx:if="{{goAuthorize}}" bindcloseAuthorize="oncloseauth" bindsuccessCallBack="onauthorizesuccess"></authorize>
-<!-- footer -->
-<tab-bar tab-bar-list="{{tabBar.list}}" bindtapItem="onclicktabbar" is-show="{{tabBar.show}}"></tab-bar>

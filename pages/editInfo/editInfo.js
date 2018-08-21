@@ -38,7 +38,8 @@ Page({
                     params.avatar_key = complete.key
                     app._ajax().editSelfInfo(params, res => {
                         wx.showToast({
-                            title: res.message
+                            title: res.message,
+                            mask:true
                         })
                         app._ajax().getSelfInfo(res => {
                             this.setData({
@@ -66,7 +67,8 @@ Page({
         }
         app._ajax().editSelfInfo(params, res => {
             wx.showToast({
-                title: res.message
+                title: res.message,
+                mask:true
             })
             app._ajax().getSelfInfo(res => {
                 this.setData({
@@ -94,7 +96,8 @@ Page({
         }
         app._ajax().editSelfInfo(params, res => {
             wx.showToast({
-                title: res.message
+                title: res.message,
+                mask:true
             })
             this.closePopup()
             app._ajax().getSelfInfo(res => {
@@ -111,7 +114,8 @@ Page({
         }
         app._ajax().editSelfInfo(params, res => {
             wx.showToast({
-                title: res.message
+                title: res.message,
+                mask:true
             })
             this.closePopup()
             app._ajax().getSelfInfo(res => {

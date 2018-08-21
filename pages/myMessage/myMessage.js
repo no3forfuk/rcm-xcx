@@ -40,7 +40,7 @@ Page({
         app._ajax().getnotice(noticeType, res => {
             if (res.data) {
                 this.setData({
-                    noticeList: res.data
+                    noticeList: res.data.reverse()
                 })
             } else {
                 this.setData({
@@ -54,7 +54,7 @@ Page({
         app._ajax().readnotice(id, res => {
             app._ajax().getnotice('all', res => {
                 this.setData({
-                    noticeList: res.data
+                    noticeList: res.data.reverse()
                 })
             })
         })
@@ -63,7 +63,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        wx.setNavigationBarTitle({
+            title: '我的通知'
+        });
     },
 
     /**
@@ -87,8 +89,9 @@ Page({
      */
     onShow: function() {
         app._ajax().getnotice('all', res => {
+            let arr = res.data.reverse()
             this.setData({
-                noticeList: res.data
+                noticeList: arr
             })
         })
     },

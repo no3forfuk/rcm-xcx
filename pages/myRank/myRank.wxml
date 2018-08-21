@@ -1,10 +1,10 @@
 <!--pages/myRank/myRank.wxml-->
 <view class="my-message-banner">
-    <image class="my-message-banner-img"></image>
+    <image class="my-message-banner-img" src="http://p8rk87lub.bkt.clouddn.com/zml.png"></image>
 </view>
 
 <scroll-view class="tab-body-scroll" scroll-y style="{{scrollHeight}}">
-    <view wx:for="{{collectList}}" wx:key="{{index}}" class="collect-item" bindtap="linkTo" data-id="{{item.id}}">
+    <view wx:for="{{ranklist}}" wx:key="{{index}}" class="collect-item" bindtap="linkTo" data-id="{{item.id}}">
         <view>#{{item.ranking_name}}</view>
     </view>
 </scroll-view>

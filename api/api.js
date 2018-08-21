@@ -1,9 +1,9 @@
 const ApiFactory = function(token) {
-    let baseUrl = 'http://test.bantangtv.com/api'
-    // let baseUrl = 'https://www.rcm.ink/api'
+    // let baseUrl = 'http://test.bantangtv.com/api'
+    let baseUrl = 'https://www.rcm.ink/api'
 
     function ajax_get(data) {
-        wx.request({            
+        wx.request({
             url: baseUrl + data.uri,
             data: data.params,
             method: 'GET',
@@ -430,7 +430,7 @@ const ApiFactory = function(token) {
         },
         //用户发布榜单列表
         getuserRank(success) {
-            ajax_post({
+            ajax_get({
                 uri: '/home/user/userRank',
                 s_cb(res) {
                     success(res)

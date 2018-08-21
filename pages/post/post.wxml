@@ -1,6 +1,6 @@
 <!--pages/post/post.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
-<view class="post-header">
+<view class="post-header" bindtap="linkToelement" data-id="{{postInfo.element_id}}">
     <text class="post-header-text">@{{postInfo.element_name}}</text>
 </view>
 <scroll-view class="post-page-components" scroll-y wx:if="{{postInfo.type != 5}}" bindscroll="postScroll" enable-back-to-top="true">
@@ -14,7 +14,7 @@
         <text class="post-discuss-title">评论({{postInfo.comment_num}}）</text>
         <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}" discuss-id="{{item.id}}" bindlikeComplete="getDiscuss" bindgoauth="goauth"></post-discuss>
     </view>
-    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;" wx:if="{{subType !== 2}}">--------我是有底线的--------</view>
+    <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;" wx:if="{{subType !== 2}}"></view>
 </scroll-view>
 <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="large" id="popup" catchtouchmove="ture">
     <add-discuss slot="large" bindcancel="closePopup" bindconfirm="submitDiscuss" bindsetValue="setDiscussValue"></add-discuss>

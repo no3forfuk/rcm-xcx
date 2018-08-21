@@ -1,0 +1,11 @@
+<!--pages/firstRank/firstRank.wxml-->
+<view class="second-active-header">
+    <view class="second-active-father">{{headerData.name}}</view>
+    <text class="second-active-son">({{headerData.son}}个榜单)</text>
+</view>
+<scroll-view scroll-y="true" class="index-scroll-view" enable-back-to-top="true" bindscrolltolower="onscrollbottom" lower-threshold="500" bindscroll="onlistscroll" style="height:{{scrollHeight}}px;">
+    <!-- 一级榜单 -->
+    <rank-card wx:for="{{firstRank.subRank}}" wx:key="{{index}}" rank-data="{{item}}"></rank-card>
+    <page-footer footer-text="{{footerText}}"></page-footer>
+</scroll-view>
+<tab-bar tab-bar-list="{{tabBar.list}}" bindtapItem="onclicktabbar" is-show="{{tabBar.show}}"></tab-bar>

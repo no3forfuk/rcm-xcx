@@ -20,7 +20,6 @@ Component({
             },
             observer(n, o, c) {
                 if (n && n.id) {
-                    console.log(n)
                     this.setData({
                         collectId: n.id
                     })
@@ -49,7 +48,7 @@ Component({
             if (app.token) {
                 if (this.data.headerType == 'second') {
                     app._ajax().collectRankLv2({
-                        ranking_id: this.properties.headerInfo.id
+                        ranking_id: this.properties.collectId
                     }, res => {
                         wx.showToast({
                             title: res.message,
@@ -64,13 +63,17 @@ Component({
 
                     })
                 } else if (this.data.headerType == 'element') {
-                    app._ajax().collectElement(this.data.collectParams, res => {
+                    app._ajax().collectElement({
+                        element_id: this.properties.collectId
+                    }, res => {
                         wx.showToast({
                             title: res.message,
                             mask: true
                         })
+                        let obj = this.properties.headerInfo;
+                        obj.isCollect = !obj.isCollect
                         this.setData({
-                            isCollected: !this.properties.isCollected
+                            headerInfo: obj
                         })
                     }, err => {
 

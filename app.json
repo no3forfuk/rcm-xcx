@@ -2,6 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/secondRank/secondRank",
+        "pages/firstRank/firstRank",
         "pages/userCenter/userCenter",
         "pages/element/element",
         "pages/post/post",

@@ -51,6 +51,7 @@ Component({
             app._ajax().report(params, res => {
                 wx.showToast({
                     title: res.message,
+                    mask:true
                 })
                 this.cancel()
             })
@@ -64,6 +65,7 @@ Component({
             app._ajax().report(params, res => {
                 wx.showToast({
                     title: res.message,
+                    mask:true
                 })
                 this.cancel()
             })

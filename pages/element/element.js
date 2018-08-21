@@ -64,7 +64,7 @@ Page({
             solt_name: 'created_at'
         }, res => {
             this.setData({
-                postList: res.data.data
+                postList: res.data.data.data
             })
         })
     },
@@ -178,6 +178,7 @@ Page({
             app._ajax().vote(this.data.elementId, res => {
                 wx.showToast({
                     title: res.message,
+                    mask:true
                 })
                 app._ajax().getElementDetails({
                     id: this.data.elementId,
@@ -235,7 +236,9 @@ Page({
                     desc: res.data.element_desc,
                     img: res.data.img,
                     vote: res.data.vote,
-                    vote_user: res.data.vote_user
+                    vote_user: res.data.vote_user,
+                    isCollect: collect,
+                    id: options.elementId
                 },
                 neckData: res.data.ranking_p,
                 collectParams: {
@@ -259,7 +262,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+        app._ajax().getElementDetails({
+            id: this.data.elementId,
+            page: 1,
+            solt_name: 'created_at'
+        }, res => {
+            this.setData({
+                postList: res.data.data.data,
+            })
+        })
     },
 
     /**

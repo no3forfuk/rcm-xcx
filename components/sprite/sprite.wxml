@@ -1,0 +1,3 @@
+<!--components/sprite/sprite.wxml-->
+<view class="sprite-component" style="height:{{height}};width:{{width}};background-position-x:{{positionX}};background-position-y:{{positionY}};">
+</view>

@@ -71,7 +71,8 @@ Component({
             if (app.token) {
                 app._ajax().collectElement(this.data.collectParams, res => {
                     wx.showToast({
-                        title: res.message
+                        title: res.message,
+                        mask:true
                     })
                     this.setData({
                         isCollected: !this.properties.isCollected

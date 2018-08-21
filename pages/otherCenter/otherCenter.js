@@ -5,6 +5,7 @@ Page({
         app._ajax().takeFocus(this.data.user.id, res => {
             wx.showToast({
                 title: res.message,
+                mask:true
             })
             app._ajax().getOtherUserInfo(this.data.user.id, res => {
                 this.setData({

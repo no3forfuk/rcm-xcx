@@ -160,7 +160,8 @@ Component({
             let newCenterContet = this.data.centerContet + textValue
             this.setData({
                 insertType: '',
-                centerContet: newCenterContet
+                centerContet: newCenterContet,
+                submitContent: newCenterContet
             })
             let html = this.data.startContent + this.data.centerContet + this.data.endContent
             WxParse.wxParse('content', 'html', html, that)

@@ -60,7 +60,7 @@
 }
 
 .search-before-banner {
-    padding: 32.6rpx 0;
+    padding: 32.6rpx;
 }
 
 .search-before-banner-img {

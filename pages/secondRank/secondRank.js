@@ -6,7 +6,7 @@ Page({
     /** 
      * 自定义事件
      */
-    secondScroll(e) {
+    onsecondscroll(e) {
         let direction = e.detail.deltaY
         let top = e.detail.scrollTop
         if (top < 46) {
@@ -27,47 +27,38 @@ Page({
             }
         }
     },
-    /**
-     * 获取二级榜单详情
-     * s_cb--成功之后的回调函数
-     */
-    getSecondDetails(s_cb) {
-        let data = {
-            level: 2,
-            id: this.data.secondId,
-            page: this.data.crtListPage,
-            solt_name: this.data.solt_name
-        }
-        app._ajax().getSecondRankDetails(data, res => {
-            s_cb(res)
-        })
-    },
     sortElementByType(e) {
         let sortType = e.detail.type
-        console.log(sortType)
+        let a = '';
         if (sortType == 'hot') {
-            this.setData({
-                solt_name: 'exponent',
-                subElement: [],
-                crtPage: 1
-            })
+            a = 'exponent'
         } else {
-            this.setData({
-                subElement: [],
-                solt_name: 'created_at',
-                crtPage: 1
-            })
+            a = 'created_at'
         }
-        this.getSecondInfo()
+        this.setData({
+            elementList: {
+                currentPage: 1,
+                totalPage: 1,
+                sortType: a,
+                items: []
+            }
+        })
+        this._getSecondRankDetail(res => {
+            //子元素
+            this._setSubElement(res)
+        })
     },
-    //点击更多
+    /**
+     * 更多操作
+     */
     ontapmore(options) {
         if (app.token) {
             this.setData({
-                canScroll: false,
-                activePopup: true,
-                popupSize: 'small',
-                popupType: 'more'
+                popup: {
+                    show: true,
+                    type: 'more',
+                    size: 'small'
+                }
             })
         } else {
             this.goAuthorize()
@@ -80,20 +71,6 @@ Page({
             subType: options.detail.index
         })
     },
-    //关闭popup
-    closePopup() {
-        const $popup = this.selectComponent('#popup')
-        $popup.cancle()
-        setTimeout(function() {
-            this.setData({
-                canScroll: true,
-                popupSize: '',
-                popupType: '',
-                activePopup: false
-            })
-        }.bind(this), 220)
-
-    },
     closeAuthorize() {
         this.setData({
             goAuthorize: false
@@ -104,19 +81,6 @@ Page({
         this.setData({
             goAuthorize: true
         })
-    },
-    //添加元素--打开popup
-    addelement() {
-        if (app.token) {
-            this.setData({
-                popupType: 'addElement',
-                popupSize: 'large',
-                canScroll: false,
-                activePopup: true
-            })
-        } else {
-            this.goAuthorize()
-        }
     },
     setNewElementName(e) {
         this.setData({
@@ -149,14 +113,12 @@ Page({
             if (!this.data.imgFile) {
                 app._ajax().bindElement(params, res => {
                     wx.showToast({
-                        title: res.message
+                        title: res.message,
+                        mask:true
                     })
-                    this.refreshArea(res => {
-                        this.setData({
-                            subElement: res.data.data.data
-                        })
-                    })
-                    this.closePopup()
+                    const $list = this.selectComponent('#second-list')
+                    $list.selectSlotComplete('new')
+                    this.onclosepopup()
                 })
             } else {
                 let path = this.data.imgFile.path
@@ -164,14 +126,12 @@ Page({
                     params.img = app.qiniuPrefix + complete.imageURL
                     app._ajax().bindElement(params, res => {
                         wx.showToast({
-                            title: res.message
+                            title: res.message,
+                            mask:true
                         })
-                        this.refreshArea(res => {
-                            this.setData({
-                                subElement: res.data.data.data
-                            })
-                        })
-                        this.closePopup()
+                        const $list = this.selectComponent('#second-list')
+                        $list.selectSlotComplete('new')
+                        this.onclosepopup()
                     })
                 })
             }
@@ -179,7 +139,8 @@ Page({
         } else {
             if (!this.data.newElementName || this.data.newElementName.length <= 0) {
                 wx.showToast({
-                    title: '请输入元素名称'
+                    title: '请输入元素名称',
+                    mask:true
                 })
             } else {
                 if (this.data.imgFile) {
@@ -195,19 +156,19 @@ Page({
                             if (res.status_code == 1) {
                                 wx.showToast({
                                     title: res.message,
-                                    icon: 'success'
+                                    icon: 'success',
+                                    mask:true
+                                })
+                                wx.navigateTo({
+                                    url: `/pages/element/element?elementId=${res.data.id}`,
                                 })
                             } else {
                                 wx.showToast({
-                                    title: res.message
+                                    title: res.message,
+                                    mask:true
                                 })
                             }
-                            this.refreshArea(res => {
-                                this.setData({
-                                    subElement: res.data.data.data
-                                })
-                            })
-                            this.closePopup()
+                            this.onclosepopup()
                         })
                     })
                 } else {
@@ -220,14 +181,19 @@ Page({
                         if (res.status_code == 1) {
                             wx.showToast({
                                 title: res.message,
-                                icon: 'success'
+                                icon: 'success',
+                                mask:true
+                            })
+                            wx.navigateTo({
+                                url: `/pages/element/element?elementId=${res.data.id}`,
                             })
                         } else {
                             wx.showToast({
-                                title: res.message
+                                title: res.message,
+                                mask:true
                             })
                         }
-                        this.closePopup()
+                        this.onclosepopup()
                     })
                 }
             }
@@ -249,10 +215,11 @@ Page({
     addDiscuss() {
         if (app.token) {
             this.setData({
-                popupType: 'addDiscuss',
-                popupSize: 'large',
-                canScroll: false,
-                activePopup: true
+                popup: {
+                    show: true,
+                    type: 'addDiscuss',
+                    size: 'large'
+                }
             })
         } else {
             this.goAuthorize()
@@ -281,55 +248,57 @@ Page({
             })
             const $discuss = this.selectComponent('#discuss')
             $discuss.getDiscuss()
-            this.closePopup()
+            this.onclosepopup()
         })
     },
     submitInvite() {
         console.log('邀请')
     },
-    tapMoreItem(e) {
-        let result = e.detail.result
-        this[result]()
-    },
+
     invite() {
         this.setData({
-            canScroll: true,
-            popupSize: '',
-            popupType: '',
-            activePopup: false
+            popup: {
+                type: '',
+                size: '',
+                show: false
+            }
         })
         setTimeout(function() {
             this.setData({
-                popupType: 'invite',
-                popupSize: 'large',
-                canScroll: false,
-                activePopup: true
+                popup: {
+                    type: 'invite',
+                    size: 'large',
+                    show: true
+                },
             })
         }.bind(this), 300)
     },
     report() {
         this.setData({
-            canScroll: true,
-            popupSize: '',
-            popupType: '',
-            activePopup: false
+            popup: {
+                type: '',
+                size: '',
+                show: false
+            }
         })
         setTimeout(function() {
             this.setData({
-                popupType: 'report',
-                popupSize: 'large',
-                canScroll: false,
-                activePopup: true
+                popup: {
+                    type: 'report',
+                    size: 'large',
+                    show: true
+                }
             })
         }.bind(this), 300)
     },
     listToInvite() {
         if (app.token) {
             this.setData({
-                popupType: 'invite',
-                popupSize: 'large',
-                canScroll: false,
-                activePopup: true
+                popup: {
+                    type: 'invite',
+                    size: 'large',
+                    show: true
+                }
             })
         } else {
             this.goAuthorize()
@@ -342,10 +311,11 @@ Page({
     },
     opendetail() {
         this.setData({
-            popupType: 'detail',
-            popupSize: 'large',
-            canScroll: false,
-            activePopup: true
+            popup: {
+                type: 'detail',
+                size: 'large',
+                show: true
+            }
         })
     },
     refreshArea(success) {
@@ -369,9 +339,23 @@ Page({
             label: '首页',
             iconValue: 'icon-zhuye'
         }],
-        secondRankData: {},
-        headerData: {},
-        collectParams: {},
+        subType: 0,
+        secondId: '',
+        goAuthorize: false,
+        solt_name: 'created_at',
+        discussValue: '',
+        discussData: {},
+        discussList: [],
+        //footerText
+        footerText: '每个榜单都有不同的玩法',
+        showTabbar: true,
+        //popup
+        popup: {
+            show: false,
+            type: '',
+            size: ''
+        },
+        //tab
         tabHeaderData: [{
                 label: '排名'
             },
@@ -382,14 +366,14 @@ Page({
                 label: '活动'
             }
         ],
-        activePopup: false,
-        subType: 0,
-        subElement: [],
-        lastElement: {},
-        secondId: '',
-        largePopupAnimation: {},
-        popupType: '',
-        popupSize: '',
+        //排名
+        elementList: {
+            currentPage: 1,
+            totalPage: 1,
+            sortType: 'exponent',
+            items: []
+        },
+        //更多
         moreItems: [{
                 label: '邀请添加排名',
                 result: 'invite'
@@ -399,94 +383,34 @@ Page({
                 result: 'report'
             }
         ],
-        activeHeaderInfo: {},
-        goAuthorize: false,
-        crtPage: 1,
-        solt_name: 'created_at',
-        totalPage: 1,
-        fatherRank: {},
-        discussValue: '',
-        discussData: {},
-        discussList: [],
-        isCollected: false,
-        haveSubElement: false,
-        showTabbar: true,
-        elementList: {
-            currentPage: 1,
-            totalPage: 1,
-            sortType: 'exponent',
-            items: []
-        },
     },
-    loadNextPage() {
-        if (this.data.totalPage >= this.data.crtPage) {
-            this.getSecondInfo()
+    /**
+     * 关闭弹窗
+     */
+    onclosepopup() {
+        const $popup = this.selectComponent('#popup')
+        $popup.cancle()
+        setTimeout(function() {
+            this.setData({
+                popup: {
+                    show: false,
+                    type: '',
+                    size: ''
+                }
+            })
+        }.bind(this), 220)
+    },
+    /**
+     * 加载下一页
+     */
+    onloadnextpage() {
+        if (this.data.elementList.totalPage >= this.data.elementList.currentPage) {
+            this._getSecondRankDetail(res => {
+                this._setSubElement(res)
+            })
         } else {
             return
         }
-    },
-    getSecondInfo() {
-        app._ajax().getSecondRankDetails({
-            level: 2,
-            id: this.data.secondId,
-            page: this.data.crtPage,
-            solt_name: this.data.solt_name
-        }, res => {
-            let collect = false;
-            if (res.data.collect && res.data.collect == 1) {
-                collect = true;
-            } else {
-                collect = false;
-            }
-            wx.setNavigationBarTitle({
-                title: res.data.ranking_name
-            })
-            this.setData({
-                isCollected: collect,
-                //详情页数据
-                detailInfo: {
-                    title: res.data.ranking_name,
-                    desc: res.data.ranking_desc,
-                    img: res.data.img
-                },
-                //榜单基本信息
-                headerData: {
-                    flag: '#',
-                    title: res.data.ranking_name,
-                    desc: res.data.ranking_desc,
-                    rating: res.data.rating,
-                    vote: res.data.vote,
-                    childrenNum: res.data.data.total
-                },
-                //榜单子元素集合--数组
-                subElement: this.data.subElement.concat(res.data.data.data),
-                //最后一条元素
-                lastElement: res.data.last,
-                //父级榜单
-                activeHeaderInfo: {
-                    parent: res.data.ranking_p[0] || {
-                        ranking_name: '其他',
-                        id: 1
-                    },
-                    son: {
-                        num: res.data.data.total
-                    }
-                },
-                //加载当前页码
-                crtPage: res.data.data.current_page + 1,
-                totalPage: res.data.data.last_page
-
-            })
-            if (res.data.data.data && res.data.data.data.length > 0) {
-                this.setData({
-                    haveSubElement: true
-                })
-            } else {
-                this.setData({
-                    haveSubElement: false
-                })
-            }
-        })
     },
     /**
      * 获取二级榜单详情
@@ -499,9 +423,92 @@ Page({
             solt_name: this.data.elementList.sortType
         }
         app._ajax().getSecondRankDetails(params, res => {
-            console.log(res.data)
             success(res.data)
         })
+    },
+    /**
+     * 设置子元素
+     */
+    _setSubElement(res) {
+        let arr = this.data.elementList.items
+        arr = arr.concat(res.data.data)
+        this.setData({
+            elementList: {
+                currentPage: res.data.current_page + 1,
+                totalPage: res.data.last_page,
+                items: arr,
+                sortType: this.data.elementList.sortType
+            }
+        })
+    },
+    /**
+     * 设置页面头部
+     */
+    _setPageHeader(res) {
+        let collect = false;
+        if (res.collect && res.collect == 1) {
+            collect = true;
+        } else {
+            collect = false;
+        }
+        this.setData({
+            headerInfo: {
+                flag: '#',
+                title: res.ranking_name,
+                desc: res.ranking_desc,
+                rating: res.rating,
+                vote: res.vote,
+                childrenNum: res.data.total,
+                isCollect: collect,
+                id: this.data.secondId
+            }
+        })
+    },
+    /**
+     * 设置父榜单
+     */
+    _setParentData(res) {
+        if (!res.ranking_p[0]) {
+            this.setData({
+                pageHeader: {
+                    ranking: {
+                        ranking_name: '其他',
+                        id: 1
+                    },
+                    subNum: '99+'
+                },
+            })
+        } else {
+            this.setData({
+                pageHeader: {
+                    ranking: res.ranking_p[0],
+                    subNum: res.data.total
+                },
+            })
+        }
+    },
+    /**
+     * 点击更多的单个项目
+     */
+    ontapmoreitem(e) {
+        let result = e.detail.result
+        this[result]()
+    },
+    /**
+     * 添加榜单
+     */
+    onaddelement() {
+        if (app.token) {
+            this.setData({
+                popup: {
+                    show: true,
+                    type: 'addElement',
+                    size: 'large'
+                }
+            })
+        } else {
+            this.goAuthorize()
+        }
     },
     /**
      * 生命周期函数--监听页面加载
@@ -513,51 +520,10 @@ Page({
             secondId: options.secondId
         })
         this._getSecondRankDetail(res => {
+            //页面title
             wx.setNavigationBarTitle({
                 title: res.ranking_name
             });
-            //父榜单---activeHeader
-            (() => {
-                if (!res.ranking_p[0]) {
-                    this.setData({
-                        pageHeader: {
-                            ranking: {
-                                ranking_name: '其他',
-                                id: 1
-                            },
-                            subNum: '99+'
-                        },
-                    })
-                } else {
-                    this.setData({
-                        pageHeader: {
-                            ranking: res.ranking_p[0],
-                            subNum: res.data.total
-                        },
-                    })
-                }
-            })();
-            // 页面头部
-            (() => {
-                let collect = false;
-                if (res.collect && res.collect == 1) {
-                    collect = true;
-                } else {
-                    collect = false;
-                }
-                this.setData({
-                    headerInfo: {
-                        flag: '#',
-                        title: res.ranking_name,
-                        desc: res.ranking_desc,
-                        rating: res.rating,
-                        vote: res.vote,
-                        childrenNum: res.data.total,
-                        isCollect: collect,
-                        id: this.data.secondId
-                    }
-                })
-            })();
             //详情页数据
             this.setData({
                 detailInfo: {
@@ -566,23 +532,13 @@ Page({
                     img: res.img
                 }
             });
+            //页头
+            this._setPageHeader(res)
+            //父榜单---activeHeader
+            this._setParentData(res)
             //子元素
-            (() => {
-                let arr = this.data.elementList.items
-                arr = arr.concat(res.data.data)
-                this.setData({
-                    elementList: {
-                        currentPage: res.data.current_page + 1,
-                        totalPage: res.data.last_page,
-                        items: arr,
-                        sortType: this.data.elementList.sortType
-                    }
-                })
-            })();
-
+            this._setSubElement(res)
         })
-
-        // this.getSecondInfo()
     },
 
     /**

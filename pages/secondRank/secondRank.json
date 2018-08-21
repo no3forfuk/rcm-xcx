@@ -1,4 +1,5 @@
 {
+    "disableScroll": false,
     "usingComponents": {
         "rank-header": "/components/rankHeader/rankheader",
         "tab-bar": "/components/tabBar/tabBar",
@@ -13,6 +14,7 @@
         "active-header": "./activeHeader/activeHeader",
         "second-detail": "./detail/detail",
         "authorize": "/components/authorize/authorize",
-        "report": "/components/report/report"
+        "report": "/components/report/report",
+        "page-footer": "/components/pageFooter/pageFooter"
     }
 }

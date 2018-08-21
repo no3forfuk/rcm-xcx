@@ -7,18 +7,27 @@ Component({
         subElement: {
             type: Array,
             value: [],
-            observer(n, o, c) {}
+            observer(n, o, c) {
+                if (n) {
+                    if (n.length > 0) {
+                        this.setData({
+                            haveSubElement: false
+                        })
+                    } else {
+                        this.setData({
+                            haveSubElement: true
+                        })
+                    }
+                } else {
+                    this.setData({
+                        haveSubElement: false
+                    })
+                }
+            }
         },
         lastElement: {
             type: Object,
             value: {},
-            observer(n, o, c) {
-
-            }
-        },
-        haveSubElement: {
-            type: Boolean,
-            value: false,
             observer(n, o, c) {
 
             }
@@ -30,7 +39,9 @@ Component({
      */
     data: {
         selectSlot: false,
-        crtSortType: '最新'
+        haveSubElement: false,
+        crtSortIcon: 'icon-huoyan',
+        otherSortIcon: 'icon-zuixin'
     },
 
     /**
@@ -54,22 +65,35 @@ Component({
             })
         },
         selectSlotComplete(e) {
-            let slotType = e.currentTarget.dataset.type
-            if (slotType == 'hot') {
+            if (e == 'new') {
                 this.setData({
-                    crtSortType: '最热'
+                    crtSortIcon: 'icon-zuixin',
+                    otherSortIcon: 'icon-huoyan'
+                })
+                this.triggerEvent('sortElementByType', {
+                    type: 'new'
                 })
             } else {
+                let [a, b] = [this.data.crtSortIcon, this.data.otherSortIcon]
                 this.setData({
-                    crtSortType: '最新'
+                    crtSortIcon: b,
+                    otherSortIcon: a
+                })
+                if (this.data.crtSortIcon == 'icon-huoyan') {
+                    let sortType = 'hot'
+                    this.triggerEvent('sortElementByType', {
+                        type: sortType
+                    })
+                } else {
+                    let sortType = 'new'
+                    this.triggerEvent('sortElementByType', {
+                        type: sortType
+                    })
+                }
+                this.setData({
+                    selectSlot: false
                 })
             }
-            this.triggerEvent('sortElementByType', {
-                type: slotType
-            })
-            this.setData({
-                selectSlot: false
-            })
         }
     }
 })

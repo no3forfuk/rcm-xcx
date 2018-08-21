@@ -3,6 +3,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "RCM首页",
     "navigationBarTextStyle": "black",
+    "disableScroll": false,
     "usingComponents": {
         "rank-card": "/components/indexRankCard/indexRankCard",
         "pop-up": "/components/popup/popup",
@@ -11,6 +12,7 @@
         "hot-rank": "./hotRank/hotRank",
         "hot-post": "./hotPost/hotPost",
         "authorize": "/components/authorize/authorize",
-        "page-footer": "/components/pageFooter/pageFooter"
+        "page-footer": "/components/pageFooter/pageFooter",
+        "sprite": "/components/sprite/sprite"
     }
 }

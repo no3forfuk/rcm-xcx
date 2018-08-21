@@ -2,7 +2,11 @@
 const WxParse = require('../../wxParse/wxParse.js');
 const app = getApp()
 Page({
-
+    linkToelement(e) {
+        wx.navigateTo({
+            url: `/pages/element/element?elementId=${e.currentTarget.dataset.id}`,
+        })
+    },
     /**
      * 页面的初始数据
      */
