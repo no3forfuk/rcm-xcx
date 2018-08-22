@@ -1,0 +1,6 @@
+/* components/iconImg/iconImg.wxss */
+
+.icon-image {
+    width: 100%;
+    height: 100%;
+}

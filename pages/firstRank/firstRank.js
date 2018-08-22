@@ -135,6 +135,9 @@ Page({
                 },
                 firstRank: n_obj
             })
+            wx.setNavigationBarTitle({
+                title: res.ranking_name
+            });
         })
     },
 

@@ -114,7 +114,7 @@ Page({
                 app._ajax().bindElement(params, res => {
                     wx.showToast({
                         title: res.message,
-                        mask:true
+                        mask: true
                     })
                     const $list = this.selectComponent('#second-list')
                     $list.selectSlotComplete('new')
@@ -127,7 +127,7 @@ Page({
                     app._ajax().bindElement(params, res => {
                         wx.showToast({
                             title: res.message,
-                            mask:true
+                            mask: true
                         })
                         const $list = this.selectComponent('#second-list')
                         $list.selectSlotComplete('new')
@@ -140,7 +140,7 @@ Page({
             if (!this.data.newElementName || this.data.newElementName.length <= 0) {
                 wx.showToast({
                     title: '请输入元素名称',
-                    mask:true
+                    mask: true
                 })
             } else {
                 if (this.data.imgFile) {
@@ -157,7 +157,7 @@ Page({
                                 wx.showToast({
                                     title: res.message,
                                     icon: 'success',
-                                    mask:true
+                                    mask: true
                                 })
                                 wx.navigateTo({
                                     url: `/pages/element/element?elementId=${res.data.id}`,
@@ -165,7 +165,7 @@ Page({
                             } else {
                                 wx.showToast({
                                     title: res.message,
-                                    mask:true
+                                    mask: true
                                 })
                             }
                             this.onclosepopup()
@@ -182,7 +182,7 @@ Page({
                             wx.showToast({
                                 title: res.message,
                                 icon: 'success',
-                                mask:true
+                                mask: true
                             })
                             wx.navigateTo({
                                 url: `/pages/element/element?elementId=${res.data.id}`,
@@ -190,7 +190,7 @@ Page({
                         } else {
                             wx.showToast({
                                 title: res.message,
-                                mask:true
+                                mask: true
                             })
                         }
                         this.onclosepopup()
@@ -337,7 +337,7 @@ Page({
     data: {
         tabBarList: [{
             label: '首页',
-            iconValue: 'icon-zhuye'
+            iconValue: 'backtohp.png'
         }],
         subType: 0,
         secondId: '',

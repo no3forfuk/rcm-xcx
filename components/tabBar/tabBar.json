@@ -2,6 +2,6 @@
     "component": true,
     "usingComponents": {
         "icon-font": "/components/iconfont/iconfont",
-        "sprite": "/components/sprite/sprite"
+        "icon-img": "/components/iconImg/iconImg"
     }
 }

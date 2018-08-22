@@ -5,17 +5,17 @@
 </view>
 <view class="edit-info-item" bindtap="checkId">
     <text>查看ID</text>
-    <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+    <image src="../../static/icon/go next .png" style="width:14.48rpx;height:28.94rpx;"></image>
 </view>
 <picker range="{{firstArray}}" range-key="ranking_name" value="{{index}}" mode="selector" bindchange="editFav">
     <view class="edit-info-item">
         <text>修改擅长领域</text>
-        <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+        <image src="../../static/icon/go next .png" style="width:14.48rpx;height:28.94rpx;"></image>
     </view>
 </picker>
 <view class="edit-info-item" bindtap="editSign">
     <text>修改个性签名</text>
-    <icon-font icon-value="iconfont icon-gengduo1" icon-style="font-weight:blod;"></icon-font>
+    <image src="../../static/icon/go next .png" style="width:14.48rpx;height:28.94rpx;"></image>
 </view>
 <view class="split-item"></view>
 <view class="edit-footer">

@@ -1,5 +1,0 @@
-/* components/sprite/sprite.wxss */
-
-.sprite-component {
-    background: url('http://p8rk87lub.bkt.clouddn.com/spriting.png') no-repeat;
-}

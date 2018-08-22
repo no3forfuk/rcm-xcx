@@ -2,11 +2,9 @@
 <hot-rank-list wx:for="{{hotRankList}}" wx:key="{{index}}" rank-data="{{item}}" first-data="{{item.parent}}">
     <view class="hot-rank-father">
         <view class="hot-rank-father-left">
-            <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font>
+            <image src="../../../static/icon/来自.png" style="width:9.65rpx;height:12.67rpx;margin:0 5px;"></image>
             <text class="hot-rank-father-text">#{{item.ranking_p_name == null? '其他':item.ranking_p_name}}</text>
         </view>
-        <view catchtap="ontapdelete" data-index="{{index}}">
-            <icon-font icon-value="iconfont icon-guanbi" icon-style="color:#808080;font-size:10px;"></icon-font>
-        </view>
+        <image src="../../../static/icon/不感兴趣.png" catchtap="ontapdelete" data-index="{{index}}" style="width:13.27rpx;height:13.27rpx;margin:0 5px;"></image>
     </view>
 </hot-rank-list>

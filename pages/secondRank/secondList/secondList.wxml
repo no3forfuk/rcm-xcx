@@ -7,9 +7,11 @@
         </view>
         <view class="second-list-header-right">
             <view style="margin-right:3px;" wx:if="{{selectSlot}}" bindtap="selectSlotComplete">
-                <icon-font icon-value="iconfont {{otherSortIcon}} text-size-20" icon-style="color:#FF2C09;"></icon-font>
+                <!-- <icon-font icon-value="iconfont {{otherSortIcon}} text-size-20" icon-style="color:#FF2C09;"></icon-font> -->
+                <image src="../../../static/icon/sortfromlatest.png" style="width:23.75rpx;height:28.96rpx;" bindtap="startSelectSlot"></image>
             </view>
-            <icon-font icon-value="iconfont {{crtSortIcon}} text-size-20" icon-style="color:#FF2C09;" bindtapicon="startSelectSlot"></icon-font>
+            <!-- <icon-font icon-value="iconfont {{crtSortIcon}} text-size-20" icon-style="color:#FF2C09;" bindtapicon="startSelectSlot"></icon-font> -->
+            <image src="../../../static/icon/热门.png" style="width:23.75rpx;height:28.96rpx;" bindtap="startSelectSlot"></image>
         </view>
     </view>
     <view class="second-list-body">

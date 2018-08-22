@@ -2,8 +2,9 @@
 <view class="tab-bar-component" animation="{{animationData}}">
     <button wx:for="{{tabBarList}}" class="tab-bar-item" wx:key="{{index}}" style="{{itemFlex}}" bindtap="tapItem" data-item="{{item}}" bindgetuserinfo="tapItem">
         <view class="tab-bar-item-content">
-            <icon-font icon-value="iconfont {{item.iconValue}}" icon-style="font-size:36rpx;line-height:40rpx;"></icon-font>
-            <!-- <sprite width="33.18rpx" height="28.96rpx" position-y="35px" position-x="19px"></sprite> -->
+            <!-- <icon-font icon-value="iconfont {{item.iconValue}}" icon-style="font-size:36rpx;line-height:40rpx;"></icon-font> -->
+            <!-- <icon-img width="33.18" height="28.96" img-src="{{item.iconValue}}"></icon-img> -->
+            <image style="width:33.18rpx;height:28.96rpx;" src="../../static/icon/{{item.iconValue}}"></image>
             <text class="tab-bar-item-text">{{item.label}}</text>
         </view>
     </button>

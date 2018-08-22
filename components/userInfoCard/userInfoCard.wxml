@@ -6,7 +6,8 @@
         </view>
         <view class="user-img-right">
             <slot></slot>
-            <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit" wx:if="{{userType == 'self'}}"></icon-font>
+            <image src="../../static/icon/edit.png" style="width:37.41rpx;height:38.61rpx;" bindtap="ontapedit" wx:if="{{userType == 'self'}}"></image>
+            <!-- <icon-font icon-value="iconfont icon-edit" bindtapicon="ontapedit" wx:if="{{userType == 'self'}}"></icon-font> -->
         </view>
     </view>
     <view class="user-name">

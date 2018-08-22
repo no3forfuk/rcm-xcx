@@ -33,7 +33,7 @@ Page({
             show: true,
             list: [{
                 label: '个人中心',
-                iconValue: 'icon-shenfenzheng'
+                iconValue: '个人资料.png'
             }]
         },
         footerText: '更多精彩内容，尽在RCM',

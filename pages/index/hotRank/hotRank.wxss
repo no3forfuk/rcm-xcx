@@ -12,9 +12,11 @@
 .hot-rank-father-left {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .hot-rank-father-text {
     color: #808080;
     font-size: 28.96rpx;
+    
 }

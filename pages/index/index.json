@@ -12,7 +12,6 @@
         "hot-rank": "./hotRank/hotRank",
         "hot-post": "./hotPost/hotPost",
         "authorize": "/components/authorize/authorize",
-        "page-footer": "/components/pageFooter/pageFooter",
-        "sprite": "/components/sprite/sprite"
+        "page-footer": "/components/pageFooter/pageFooter"
     }
 }

@@ -33,6 +33,6 @@
 
 .tab-bar-item-text {
     font-size: 29.56rpx;
-    line-height: 40rpx;
+    line-height: 29.56rpx;
     margin-left: 3px;
 }

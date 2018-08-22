@@ -8,6 +8,7 @@
         "tab-bar": "/components/tabBar/tabBar",
         "icon-font": "/components/iconfont/iconfont",
         "pop-up": "/components/popup/popup",
-        "add-rank": "./addRank/addRank"
+        "add-rank": "./addRank/addRank",
+        "icon-img": "/components/iconImg/iconImg"
     }
 }
