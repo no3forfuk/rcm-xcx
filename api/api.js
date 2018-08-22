@@ -1,5 +1,5 @@
 const ApiFactory = function(token) {
-    // let baseUrl = 'http://test.bantangtv.com/api'
+    // let baseUrl = 'http://test.bantangtv.com/api' 
     let baseUrl = 'https://www.rcm.ink/api'
 
     function ajax_get(data) {
