@@ -189,7 +189,7 @@ Page({
                         headerData: {
                             flag: '@',
                             title: res.data.element_name,
-                            desc: res.data.element_desc,
+                            desc: res.data.element_desc || '',
                             img: res.data.img,
                             vote: res.data.vote,
                             vote_user: res.data.vote_user
@@ -227,13 +227,13 @@ Page({
                 isCollected: collect,
                 detailInfo: {
                     title: res.data.element_name,
-                    desc: res.data.element_desc,
+                    desc: res.data.element_desc || '',
                     img: res.data.img
                 },
                 headerData: {
                     flag: '@',
                     title: res.data.element_name,
-                    desc: res.data.element_desc,
+                    desc: res.data.element_desc || '',
                     img: res.data.img,
                     vote: res.data.vote,
                     vote_user: res.data.vote_user,
@@ -262,15 +262,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        app._ajax().getElementDetails({
-            id: this.data.elementId,
-            page: 1,
-            solt_name: 'created_at'
-        }, res => {
-            this.setData({
-                postList: res.data.data.data,
-            })
-        })
+        // app._ajax().getElementDetails({
+        //     id: this.data.elementId,
+        //     page: 1,
+        //     solt_name: 'created_at'
+        // }, res => {
+        //     this.setData({
+        //         postList: res.data.data.data,
+        //     })
+        // })
     },
 
     /**

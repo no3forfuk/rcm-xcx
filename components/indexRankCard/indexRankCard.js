@@ -15,7 +15,7 @@ Component({
                         })
                     } else {
                         this.setData({
-                            rating: ['A']
+                            rating: ['D']
                         })
                     }
                 }

@@ -5,7 +5,7 @@
             <text>{{headerInfo.flag}}{{headerInfo.title}}</text>
         </view>
         <view class="rank-header-desc {{headerType == 'second'? 'auto-width':''}} {{headerInfo.img?'auto-width':''}}" bindtap="openDetails">
-            <text class="rank-header-desc-text">{{headerInfo.desc}}</text>
+            <text class="rank-header-desc-text">{{headerInfo.desc || ''}}</text>
         </view>
         <view class="rank-header-options">
             <view style="position:relative;" bindtap="emitVote">
@@ -19,7 +19,7 @@
     </view>
     <view class="rank-header-right" wx:if="{{headerType == 'second'}}">
         <view class="rcm-text">RCM评级</view>
-        <view class="rcm-rating">{{headerInfo.rating || 'B'}}</view>
+        <view class="rcm-rating">{{headerInfo.rating || 'D'}}</view>
         <view class="rcm-vote">{{headerInfo.vote}}(票)</view>
         <view class="rcm-son">{{headerInfo.childrenNum}}(排名)</view>
     </view>

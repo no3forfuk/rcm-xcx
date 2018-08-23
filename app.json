@@ -18,5 +18,6 @@
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "RCM",
         "navigationBarTextStyle": "black"
-    }
+    },
+    "debug": true
 }
