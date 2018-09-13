@@ -1,6 +1,0 @@
-<!--pages/element/detail/detail.wxml-->
-<view class="element-detail-component">
-    <image src="{{elementInfo.img}}" wx:if="{{elementInfo.img}}" class="element-detail-img"></image>
-    <view class="element-detail-title">@{{elementInfo.title}}</view>
-    <view class="element-detail-desc">{{elementInfo.desc}}</view>
-</view>

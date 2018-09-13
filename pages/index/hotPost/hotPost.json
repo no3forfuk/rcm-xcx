@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-      "icon-font": "/components/iconfont/iconfont",
-      "user-card": "/components/userCard/userCard"
-  }
-}

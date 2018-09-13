@@ -1,0 +1,98 @@
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+//字号
+
+//主要颜色变量
+$colorDefault: #E96676;
+$colorsub: #F7A5AF;
+$black: #000;
+$gray16: #161616;
+$gray33: #333333;
+$gray48: #484848;
+$gray73: #737373;
+$gray98: #989898;
+$gray9b: #9b9b9b;
+$grayd1: #989898;
+$grayd8: #d8d8d8;
+$grayf8: #d1d1d1;
+$white: #fff;
+
+//主要字体色
+.tc-d {
+  color: $colorDefault;
+}
+
+//主要背景色
+.bc-d {
+  color: $colorDefault;
+}
+
+//北京下划线
+.grad {
+  background: linear-gradient(to top, $colorDefault 0%, $colorDefault, 21%, $white 21%, $white 100%);
+}
+
+//一级标题
+.title-lv1 {
+  color: $gray16;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+//二级标题
+.title-lv2 {
+  font-size: 14px;
+  color: $gray33;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+//单行溢出显示省略号
+.single-elps {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+//多行行溢出显示省略号
+.many-elps-2 {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.many-elps-3 {
+  @extend .many-elps-2;
+  -webkit-line-clamp: 3;
+}
+
+//文本标签
+.t-tag-48 {
+  font-size: 14px;
+  line-height: 20px;
+  color: $gray48;
+}
+
+.t-tag-9b {
+  font-size: 12px;
+  line-height: 17px;
+  color: $gray9b;
+}
+
+//文本
+.txt-33 {
+  font-size: 14px;
+  line-height: 20px;
+  color: $gray33;
+}
+
+.txt-48 {
+  font-size: 14px;
+  line-height: 20px;
+  color: $gray48;
+}

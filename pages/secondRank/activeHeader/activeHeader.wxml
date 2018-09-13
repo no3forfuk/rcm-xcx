@@ -1,5 +1,0 @@
-<!--pages/secondRank/activeHeader/activeHeader.wxml-->
-<view class="second-active-header">
-    <text class="second-active-father">{{parent.ranking_name}}</text>
-    <text class="second-active-son">({{son.num}}个榜单)</text>
-</view>

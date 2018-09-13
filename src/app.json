@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/index/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "#000",
+        "navigationBarTitleText": "RCM",
+        "navigationBarTextStyle": "#fff",
+        "backgroundColorTop": "#f8f8f8",
+        "backgroundColor": "#f8f8f8",
+        "navigationStyle":"custom"
+    },
+    "debug": false
+}

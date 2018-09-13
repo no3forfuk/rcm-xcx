@@ -1,0 +1,22 @@
+<!--pages/index/index.wxml-->
+<view style="background-color: #E96676;width: 100%;height: 80px;">
+
+</view>
+<view class="title-lv1">
+    一级标题
+</view>
+<view class="title-lv1 grad">
+    一级标题
+</view>
+<view class="title-lv2">
+    二级标题
+</view>
+<view class="t-tag-48">
+    文本标签
+</view>
+<view class="t-tag-9b">
+    文本标签
+</view>
+<view class="txt-48 single-elps">一直很安静 阿桑，一首专为月如 而制的歌！由方文山填词。明明是三个人的电影，我却始终不能有姓名！！仿佛看到了月如的话</view>
+<view class="txt-33 many-elps-2">一直很安静 阿桑，一首专为月如 而制的歌！由方文山填词。明明是三个人的电影，我却始终不能有姓名！！仿佛看到了月如的话</view>
+<row></row>

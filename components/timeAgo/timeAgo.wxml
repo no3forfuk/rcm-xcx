@@ -1,2 +1,0 @@
-<!--components/timeAgo/timeAgo.wxml-->
-<text class="time-ago-component">{{timeAgo}}</text>

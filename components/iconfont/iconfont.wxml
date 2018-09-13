@@ -1,5 +1,0 @@
-<!--components/iconfont/iconfont.wxml-->
-<view class="icon-font-components" bindtap="onTap">
-    <text class="{{iconValue}}" style="color:{{iconColor}};" style="{{iconStyle}}"></text>
-    <text class="{{textClass}}" style="color:{{textColor}};">{{textValue}}</text>
-</view>

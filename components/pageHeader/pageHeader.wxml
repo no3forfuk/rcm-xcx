@@ -1,4 +1,0 @@
-<!--components/pageHeader/pageHeader.wxml-->
-<view class="page-header">
-    <text class="page-header-text">{{pageTitle}}</text>
-</view>
