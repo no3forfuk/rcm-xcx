@@ -1,4 +1,5 @@
 // pages/secondRank/secondList/secondList.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -41,18 +42,20 @@ Component({
         selectSlot: false,
         haveSubElement: false,
         crtSortIcon: 'icon-huoyan',
-        otherSortIcon: 'icon-zuixin'
+        otherSortIcon: 'icon-zuixin',
+        globalSwitch: {}
+    },
+    ready() {
+        this.setData({
+            globalSwitch: app.globalData.switch
+        })
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        linkToElement(e) {
-            wx.navigateTo({
-                url: '/pages/element/element?elementId=' + e.currentTarget.dataset.id,
-            })
-        },
+
         addelement(e) {
             this.triggerEvent('addelement')
         },
@@ -60,8 +63,9 @@ Component({
             this.triggerEvent('goinvite')
         },
         startSelectSlot() {
+            let flag = this.data.selectSlot
             this.setData({
-                selectSlot: true
+                selectSlot: !flag
             })
         },
         selectSlotComplete(e) {
@@ -81,6 +85,7 @@ Component({
                 })
                 if (this.data.crtSortIcon == 'icon-huoyan') {
                     let sortType = 'hot'
+
                     this.triggerEvent('sortElementByType', {
                         type: sortType
                     })

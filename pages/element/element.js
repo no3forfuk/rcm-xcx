@@ -27,7 +27,7 @@ Page({
         })
     },
     submitadd(e) {
-        console.log(e)
+
     },
     closePopup() {
         const $popup = this.selectComponent('#popup')
@@ -95,10 +95,11 @@ Page({
     data: {
         tabBarList: [{
             label: '首页',
-            iconValue: 'icon-zhuye'
+            iconValue: 'backtohp.png'
         }],
         headerData: {},
         neckData: [],
+        neckWidth: '',
         postList: [],
         activePopup: false,
         popupType: '',
@@ -114,7 +115,8 @@ Page({
         showActiveHeader: false,
         currentPage: 1,
         totalPage: 1,
-        showTabbar: true
+        showTabbar: true,
+        globalSwitch: {}
     },
     hideorshowActiveHeader(e) {
         let top = e.detail.scrollTop;
@@ -178,7 +180,7 @@ Page({
             app._ajax().vote(this.data.elementId, res => {
                 wx.showToast({
                     title: res.message,
-                    mask:true
+                    mask: true
                 })
                 app._ajax().getElementDetails({
                     id: this.data.elementId,
@@ -255,22 +257,27 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
+        const system = wx.getSystemInfoSync()
+        const query = wx.createSelectorQuery();
+        query.select('.element-page-neck-right').boundingClientRect()
+        query.exec(res => {
+            if (!res[0]) {
+                return
+            } else {
+                this.setData({
+                    neckWidth: system.windowWidth - res[0].left
+                })
+            }
+        })
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        // app._ajax().getElementDetails({
-        //     id: this.data.elementId,
-        //     page: 1,
-        //     solt_name: 'created_at'
-        // }, res => {
-        //     this.setData({
-        //         postList: res.data.data.data,
-        //     })
-        // })
+        this.setData({
+            globalSwitch: app.globalData.switch
+        })
     },
 
     /**

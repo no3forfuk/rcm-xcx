@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: row;
     padding-left: 36.2rpx;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .element-page-neck-left {
@@ -25,21 +27,27 @@
 
 .element-page-neck-voter {
     color: #8e8f93;
-    font-size: 21.72rpx;
+    font-size: 12px;
     text-decoration: underline;
     white-space: nowrap;
 }
 
 .element-page-neck-right {
-    display: flex;
+    /* display: flex; */
+    /* flex: 1;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; */
     padding-left: 54.3rpx;
+    box-sizing: border-box;
+    white-space: nowrap;
+    /* height: 48px; */
 }
 
 .element-page-neck-right-item {
     display: inline-block;
+    /* white-space: nowrap; */
     margin-left: 36.2rpx;
+    /* display: flex; */
 }
 
 .element-page-shoulder {

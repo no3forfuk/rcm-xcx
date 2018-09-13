@@ -8,7 +8,9 @@
         <view class="index-rank-card-right-title">
             <view class="rank-list-title">
                 <navigator wx:if="{{nameType != 'search'}}" url="/pages/secondRank/secondRank?secondId={{rankData.id}}">#{{rankData.ranking_name}}</navigator>
-                <rich-text wx:if="{{nameType == 'search'}}" nodes="{{rankTitle}}"></rich-text>
+                <navigator wx:if="{{nameType == 'search'}}" url="/pages/secondRank/secondRank?secondId={{rankData.id}}">
+                    <rich-text nodes="{{rankTitle}}"></rich-text>
+                </navigator>
                 <slot></slot>
             </view>
         </view>

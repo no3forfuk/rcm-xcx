@@ -25,41 +25,48 @@ App({
         }
     },
     onLaunch() {
+        const updateManager = wx.getUpdateManager()
+        updateManager.onCheckForUpdate(function(res) {
+            // 请求完新版本信息的回调
+            if (res.hasUpdate) {
+                updateManager.onUpdateReady(function() {
+                    wx.showModal({
+                        title: '更新提示',
+                        showCancel: false,
+                        content: '新版本已经准备好，请重启应用？',
+                        success: function(res) {
+                            if (res.confirm) {
+                                // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+                                updateManager.applyUpdate()
+                            }
+                        }
+                    })
+                })
+            } else {
+                return
+            }
+        })
         // 获取授权状态
         wx.getSetting({
             success: res => {
                 if (res.authSetting['scope.userInfo']) {
-                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                    wx.getUserInfo({
-                        success: res => {
-                            this.authorize = res
-                            let options = {
-                                encryptedData: res.encryptedData,
-                                iv: res.iv
+                    // 已经授权
+                    //获取token
+                    const token = wx.getStorageSync('token')
+                    if (token) {
+                        //判断token是否过期
+                        api(token).getSelfInfo(res => {
+                            if (res.status_code == 1) {
+                                this.token = token
+                            } else {
+                                this.userEntry()
                             }
-                            delete this.token
-                            wx.login({
-                                success: res => {
-                                    options.code = res.code
-                                    api().login(options, success => {
-                                        this.token = success.data.token.access_token
-                                        this.globalData.userInfo = success.data.user
-                                        this._ajax(success.data.token.access_token).getSelfInfo(res => {
-                                            this.globalData.userInfo = res.data
-                                        })
-                                        if (this.initApi) {
-                                            this.initApi()
-                                        }
-                                    })
-                                }
-                            })
-                            this.globalData.userInfo = res.userInfo
-                        }
-                    })
-                } else {
-                    if (this.initApi) {
-                        this.initApi()
+                        })
+                    } else {
+                        this.userEntry()
                     }
+                } else {
+                    //未授权
                 }
             }
         })
@@ -69,12 +76,43 @@ App({
                 this.phone = res
             }
         })
+        api().getswitch(res => {
+            const _switch = res.data
+            const obj = _switch.find(function(item) {
+                return item.config_name == '小程序发布内容开关'
+            })
+            this.globalData.switch = obj
+        })
+    },
+    userEntry() {
+        wx.getUserInfo({
+            success: infores => {
+                const infoData = {
+                    encryptedData: infores.encryptedData,
+                    iv: infores.iv
+                }
+                wx.login({
+                    success: loginres => {
+                        const options = {
+                            ...infoData,
+                            code: loginres.code
+                        }
+                        api().login(options, rcmres => {
+                            this.token = rcmres.data.token.access_token
+                            wx.setStorageSync('token', rcmres.data.token.access_token)
+                            this.globalData.userInfo = rcmres.data.user
+                        })
+                    }
+                })
+            }
+        })
     },
     qiniuPrefix: 'http://p8rk87lub.bkt.clouddn.com/',
     qiniuSDK: qiniuSDK,
     globalData: {
         userInfo: {},
-        scrollY: true
+        scrollY: true,
+        switch: null
     },
     phone: null,
     activity: {

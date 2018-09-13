@@ -1,7 +1,7 @@
 <!--components/tab/tab.wxml-->
 <view class="tab-components">
-    <view class="tab-header {{flexType}}">
-        <text wx:for="{{headerData}}" wx:key="{{index}}" id="header-item-{{index}}" class="tab-header-text {{selectedIndex == index? 'selected' : 'unselected'}}" bindtap="onchange" data-index="{{index}}" data-item="{{item}}">{{item.label}}</text>
+    <view class="tab-header" style="justify-content:{{flexType}};">
+        <text wx:for="{{headerData}}" wx:key="{{index}}" id="header-item-{{index}}" class="tab-header-text" bindtap="onchange" data-index="{{index}}" data-item="{{item}}" style="transform: scale({{index === selectedIndex?1.2:1}});color:{{index === selectedIndex?'#000':'#939398'}};">{{item.label}}</text>
         <span class="position-mask" style="{{maskPosition}}"></span>
     </view>
     <view class="tab-body">

@@ -50,7 +50,7 @@ Component({
             let params = {
                 element_id: this.data.elementId,
                 post_content: html,
-                type: 3
+                type: 1
             }
             for (let i = 0; i < this.data.imgArr.length; i++) {
                 let path = this.data.imgArr[i].path

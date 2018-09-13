@@ -1,6 +1,6 @@
 <!--pages/secondRank/secondList/secondList.wxml-->
 <view class="second-list-components">
-    <view class="second-list-header">
+    <view class="second-list-header" wx:if="{{globalSwitch.config_content === '1'}}">
         <view class="second-list-header-left" bindtap="addelement">
             <icon-font icon-value="iconfont icon-jia" class="list-header-left-icon" icon-color="#FF2C09"></icon-font>
             <text class="list-header-left-text">添加新的排名</text>
@@ -8,20 +8,22 @@
         <view class="second-list-header-right">
             <view style="margin-right:3px;" wx:if="{{selectSlot}}" bindtap="selectSlotComplete">
                 <!-- <icon-font icon-value="iconfont {{otherSortIcon}} text-size-20" icon-style="color:#FF2C09;"></icon-font> -->
-                <image src="../../../static/icon/sortfromlatest.png" style="width:23.75rpx;height:28.96rpx;" bindtap="startSelectSlot"></image>
+                <image src="../../../static/icon/{{crtSortIcon == 'icon-huoyan'?'sortfromlatest':'hotsort'}}.png" style="width:23.75rpx;height:28.96rpx;"></image>
             </view>
             <!-- <icon-font icon-value="iconfont {{crtSortIcon}} text-size-20" icon-style="color:#FF2C09;" bindtapicon="startSelectSlot"></icon-font> -->
-            <image src="../../../static/icon/热门.png" style="width:23.75rpx;height:28.96rpx;" bindtap="startSelectSlot"></image>
+            <view style="margin-right:3px;" bindtap="startSelectSlot">
+                <image src="../../../static/icon/{{crtSortIcon == 'icon-zuixin'?'sortfromlatest':'hotsort'}}.png" style="width:23.75rpx;height:28.96rpx;"></image>
+            </view>
         </view>
     </view>
     <view class="second-list-body">
         <view class="second-list-item" wx:for="{{subElement}}" wx:if="{{subElement.length !=0 }}" wx:key="{{index}}">
             <text class="second-list-item-left">{{item.pm}}</text>
             <view class="second-list-item-right">
-                <view class="second-list-item-content" bindtap="linkToElement" data-id="{{item.id}} ">
+                <navigator class="second-list-item-content" url="/pages/element/element?elementId={{item.id}}">
                     <text class="second-list-item-right-text">@{{item.element_name}}</text>
                     <text class="second-list-item-right-desc">{{item.element_desc || ''}}</text>
-                </view>
+                </navigator>
                 <image class="second-list-item-img" wx:if="{{item.img}}" src="{{item.img}}"></image>
             </view>
         </view>

@@ -3,59 +3,59 @@
     <view class="split-item first-split"></view>
     <view class="user-center-item">
         <!-- <icon-font icon-value="iconfont icon-iconfontpinglun" icon-style="font-size:18px;color:#848484;"></icon-font> -->
-        <image src="../../static/icon/消息.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/message.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right" bindtap="goMyMessage">
             <text class="user-center-item-text">我的消息</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="split-item"></view>
     <view class="user-center-item">
         <!-- <icon-font icon-value="iconfont icon-paixingbang" icon-style="font-size:18px;color:#848484;"></icon-font> -->
-        <image src="../../static/icon/排行榜.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/ranking.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right border-bottom" bindtap="goMyRank">
             <text class="user-center-item-text">发布的榜单</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="user-center-item">
-        <image src="../../static/icon/全部动态.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/all_notice.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right border-bottom" bindtap="goMyMessage">
             <text class="user-center-item-text">全部动态</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="user-center-item">
-        <image src="../../static/icon/收藏夹.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/collection.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right" bindtap="goMyCollect">
             <text class="user-center-item-text">收藏夹</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="split-item"></view>
     <view class="user-center-item">
-        <image src="../../static/icon/每日任务.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/daytask.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right border-bottom">
             <text class="user-center-item-text">每日任务</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="user-center-item">
-        <image src="../../static/icon/会员.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/member.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right border-bottom">
             <text class="user-center-item-text">会员状态</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="user-center-item">
-        <image src="../../static/icon/设置.png" style="width:27.75rpx;height:25.34rpx;"></image>
+        <image src="../../static/icon/setting.png" style="width:27.75rpx;height:25.34rpx;"></image>
         <view class="user-center-item-right">
             <text class="user-center-item-text">设置</text>
-            <image src="../../static/icon/go next .png" style="width:14.48rpx;height:25.94rpx;"></image>
+            <image src="../../static/icon/gonext.png" style="width:14.48rpx;height:25.94rpx;"></image>
         </view>
     </view>
     <view class="split-item"></view>
-    <view class="add-rank">
+    <view class="add-rank" wx:if="{{globalSwitch.config_content === '1'}}">
         <view class="add-rank-item" bindtap="addRank">发个榜试试</view>
     </view>
     <pop-up wx:if="{{activePopup}}" bindclose="closePopup" popup-size="{{popupSize}}" id="popup">

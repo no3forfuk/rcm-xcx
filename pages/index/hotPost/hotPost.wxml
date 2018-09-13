@@ -3,8 +3,8 @@
     <view class="hot-post-title">
         <!-- <icon-font icon-value="iconfont icon-tiezi" icon-style="font-size: 36.2rpx;"></icon-font>
         <icon-font icon-value="iconfont icon-triangle-left" icon-style="color:#808080;font-size:10px;margin:0 5px;"></icon-font> -->
-        <image src="../../../static/icon/帖子.png" style="width:27.15rpx;height:27.15rpx;"></image>
-        <image src="../../../static/icon/来自.png" style="width:9.65rpx;height:12.67rpx;margin:0 5px;"></image>
+        <image src="../../../static/icon/post.png" style="width:27.15rpx;height:27.15rpx;"></image>
+        <image src="../../../static/icon/from.png" style="width:9.65rpx;height:12.67rpx;margin:0 5px;"></image>
         <text class="hot-post-title-text">@{{elementName}}</text>
     </view>
     <view class="hot-post-content">{{postContent}}</view>

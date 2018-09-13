@@ -39,27 +39,8 @@ Component({
      */
     methods: {
         getUserInfo() {
-            wx.getUserInfo({
-                success: res => {
-                    let options = {
-                        encryptedData: res.encryptedData,
-                        iv: res.iv
-                    }
-                    wx.login({
-                        success: res => {
-                            options.code = res.code
-                            api().login(options, success => {
-                                this.triggerEvent('successCallBack')
-                                app.token = success.data.token.access_token
-                                app._ajax(success.data.token.access_token).getSelfInfo(res => {
-                                    app.globalData.userInfo = res.data
-                                    this.cancelAuthorize()
-                                })
-                            })
-                        }
-                    })
-                }
-            })
+            app.userEntry()
+            this.triggerEvent('closeAuthorize')
         },
         cancelAuthorize() {
             this.triggerEvent('closeAuthorize')

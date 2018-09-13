@@ -31,14 +31,18 @@ image {
     margin-bottom: 8px;
     max-width: 80%;
     border-radius: 4px;
+    display: block;
 }
 
 .post-content {
     color: #6a6a6a;
-    font-size: 25.34rpx;
+    font-size: 14px;
     padding-left: 66.73rpx;
     padding-right: 8px;
-    line-height: 38rpx;
+    line-height: 26px;
+    text-align: justify;
+    letter-spacing: 0.02em;
+    word-wrap: break-word;
 }
 
 .post-discuss {

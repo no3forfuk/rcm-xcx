@@ -32,7 +32,8 @@ Component({
     data: {
         discussData: {},
         discussList: [],
-        haveDiscuss: false
+        haveDiscuss: false,
+        globalSwitch:{}
     },
     /**
      * 在组件布局完成后执行
@@ -44,14 +45,16 @@ Component({
      * 组件实例进入页面节点树时执行
      */
     attached() {
-
+        this.setData({
+            globalSwitch: app.globalData.switch
+        })
         this.getDiscuss()
     },
     /**
      * 组件的方法列表
      */
     methods: {
-        goauth(){
+        goauth() {
             this.triggerEvent('goauth')
         },
         getDiscuss() {

@@ -1,6 +1,6 @@
 <!--pages/secondRank/secondDiscuss/secondDiscuss.wxml-->
 <view class="second-discuss-component">
-    <view class="second-discuss-header">
+    <view class="second-discuss-header" wx:if="{{globalSwitch.config_content === '1'}}">
         <view class="second-discuss-header-left" bindtap="addDiscuss">
             <icon-font icon-value="iconfont icon-jia" class="discuss-header-left-icon" icon-color="#FF2C09"></icon-font>
             <text class="discuss-header-left-text">说点什么，参与讨论</text>

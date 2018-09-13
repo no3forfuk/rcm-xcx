@@ -19,5 +19,5 @@
         "navigationBarTitleText": "RCM",
         "navigationBarTextStyle": "black"
     },
-    "debug": true
+    "debug": false
 }

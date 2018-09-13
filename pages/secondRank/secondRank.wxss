@@ -20,11 +20,11 @@
 
 .second-active-father {
     color: #ff2c09;
-    font-size: 36.2rpx;
+    font-size: 20px;
     background: linear-gradient(to top, #ffcece 0%, #ffcece, 30%, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 1) 100%);
     font-weight: bold;
 }
 
 .second-active-son {
-    font-size: 21.72rpx;
+    font-size: 12px;
 }

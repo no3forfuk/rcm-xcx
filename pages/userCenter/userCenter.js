@@ -9,10 +9,11 @@ Page({
         user: {},
         tabBarList: [{
             label: '首页',
-            iconValue: 'icon-zhuye'
+            iconValue: 'backtohp.png'
         }],
         activePopup: false,
-        popupSize: ''
+        popupSize: '',
+        globalSwitch: {}
     },
     tabItemClick() {
         wx.reLaunch({
@@ -83,7 +84,8 @@ Page({
      */
     onShow() {
         this.setData({
-            user: app.globalData.userInfo
+            user: app.globalData.userInfo,
+            globalSwitch: app.globalData.switch
         })
     },
 

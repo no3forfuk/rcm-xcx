@@ -1,6 +1,6 @@
 const ApiFactory = function(token) {
-    let baseUrl = 'http://test.bantangtv.com/api' 
-    // let baseUrl = 'https://www.rcm.ink/api'
+    // let baseUrl = 'http://test.bantangtv.com/api' 
+    let baseUrl = 'https://www.rcm.ink/api'
 
     function ajax_get(data) {
         wx.request({
@@ -468,6 +468,18 @@ const ApiFactory = function(token) {
         get7niuToken(success) {
             ajax_post({
                 uri: '/home/qiniu/getUploadToken',
+                s_cb(res) {
+                    success(res)
+                }
+            })
+        },
+        //获取开关
+        getswitch(success) {
+            ajax_post({
+                uri: '/home/config/getConfig',
+                params: {
+                    config_name: 'all'
+                },
                 s_cb(res) {
                     success(res)
                 }

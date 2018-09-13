@@ -6,7 +6,7 @@
 .tab-header {
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #ebebeb;
     padding: 0 36.2rpx 7.24rpx;
     position: relative;
 }
@@ -22,6 +22,7 @@
     line-height: 28.96rpx;
     margin-right: 33.79rpx;
     transition: all 0.5s;
+    display: inline-block;
 }
 
 .position-mask {
@@ -33,23 +34,5 @@
     left: 0;
     bottom: 0;
     z-index: 1;
-    transition: all 0.5s;
-}
-
-.selected {
-    transform: scale(1.2);
-    color: #000;
-    font-size: 28.96rpx;
-    line-height: 28.96rpx;
-    margin-right: 33.79rpx;
-    transition: all 0.5s;
-}
-
-.unselected {
-    transform: scale(1);
-    color: #939398;
-    font-size: 28.96rpx;
-    line-height: 28.96rpx;
-    margin-right: 33.79rpx;
     transition: all 0.5s;
 }

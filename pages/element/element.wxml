@@ -7,7 +7,7 @@
             <text class="element-page-neck-vote">{{headerData.vote}}<text style="font-size:8px;">票</text></text>
             <text class="element-page-neck-voter">{{headerData.vote_user}}人投票</text>
         </view>
-        <scroll-view scroll-x class="element-page-neck-right">
+        <scroll-view scroll-x="true" class="element-page-neck-right" style="width:{{neckWidth}}px;">
             <view class="element-page-neck-right-item" wx:for="{{neckData}}" wx:key="{{index}}" bindtap="linkToSecond" data-id="{{item.id}}">
                 <text class="element-page-neck-vote">
                 <text>#{{item.ranking_num}}</text>
@@ -17,7 +17,7 @@
             </view>
         </scroll-view>
     </view>
-    <view class="element-page-shoulder">
+    <view class="element-page-shoulder" wx:if="{{globalSwitch.config_content === '1'}}">
         <view class="element-page-shoulder-left" bindtap="addpost">
             <icon-font icon-value="iconfont icon-jia" class="shoulder-left-icon" icon-color="#FF2C09"></icon-font>
             <text class="shoulder-left-text">说点什么，参与讨论</text>

@@ -14,9 +14,7 @@ Component({
         flexType: {
             type: String,
             value: 'left',
-            observer(n, o, c) {
-                console.log(n)
-            }
+            observer(n, o, c) {}
         }
     },
 
@@ -44,18 +42,29 @@ Component({
      */
     methods: {
         onchange(e) {
-            const query = wx.createSelectorQuery().in(this);
-            query.select('#' + e.target.id).boundingClientRect()
-            query.exec(res => {
-                let liWidth = res[0].width;
-                let offsetX = e.currentTarget.offsetLeft
-                let position = (liWidth - 12) / 2 + offsetX
-                this.setData({
-                    maskPosition: 'transform: translateX(' + position + 'px)',
-                    selectedIndex: e.currentTarget.dataset.index
-                })
+            const index = e.currentTarget.dataset.index
+            const idx = this.data.selectedIndex
+            this.setData({
+                selectedIndex: index
             })
-            this.triggerEvent('change', e.currentTarget.dataset)
+            if (idx == index) {
+                return
+            } else {
+                this.setData({
+                    selectedIndex: index
+                })
+                const query = wx.createSelectorQuery().in(this);
+                query.select('#' + e.target.id).boundingClientRect()
+                query.exec(res => {
+                    let liWidth = res[0].width;
+                    let offsetX = e.currentTarget.offsetLeft
+                    let position = (liWidth - 12) / 2 + offsetX
+                    this.setData({
+                        maskPosition: 'transform: translateX(' + position + 'px)',
+                    })
+                })
+                this.triggerEvent('change', e.currentTarget.dataset)
+            }
         }
     }
 })

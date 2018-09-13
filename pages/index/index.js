@@ -33,7 +33,7 @@ Page({
             show: true,
             list: [{
                 label: '个人中心',
-                iconValue: '个人资料.png'
+                iconValue: 'user_card.png'
             }]
         },
         footerText: '更多精彩内容，尽在RCM',
@@ -146,6 +146,7 @@ Page({
             arr = arr.concat(rank.data)
             this.setData({
                 firstRank: {
+                    id: this.data.firstRank.id,
                     items: arr,
                     currentPage: rank.current_page + 1,
                     totalPage: rank.last_page,
@@ -163,7 +164,7 @@ Page({
                 return
             }
         } else if (this.data.indexType == 'firstRank') {
-            if (this.data.firstRankTotalPage >= this.data.crtFirstPage) {
+            if (this.data.firstRank.totalPage >= this.data.firstRank.currentPage) {
                 this._getFirstRank()
             } else {
                 return
@@ -205,6 +206,7 @@ Page({
         } else {
             this.setData({
                 indexType: 'firstRank',
+                currentFirstId: event.item.id,
                 firstRank: {
                     id: event.item.id,
                     currentPage: 1,

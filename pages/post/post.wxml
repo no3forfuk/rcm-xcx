@@ -11,7 +11,7 @@
         <view class="created-time">{{postInfo.created_at}}</view>
     </view>
     <view class="post-discuss">
-        <text class="post-discuss-title">评论({{postInfo.comment_num}}）</text>
+        <text class="post-discuss-title">评论({{discussNum}}）</text>
         <post-discuss wx:for="{{discussList}}" wx:key="{{index}}" discuss-data="{{item}}" discuss-id="{{item.id}}" bindlikeComplete="getDiscuss" bindgoauth="goauth"></post-discuss>
     </view>
     <view style="width:100%;height:46px;background-color:#fff;text-align:center;color:#b8b8b8;font-size:10px;" wx:if="{{subType !== 2}}"></view>

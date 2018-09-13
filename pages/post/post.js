@@ -19,15 +19,17 @@ Page({
         tabBarList: [{
             label: '首页',
             result: 'goHome',
-            iconValue: 'icon-zhuye'
+            iconValue: 'backtohp.png'
         }, {
             label: '评论',
             result: 'addDiscuss',
-            iconValue: 'icon-edit'
+            iconValue: 'edit.png'
         }],
         activePopup: false,
         postId: '',
-        discussValue: ''
+        discussValue: '',
+        discussNum: 0,
+        globalSwitch: {}
     },
     tabItemClick(e) {
         let func = e.detail.result
@@ -122,7 +124,8 @@ Page({
     getDiscuss() {
         app._ajax().getPostDiscuss(this.data.postId, res => {
             this.setData({
-                discussList: res.data.data
+                discussList: res.data.data,
+                discussNum: res.data.total
             })
         })
     },
@@ -150,7 +153,12 @@ Page({
                 })
             } else {
                 let content = res.data.post_content
-                // content = content.replace("http://", "https://")
+                // content = content.replace(/\s+/ig, "");
+                // const reg = /<[^>]+>/g;
+                // let tempHtml = content.replace(reg, '<')
+                // let str = 'abhasjd  skdjf<img src> asdkjhf '
+                // content = tempHtml.replace(/\s+/g, "  ");
+                // console.log(content)
                 WxParse.wxParse('content', 'html', content, that)
                 this.setData({
                     createUser: res.data.user,
@@ -178,7 +186,8 @@ Page({
                 }
             }
             this.setData({
-                discussList: discussArr
+                discussList: discussArr,
+                discussNum: res.data.total
             })
         })
     },
@@ -194,9 +203,29 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        if (app.globalData.switch.config_content === '1') {
+            this.setData({
+                tabBarList: [{
+                    label: '首页',
+                    result: 'goHome',
+                    iconValue: 'backtohp.png'
+                }, {
+                    label: '评论',
+                    result: 'addDiscuss',
+                    iconValue: 'edit.png'
+                }]
+            })
+        } else {
+            this.setData({
+                tabBarList: [{
+                    label: '首页',
+                    result: 'goHome',
+                    iconValue: 'backtohp.png'
+                }]
+            })
+        }
 
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */
