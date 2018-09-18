@@ -1,10 +1,1 @@
-<!--components/tab/tab.wxml-->
-<view class="tab-components">
-    <view class="tab-header {{flexType}}">
-        <text wx:for="{{headerData}}" wx:key="{{index}}" id="header-item-{{index}}" class="tab-header-text {{selectedIndex == index? 'selected' : 'unselected'}}" bindtap="onchange" data-index="{{index}}" data-item="{{item}}">{{item.label}}</text>
-        <span class="position-mask" style="{{maskPosition}}"></span>
-    </view>
-    <view class="tab-body">
-        <slot></slot>
-    </view>
-</view>
+<view class="tab-component"><block wx:for="{{style.items}}" wx:key="{{item.key}}"><view class="tab-component-item {{index === style.current?'active-class':''}}" style="width:calc(100% / {{style.items.length}});" bindtap="ontapitem" data-index="{{index}}" data-item="{{item}}"><text class="tab-component-item-text" animation="{{index === style.current? scale:unscale}}">{{item.label}}</text></view></block><view class="tab-mark" style="width:{{markStyle.width}}px;transform: translateX({{markStyle.left}}px)"></view></view>

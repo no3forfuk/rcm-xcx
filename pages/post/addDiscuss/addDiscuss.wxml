@@ -1,9 +1,0 @@
-<!--pages/secondRank/addDiscuss/addDiscuss.wxml-->
-<scroll-view class="add-discuss-component">
-    <cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
-    <view class="add-discuss-body">
-        <user-card user-info="{{userInfo}}" card-type="tiny" class="add-discuss-user-card"></user-card>
-        <textarea class="add-discuss-content" maxlength="350" bindconfirm="editconfirm" bindinput="setValue">
-        </textarea>
-    </view>
-</scroll-view>

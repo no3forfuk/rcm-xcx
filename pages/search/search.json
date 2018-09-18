@@ -1,7 +1,0 @@
-{
-    "usingComponents": {
-        "icon-font": "/components/iconfont/iconfont",
-        "rank-card": "/components/indexRankCard/indexRankCard",
-        "user-card": "/components/userCard/userCard"
-    }
-}

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4248c645-1274-4a1c-84f5-c6b33cb14cca" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/api/api.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change beforePath="$PROJECT_DIR$/app.json" afterPath="$PROJECT_DIR$/app.json" />
+      <change beforePath="$PROJECT_DIR$/app.wxss" afterPath="$PROJECT_DIR$/app.wxss" />
+      <change beforePath="$PROJECT_DIR$/components/authorize/authorize.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/authorize/authorize.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/authorize/authorize.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/authorize/authorize.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/cancelAndConfirm/cancelAndConfirm.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/cancelAndConfirm/cancelAndConfirm.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/cancelAndConfirm/cancelAndConfirm.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/cancelAndConfirm/cancelAndConfirm.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/discussCard/discussCard.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/discussCard/discussCard.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/discussCard/discussCard.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/discussCard/discussCard.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/headerNav/headerNav.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/headerNav/headerNav.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/headerNav/headerNav.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/headerNav/headerNav.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/iconfont/iconfont.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/iconfont/iconfont.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/iconfont/iconfont.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/iconfont/iconfont.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/indexRankCard/indexRankCard.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/indexRankCard/indexRankCard.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/indexRankCard/indexRankCard.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/indexRankCard/indexRankCard.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/pageHeader/pageHeader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/pageHeader/pageHeader.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/pageHeader/pageHeader.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/pageHeader/pageHeader.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/popup/popup.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/popup/popup.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/popup/popup.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/popup/popup.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/rankHeader/rankheader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/rankHeader/rankheader.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/rankHeader/rankheader.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/rankHeader/rankheader.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/report/report.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/report/report.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/report/report.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/report/report.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tab/tab.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tab/tab.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tab/tab.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tab/tab.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tabBar/tabBar.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tabBar/tabBar.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tabBar/tabBar.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/tabBar/tabBar.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/timeAgo/timeAgo.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/timeAgo/timeAgo.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/timeAgo/timeAgo.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/timeAgo/timeAgo.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userCard/userCard.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userCard/userCard.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userCard/userCard.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userCard/userCard.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userInfoCard/userInfoCard.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userInfoCard/userInfoCard.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userInfoCard/userInfoCard.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/components/userInfoCard/userInfoCard.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/editInfo/editInfo.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/editInfo/editInfo.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/editInfo/editInfo.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/editInfo/editInfo.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/activeHeader/activeHeader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/activeHeader/activeHeader.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/activeHeader/activeHeader.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/activeHeader/activeHeader.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/addPost/addPost.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/addPost/addPost.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/addPost/addPost.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/addPost/addPost.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/detail/detail.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/detail/detail.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/detail/detail.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/detail/detail.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/element.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/element.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/element.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/element.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/subPostList/subPostList.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/subPostList/subPostList.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/subPostList/subPostList.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/element/subPostList/subPostList.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotPost/hotPost.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotPost/hotPost.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotPost/hotPost.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotPost/hotPost.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotRank/hotRank.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotRank/hotRank.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotRank/hotRank.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/hotRank/hotRank.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.js" afterPath="$PROJECT_DIR$/pages/index/index.js" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.json" afterPath="$PROJECT_DIR$/pages/index/index.json" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.wxml" afterPath="$PROJECT_DIR$/pages/index/index.wxml" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myCollect/myCollect.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myCollect/myCollect.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myCollect/myCollect.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myCollect/myCollect.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myMessage/myMessage.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myMessage/myMessage.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myMessage/myMessage.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myMessage/myMessage.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myRank/myRank.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myRank/myRank.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myRank/myRank.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/myRank/myRank.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/otherCenter/otherCenter.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/otherCenter/otherCenter.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/otherCenter/otherCenter.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/otherCenter/otherCenter.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/addDiscuss/addDiscuss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/addDiscuss/addDiscuss.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/addDiscuss/addDiscuss.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/addDiscuss/addDiscuss.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/post.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/post.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/post.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/post/post.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/search/search.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/activeHeader/activeHeader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/activeHeader/activeHeader.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/activeHeader/activeHeader.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/activeHeader/activeHeader.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addDiscuss/addDiscuss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addDiscuss/addDiscuss.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addDiscuss/addDiscuss.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addDiscuss/addDiscuss.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addElement/addElement.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addElement/addElement.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addElement/addElement.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/addElement/addElement.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/detail/detail.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/detail/detail.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/detail/detail.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/detail/detail.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/invite/invite.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/invite/invite.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/invite/invite.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/invite/invite.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondActivity/secondActivity.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondActivity/secondActivity.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondActivity/secondActivity.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondActivity/secondActivity.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondDiscuss/secondDiscuss.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondDiscuss/secondDiscuss.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondDiscuss/secondDiscuss.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondDiscuss/secondDiscuss.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondList/secondList.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondList/secondList.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondList/secondList.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondList/secondList.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondRank.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondRank.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondRank.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/secondRank/secondRank.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/addRank/addRank.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/addRank/addRank.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/addRank/addRank.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/addRank/addRank.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/userCenter.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/userCenter.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/userCenter.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/pages/userCenter/userCenter.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/project.config.json" afterPath="$PROJECT_DIR$/project.config.json" />
+      <change beforePath="$PROJECT_DIR$/static/css/iconfont.wxss" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/active-0806.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/authorization.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/element_null.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/rcm_logo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/usercenter_null.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/vonder/qiniuUploader.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/00.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/01.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/02.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/03.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/04.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/05.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/06.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/07.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/08.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/09.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/10.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/100.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/101.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/102.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/103.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/104.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/105.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/106.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/107.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/108.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/109.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/11.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/110.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/111.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/112.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/113.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/114.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/115.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/116.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/117.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/118.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/119.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/12.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/120.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/121.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/122.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/123.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/124.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/125.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/126.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/127.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/128.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/129.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/13.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/130.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/131.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/132.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/133.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/134.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/14.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/15.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/16.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/17.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/18.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/19.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/20.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/21.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/22.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/23.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/24.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/25.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/26.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/27.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/28.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/29.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/30.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/31.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/32.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/33.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/34.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/35.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/36.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/37.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/38.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/39.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/40.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/41.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/42.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/43.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/44.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/45.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/46.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/47.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/48.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/49.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/50.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/51.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/52.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/53.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/54.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/55.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/56.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/57.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/58.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/59.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/60.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/61.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/62.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/63.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/64.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/65.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/66.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/67.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/68.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/69.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/70.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/71.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/72.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/73.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/74.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/75.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/76.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/77.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/78.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/79.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/80.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/81.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/82.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/83.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/84.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/85.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/86.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/87.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/88.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/89.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/90.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/91.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/92.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/93.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/94.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/95.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/96.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/97.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/98.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/emojis/99.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/html2json.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/htmlparser.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/showdown.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/wxDiscode.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/wxParse.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/wxParse.wxml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/wxParse/wxParse.wxss" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="project.config.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project.config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="rcm_xcx" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rcm_xcx" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="configurable.group.appearance" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rcm-3.0" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4248c645-1274-4a1c-84f5-c6b33cb14cca" name="Default" comment="" />
+      <created>1536830055018</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536830055018</updated>
+      <workItem from="1536830056133" duration="385000" />
+      <workItem from="1536831553741" duration="18000" />
+      <workItem from="1536831583930" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="411000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/project.config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="3" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,21 +1,14 @@
 {
     "pages": [
-        "pages/index/index",
-        "pages/secondRank/secondRank",
-        "pages/userCenter/userCenter",
-        "pages/element/element",
-        "pages/post/post",
-        "pages/search/search",
-        "pages/editInfo/editInfo",
-        "pages/myMessage/myMessage",
-        "pages/myCollect/myCollect",
-        "pages/myRank/myRank",
-        "pages/otherCenter/otherCenter"
+        "pages/index/index"
     ],
     "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
+        "backgroundTextStyle": "#000",
         "navigationBarTitleText": "RCM",
-        "navigationBarTextStyle": "black"
-    }
+        "navigationBarTextStyle": "#fff",
+        "backgroundColorTop": "#f8f8f8",
+        "backgroundColor": "#f8f8f8",
+        "navigationStyle":"custom"
+    },
+    "debug": false
 }

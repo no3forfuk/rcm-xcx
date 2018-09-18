@@ -1,7 +1,0 @@
-<!--pages/secondRank/report/report.wxml-->
-<cancel-confirm bindcancel="cancel" bindconfirm="confirm"></cancel-confirm>
-<view class="report-body">
-
-    <textarea bindconfirm="submitReport" placeholder="请填写举报原因" class="report-textarea" bindinput="setReason"></textarea>
-
-</view>

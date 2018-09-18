@@ -1,8 +1,1 @@
-
-
-page{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #fff;
-}
+@charset "UTF-8";.gray16{color:#161616}.gray33{color:#333}.gray48{color:#484848}.gray73{color:#737373}.gray98{color:#989898}.gray9b{color:#9b9b9b}.grayd1{color:#989898}.grayd8{color:#d8d8d8}.grayf8{color:#d1d1d1}.white{color:#fff}page{width:750rpx;height:100%;box-sizing:border-box;background-color:#f8f8f8;position:relative;font-family:"PingFang SC",'萍方-简','微软雅黑';over-flow:hidden}audio,button,camera,checkbox,checkbox-group,cover-view,form,icon,image,input,label,live-player,live-pusher,map,movable-view,navigator,picker,picker-view,progress,radio,radio-group,rich-text,scroll-view,slider,swiper,switch,text,textarea,video,view{box-sizing:border-box;over-flow:hidden}

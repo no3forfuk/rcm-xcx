@@ -1,5 +1,0 @@
-<!--components/cancelAndConfirm/cancelAndConfirm.wxml-->
-<view class="cancel-confirm-component">
-  <view bindtap="cancel">取消</view>
-  <view bindtap="confirm">完成</view>
-</view>

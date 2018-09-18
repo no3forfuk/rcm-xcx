@@ -1,0 +1,1 @@
+<view class="row-component" style="justify-content: {{justifyType}};align-items: {{alignType}};"><slot></slot></view>

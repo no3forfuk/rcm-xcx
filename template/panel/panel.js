@@ -1,0 +1,1 @@
+const wxs=getApp().globalwxs;Component({properties:{bgc:{type:String,value:"#E96676"},mode:{type:String,value:"text"},value:{type:String,value:""}},data:{statusBarHeight:20,height:0,width:0,textModal:{}},attached(){this.setData({textModal:wxs.search});const t=wx.getSystemInfoSync();this.setData({statusBarHeight:t.statusBarHeight})}});

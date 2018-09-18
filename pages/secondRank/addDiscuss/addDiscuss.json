@@ -1,8 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "cancel-confirm": "/components/cancelAndConfirm/cancelAndConfirm",
-        "icon-font": "/components/iconfont/iconfont",
-        "user-card": "/components/userCard/userCard"
-    }
-}

@@ -1,0 +1,1 @@
+Component({properties:{justifyType:{type:String,value:"flex-start"},alignType:{type:String,value:"center"}},data:{},methods:{}});
